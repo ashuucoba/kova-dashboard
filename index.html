@@ -290,20 +290,22 @@ function renderOpenPositions(data) {
   }
 
   document.getElementById('openTable').innerHTML = `<table>
-    <tr><th>Asset</th><th>Direction</th><th>Signal</th><th>Class</th><th>Entry</th><th>Current</th><th>P&L</th><th>Stop</th><th>Target</th><th>Held</th></tr>
+    <tr><th>Asset</th><th>Direction</th><th>Lev</th><th>Signal</th><th>Class</th><th>Entry</th><th>Current</th><th>P&L</th><th>Stop</th><th>Target</th><th>Size</th><th>Held</th></tr>
     ${positions.map(p => {
       const cls = getClass(p.asset || '');
       const pnl = p.unrealized_pnl || 0;
       return `<tr>
         <td><strong>${p.asset || p.exec_symbol || '—'}</strong></td>
         <td class="${p.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${p.direction}</td>
-        <td>${p.signal_name || '—'}</td>
+        <td class="amber">${p.leverage || 1}x</td>
+        <td>${(p.signal_name || '—').replace(/_/g,' ').replace(/\b(macd bull|macd bear|breakout \d+|rsi lt\d+|vol spike|adx di|bb squeeze|st bull|ema cross|stoch oversold)\b/i, '<strong>$1</strong>')}</td>
         <td><span class="tag tag-${cls}">${cls}</span></td>
         <td>$${fmt(p.entry_price)}</td>
         <td>$${fmt(p.current_price || p.entry_price)}</td>
         <td class="${pnl >= 0 ? 'positive' : 'negative'}">${fmtPnl(pnl)}</td>
         <td>$${fmt(p.stop)}</td>
         <td>$${fmt(p.target)}</td>
+        <td>$${fmt(p.size)}</td>
         <td>${p.opened_at ? holdTime(p.opened_at) : '—'}</td>
       </tr>`;
     }).join('')}
@@ -320,7 +322,7 @@ function renderClosedTrades(data) {
   }
 
   document.getElementById('closedTable').innerHTML = `<table>
-    <tr><th>Date</th><th>Asset</th><th>Dir</th><th>Signal</th><th>Class</th><th>Entry</th><th>Exit</th><th>P&L</th><th>P&L%</th><th>Reason</th><th>Held</th></tr>
+    <tr><th>Date</th><th>Asset</th><th>Dir</th><th>Lev</th><th>Signal</th><th>Class</th><th>Entry</th><th>Exit</th><th>P&L</th><th>P&L%</th><th>Reason</th><th>Held</th></tr>
     ${trades.slice(0, 100).map(t => {
       const cls = getClass(t.asset || '');
       const pnl = t.pnl_usd || 0;
@@ -328,6 +330,7 @@ function renderClosedTrades(data) {
         <td>${t.closed_at ? new Date(t.closed_at).toLocaleDateString('en-US', {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) : '—'}</td>
         <td><strong>${t.asset || '—'}</strong></td>
         <td class="${t.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${t.direction}</td>
+        <td class="amber">${t.leverage || 1}x</td>
         <td>${t.signal_name || '—'}</td>
         <td><span class="tag tag-${cls}">${cls}</span></td>
         <td>$${fmt(t.entry_price)}</td>
