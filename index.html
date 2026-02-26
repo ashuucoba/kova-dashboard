@@ -18,96 +18,112 @@
   --green: #22c55e;
   --red: #ef4444;
   --blue: #3b82f6;
+  --purple: #a855f7;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; }
-.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+body { background: var(--bg); color: var(--text); font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 13px; }
+.container { max-width: 1600px; margin: 0 auto; padding: 20px; }
 
 /* Header */
-.header { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
 .logo { display: flex; align-items: center; gap: 12px; }
 .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--amber), var(--amber-dim)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
 .logo h1 { font-size: 24px; font-weight: 700; color: var(--amber); letter-spacing: 2px; }
-.logo span { font-size: 12px; color: var(--text-dim); letter-spacing: 1px; }
-.status-badge { padding: 6px 14px; border-radius: 20px; font-size: 11px; letter-spacing: 1px; font-weight: 600; }
+.logo span { font-size: 11px; color: var(--text-dim); letter-spacing: 1px; }
+.header-right { text-align: right; }
+.status-badge { padding: 5px 12px; border-radius: 16px; font-size: 11px; letter-spacing: 1px; font-weight: 600; display: inline-block; }
 .status-live { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
-.last-update { font-size: 11px; color: var(--text-dim); text-align: right; }
+.last-update { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
 
 /* Stats Grid */
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 24px; }
-.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
-.stat-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
-.stat-value { font-size: 22px; font-weight: 700; }
-.stat-sub { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.stat-value { font-size: 20px; font-weight: 700; }
+.stat-sub { font-size: 10px; color: var(--text-dim); margin-top: 3px; }
 .positive { color: var(--green); }
 .negative { color: var(--red); }
 .amber { color: var(--amber); }
+.blue { color: var(--blue); }
 
 /* Chart */
-.chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 24px; }
-.chart-title { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
-.chart-wrap { height: 300px; position: relative; }
+.chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+.section-title { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+.chart-wrap { height: 260px; position: relative; }
 
 /* Tables */
-.table-container { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
-.table-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
-.table-title { font-size: 14px; font-weight: 600; color: var(--amber); }
-.table-count { font-size: 11px; color: var(--text-dim); background: var(--surface2); padding: 3px 10px; border-radius: 10px; }
-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-th { padding: 10px 16px; text-align: left; color: var(--text-dim); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; font-size: 10px; border-bottom: 1px solid var(--border); background: var(--surface2); }
-td { padding: 10px 16px; border-bottom: 1px solid rgba(42,42,58,0.5); }
+.table-container { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; overflow-x: auto; }
+.table-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.table-title { font-size: 13px; font-weight: 600; color: var(--amber); }
+.table-count { font-size: 10px; color: var(--text-dim); background: var(--surface2); padding: 2px 8px; border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 11px; white-space: nowrap; }
+th { padding: 8px 12px; text-align: left; color: var(--text-dim); font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; font-size: 9px; border-bottom: 1px solid var(--border); background: var(--surface2); position: sticky; top: 0; }
+td { padding: 8px 12px; border-bottom: 1px solid rgba(42,42,58,0.4); }
 tr:hover td { background: rgba(245,166,35,0.03); }
 .dir-long { color: var(--green); font-weight: 600; }
 .dir-short { color: var(--red); font-weight: 600; }
-.tag { padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+.tag { padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: 600; text-transform: uppercase; }
 .tag-crypto { background: rgba(59,130,246,0.15); color: var(--blue); }
 .tag-commodity { background: rgba(245,166,35,0.15); color: var(--amber); }
-.tag-stock { background: rgba(168,85,247,0.15); color: #a855f7; }
+.tag-stock { background: rgba(168,85,247,0.15); color: var(--purple); }
 .tag-index { background: rgba(34,197,94,0.15); color: var(--green); }
+.lev { color: var(--amber); font-weight: 600; }
+.dim { color: var(--text-dim); }
+.signal-type { color: var(--blue); font-weight: 500; }
+.tf { color: var(--text-dim); font-size: 10px; }
+.filter-tag { font-size: 9px; padding: 1px 4px; border-radius: 2px; }
+.filter-none { background: rgba(136,136,160,0.1); color: var(--text-dim); }
+.filter-trend { background: rgba(59,130,246,0.15); color: var(--blue); }
+.filter-regime { background: rgba(239,68,68,0.15); color: var(--red); }
+.filter-htf_trend { background: rgba(168,85,247,0.15); color: var(--purple); }
+.pnl-bar { display: inline-block; height: 3px; border-radius: 1px; vertical-align: middle; margin-left: 4px; }
 
 /* Breakdown */
-.breakdown-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
-.breakdown-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
-.breakdown-bar { height: 4px; border-radius: 2px; background: var(--surface2); margin-top: 10px; overflow: hidden; }
+.breakdown-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.breakdown-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.breakdown-bar { height: 3px; border-radius: 2px; background: var(--surface2); margin-top: 8px; overflow: hidden; }
 .breakdown-fill { height: 100%; border-radius: 2px; }
 
+/* Exposure */
+.exposure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.exposure-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.exposure-row { display: flex; justify-content: space-between; margin-top: 4px; font-size: 11px; }
+
 /* Footer */
-.footer { text-align: center; padding: 24px; color: var(--text-dim); font-size: 11px; border-top: 1px solid var(--border); }
+.footer { text-align: center; padding: 20px; color: var(--text-dim); font-size: 10px; border-top: 1px solid var(--border); }
+.no-data { padding: 30px; text-align: center; color: var(--text-dim); font-size: 12px; }
 
-/* No data */
-.no-data { padding: 40px; text-align: center; color: var(--text-dim); font-size: 13px; }
-
-/* Responsive */
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  table { font-size: 11px; }
-  th, td { padding: 8px 10px; }
+  table { font-size: 10px; }
+  th, td { padding: 6px 8px; }
+  .container { padding: 12px; }
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <!-- Header -->
   <div class="header">
     <div class="logo">
       <div class="logo-icon">📊</div>
-      <div>
-        <h1>KOVA</h1>
-        <span>PAPER TRADING DASHBOARD</span>
-      </div>
+      <div><h1>KOVA</h1><span>PAPER TRADING DASHBOARD</span></div>
     </div>
-    <div style="text-align:right">
-      <div class="status-badge status-live" id="status">● PAPER TRADING</div>
+    <div class="header-right">
+      <div class="status-badge status-live" id="status">● V4 PAPER</div>
       <div class="last-update" id="lastUpdate">Loading...</div>
+      <div class="last-update" id="config"></div>
     </div>
   </div>
 
   <!-- Stats -->
   <div class="stats-grid" id="statsGrid"></div>
 
+  <!-- Exposure Summary -->
+  <div class="exposure-grid" id="exposureGrid"></div>
+
   <!-- Equity Chart -->
   <div class="chart-container">
-    <div class="chart-title">Equity Curve</div>
+    <div class="section-title">Equity Curve (Realized + Unrealized)</div>
     <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
   </div>
 
@@ -117,7 +133,7 @@ tr:hover td { background: rgba(245,166,35,0.03); }
   <!-- Open Positions -->
   <div class="table-container">
     <div class="table-header">
-      <span class="table-title">Open Positions</span>
+      <span class="table-title">📍 Open Positions</span>
       <span class="table-count" id="openCount">0</span>
     </div>
     <div id="openTable"></div>
@@ -126,15 +142,14 @@ tr:hover td { background: rgba(245,166,35,0.03); }
   <!-- Closed Trades -->
   <div class="table-container">
     <div class="table-header">
-      <span class="table-title">Closed Trades</span>
+      <span class="table-title">📋 Closed Trades</span>
       <span class="table-count" id="closedCount">0</span>
     </div>
     <div id="closedTable"></div>
   </div>
 
   <div class="footer">
-    KOVA v4 · 169 signals · 27 assets · DD scaling<br>
-    Data updates every 30 minutes
+    KOVA v4 · 169 signals · 27 assets · 3 timeframes · DD scaling · Data updates every 30 min
   </div>
 </div>
 
@@ -146,223 +161,195 @@ const CLASS_MAP = {
   'CRV':'crypto','NEAR':'crypto','PAXG':'crypto','SEI':'crypto','TIA':'crypto','TAO':'crypto',
   'XAU':'commodity','XAG':'commodity','Gold':'commodity','Silver':'commodity',
   'TSLA':'stock','AMZN':'stock','MSTR':'stock','PLTR':'stock','COIN':'stock',
-  'SPX':'index','DIA':'index'
+  'SPX':'index','DIA':'index','SPY':'index'
 };
-
-function getClass(asset) {
-  const name = asset.replace('/USDT','').replace('_yf','');
-  return CLASS_MAP[name] || 'crypto';
-}
-
-function fmt(n, decimals=2) {
-  if (n === undefined || n === null) return '—';
-  return Number(n).toLocaleString('en-US', {minimumFractionDigits: decimals, maximumFractionDigits: decimals});
-}
-
-function fmtPnl(n) {
-  if (!n && n !== 0) return '—';
-  const s = n >= 0 ? '+' : '';
-  return `${s}$${fmt(n)}`;
-}
-
+function getClass(a) { return CLASS_MAP[a.replace('/USDT','').replace('_yf','')] || 'crypto'; }
+function fmt(n, d=2) { return n == null ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function fmtPnl(n) { return n == null ? '—' : `${n>=0?'+':''}$${fmt(n)}`; }
+function fmtPct(n) { return n == null ? '—' : `${n>=0?'+':''}${fmt(n,1)}%`; }
 function timeAgo(ts) {
-  const d = new Date(ts);
-  const now = new Date();
-  const mins = Math.floor((now - d) / 60000);
-  if (mins < 1) return 'just now';
-  if (mins < 60) return `${mins}m ago`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs}h ago`;
-  return `${Math.floor(hrs/24)}d ago`;
+  const m = Math.floor((new Date() - new Date(ts))/60000);
+  if (m<1) return 'just now'; if (m<60) return m+'m ago';
+  const h = Math.floor(m/60); if (h<24) return h+'h ago'; return Math.floor(h/24)+'d ago';
 }
-
-function holdTime(openTs) {
-  const d = new Date(openTs);
-  const now = new Date();
-  const hrs = Math.floor((now - d) / 3600000);
-  if (hrs < 1) return '<1h';
-  if (hrs < 24) return `${hrs}h`;
-  return `${Math.floor(hrs/24)}d ${hrs%24}h`;
+function holdTime(ts) {
+  const h = Math.floor((new Date() - new Date(ts))/3600000);
+  if (h<1) return '<1h'; if (h<24) return h+'h'; return Math.floor(h/24)+'d '+h%24+'h';
 }
 
 async function loadData() {
-  try {
-    const res = await fetch('data.json?t=' + Date.now());
-    return await res.json();
-  } catch(e) {
-    console.error('Failed to load data:', e);
-    return null;
-  }
+  try { const r = await fetch('data.json?t='+Date.now()); return await r.json(); }
+  catch(e) { return null; }
 }
 
-function renderStats(data) {
-  const s = data.stats;
-  const pnl = data.capital - data.initial_capital;
-  const pnlPct = (pnl / data.initial_capital * 100);
-  const dd = s.max_drawdown || 0;
-  const wr = s.total_trades > 0 ? (s.wins / s.total_trades * 100) : 0;
+function renderStats(d) {
+  const s = d.stats, pnl = d.effective_capital - d.initial_capital;
+  const pnlPct = pnl/d.initial_capital*100;
+  const ur = d.unrealized_pnl || 0;
+  const wr = s.total_trades > 0 ? s.wins/s.total_trades*100 : 0;
+  const totalExposure = (d.open_positions||[]).reduce((a,p) => a + (p.size||0), 0);
 
   const stats = [
-    { label: 'Starting Balance', value: `$${fmt(data.initial_capital)}`, cls: 'amber' },
-    { label: 'Current Balance', value: `$${fmt(data.capital)}`, cls: pnl >= 0 ? 'positive' : 'negative' },
-    { label: 'Total P&L', value: fmtPnl(pnl), sub: `${pnl >= 0 ? '+' : ''}${fmt(pnlPct)}%`, cls: pnl >= 0 ? 'positive' : 'negative' },
-    { label: 'Win Rate', value: `${fmt(wr,1)}%`, sub: `${s.wins}W / ${s.losses}L`, cls: wr >= 55 ? 'positive' : wr >= 45 ? 'amber' : 'negative' },
-    { label: 'Total Trades', value: s.total_trades, sub: `${(data.open_positions||[]).length} open`, cls: 'amber' },
-    { label: 'Max Drawdown', value: `${fmt(dd,1)}%`, cls: dd > 30 ? 'negative' : dd > 15 ? 'amber' : 'positive' },
-    { label: 'Profit Factor', value: fmt(s.profit_factor || 0), cls: (s.profit_factor||0) >= 1.2 ? 'positive' : (s.profit_factor||0) >= 1 ? 'amber' : 'negative' },
-    { label: 'Largest Win', value: fmtPnl(s.largest_win), cls: 'positive' },
+    {l:'Starting Balance', v:`$${fmt(d.initial_capital)}`, c:'amber'},
+    {l:'Realized Balance', v:`$${fmt(d.capital)}`, c: d.capital >= d.initial_capital ? 'positive':'negative'},
+    {l:'Unrealized P&L', v:fmtPnl(ur), c: ur>=0?'positive':'negative', s:`${(d.open_positions||[]).length} positions`},
+    {l:'Effective Balance', v:`$${fmt(d.effective_capital)}`, c: pnl>=0?'positive':'negative', s:fmtPct(pnlPct)},
+    {l:'Win Rate', v:`${fmt(wr,1)}%`, c: wr>=55?'positive':wr>=45?'amber':'negative', s:`${s.wins}W / ${s.losses}L / ${s.expired||0}E`},
+    {l:'Total Trades', v:s.total_trades, c:'amber', s:`${(d.open_positions||[]).length} open`},
+    {l:'Max Drawdown', v:`${fmt(s.max_drawdown,1)}%`, c: s.max_drawdown>30?'negative':s.max_drawdown>15?'amber':'positive'},
+    {l:'Profit Factor', v: s.profit_factor ? fmt(s.profit_factor) : '—', c: (s.profit_factor||0)>=1.5?'positive':(s.profit_factor||0)>=1?'amber':'negative'},
+    {l:'Largest Win', v:fmtPnl(s.largest_win), c:'positive'},
+    {l:'Largest Loss', v:fmtPnl(s.largest_loss), c:'negative'},
+    {l:'Total Exposure', v:`$${fmt(totalExposure)}`, c:'blue', s:`${fmt(totalExposure/d.capital*100,0)}% of capital`},
   ];
-
-  document.getElementById('statsGrid').innerHTML = stats.map(s => `
-    <div class="stat-card">
-      <div class="stat-label">${s.label}</div>
-      <div class="stat-value ${s.cls}">${s.value}</div>
-      ${s.sub ? `<div class="stat-sub">${s.sub}</div>` : ''}
-    </div>
-  `).join('');
+  document.getElementById('statsGrid').innerHTML = stats.map(s =>
+    `<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`
+  ).join('');
 }
 
-function renderEquityChart(data) {
-  const ctx = document.getElementById('equityChart').getContext('2d');
-  const eq = data.equity_curve || [];
-  
-  if (eq.length < 2) {
-    document.querySelector('.chart-wrap').innerHTML = '<div class="no-data">Equity curve builds as trades close</div>';
-    return;
-  }
+function renderExposure(d) {
+  const pos = d.open_positions || [];
+  if (!pos.length) { document.getElementById('exposureGrid').innerHTML = ''; return; }
 
+  // By direction
+  const longExp = pos.filter(p=>p.direction==='LONG').reduce((a,p)=>a+(p.size||0),0);
+  const shortExp = pos.filter(p=>p.direction==='SHORT').reduce((a,p)=>a+(p.size||0),0);
+  const netExp = longExp - shortExp;
+
+  // By class
+  const byClass = {};
+  pos.forEach(p => {
+    const cls = getClass(p.asset||'');
+    byClass[cls] = (byClass[cls]||0) + (p.size||0);
+  });
+
+  // Total risk
+  const totalRisk = pos.reduce((a,p) => a + (p.risk_amount||0), 0);
+
+  document.getElementById('exposureGrid').innerHTML = `
+    <div class="exposure-card">
+      <div class="stat-label">Direction Exposure</div>
+      <div class="exposure-row"><span class="positive">Long</span><span>$${fmt(longExp)}</span></div>
+      <div class="exposure-row"><span class="negative">Short</span><span>$${fmt(shortExp)}</span></div>
+      <div class="exposure-row" style="border-top:1px solid var(--border);padding-top:4px;margin-top:4px"><span class="amber">Net</span><span class="amber">$${fmt(netExp)}</span></div>
+    </div>
+    <div class="exposure-card">
+      <div class="stat-label">Exposure by Class</div>
+      ${Object.entries(byClass).map(([cls,val]) => `<div class="exposure-row"><span class="tag tag-${cls}">${cls}</span><span>$${fmt(val)}</span></div>`).join('')}
+    </div>
+    <div class="exposure-card">
+      <div class="stat-label">Risk Summary</div>
+      <div class="exposure-row"><span>Total at risk</span><span class="negative">$${fmt(totalRisk)}</span></div>
+      <div class="exposure-row"><span>Risk % of capital</span><span>${fmt(totalRisk/d.capital*100,1)}%</span></div>
+      <div class="exposure-row"><span>Avg risk/trade</span><span>$${fmt(totalRisk/pos.length)}</span></div>
+    </div>
+  `;
+}
+
+function renderEquityChart(d) {
+  const ctx = document.getElementById('equityChart').getContext('2d');
+  const eq = d.equity_curve || [];
+  if (eq.length < 2) { document.querySelector('.chart-wrap').innerHTML = '<div class="no-data">Equity curve builds as data accumulates</div>'; return; }
   new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: eq.map(p => p.ts ? new Date(p.ts).toLocaleDateString('en-US', {month:'short', day:'numeric'}) : ''),
-      datasets: [{
-        data: eq.map(p => p.capital),
-        borderColor: '#f5a623',
-        backgroundColor: 'rgba(245,166,35,0.08)',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 0,
-        borderWidth: 2,
-      }]
+    type:'line',
+    data: { labels: eq.map(p => new Date(p.ts).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit'})),
+      datasets: [{ data: eq.map(p=>p.capital), borderColor:'#f5a623', backgroundColor:'rgba(245,166,35,0.06)', fill:true, tension:0.3, pointRadius:0, borderWidth:2 }]
     },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { grid: { color: 'rgba(42,42,58,0.5)' }, ticks: { color: '#8888a0', font: { size: 10, family: 'monospace' } } },
-        y: { grid: { color: 'rgba(42,42,58,0.5)' }, ticks: { color: '#8888a0', font: { size: 10, family: 'monospace' }, callback: v => '$' + v.toLocaleString() } }
-      }
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{ x:{grid:{color:'rgba(42,42,58,0.4)'},ticks:{color:'#8888a0',font:{size:9,family:'monospace'},maxTicksLimit:8}},
+               y:{grid:{color:'rgba(42,42,58,0.4)'},ticks:{color:'#8888a0',font:{size:9,family:'monospace'},callback:v=>'$'+v.toLocaleString()}} }
     }
   });
 }
 
-function renderBreakdown(data) {
-  const positions = [...(data.open_positions || []), ...(data.closed_trades || [])];
+function renderBreakdown(d) {
+  const all = [...(d.open_positions||[]), ...(d.closed_trades||[])];
+  if (!all.length) { document.getElementById('breakdownGrid').innerHTML = ''; return; }
   const classes = {};
-  positions.forEach(p => {
-    const cls = getClass(p.asset || p.signal_name?.split('|')[0] || '');
-    if (!classes[cls]) classes[cls] = { trades: 0, pnl: 0, wins: 0 };
-    classes[cls].trades++;
-    classes[cls].pnl += (p.pnl_usd || p.unrealized_pnl || 0);
-    if ((p.pnl_usd || 0) > 0) classes[cls].wins++;
-  });
-
-  const colors = { crypto: '#3b82f6', commodity: '#f5a623', stock: '#a855f7', index: '#22c55e' };
-  const total = Object.values(classes).reduce((a, c) => a + c.trades, 0) || 1;
-
-  document.getElementById('breakdownGrid').innerHTML = Object.entries(classes).map(([cls, d]) => `
-    <div class="breakdown-card">
-      <div class="stat-label">${cls.toUpperCase()}</div>
-      <div class="stat-value" style="font-size:16px;color:${colors[cls]}">${d.trades} trades</div>
-      <div class="stat-sub">${fmtPnl(d.pnl)} · ${d.trades > 0 ? fmt(d.wins/d.trades*100,0) : 0}% WR</div>
-      <div class="breakdown-bar"><div class="breakdown-fill" style="width:${d.trades/total*100}%;background:${colors[cls]}"></div></div>
-    </div>
-  `).join('');
+  all.forEach(p => { const c=getClass(p.asset||''); if(!classes[c])classes[c]={trades:0,pnl:0,wins:0}; classes[c].trades++; classes[c].pnl+=(p.pnl_usd||p.unrealized_pnl||0); if((p.pnl_usd||p.unrealized_pnl||0)>0)classes[c].wins++; });
+  const colors = {crypto:'#3b82f6',commodity:'#f5a623',stock:'#a855f7',index:'#22c55e'};
+  const total = Object.values(classes).reduce((a,c)=>a+c.trades,0)||1;
+  document.getElementById('breakdownGrid').innerHTML = Object.entries(classes).map(([c,d]) =>
+    `<div class="breakdown-card"><div class="stat-label">${c.toUpperCase()}</div><div class="stat-value" style="font-size:15px;color:${colors[c]}">${d.trades} trades</div><div class="stat-sub">${fmtPnl(d.pnl)} · ${d.trades?fmt(d.wins/d.trades*100,0):0}% WR</div><div class="breakdown-bar"><div class="breakdown-fill" style="width:${d.trades/total*100}%;background:${colors[c]}"></div></div></div>`
+  ).join('');
 }
 
-function renderOpenPositions(data) {
-  const positions = data.open_positions || [];
-  document.getElementById('openCount').textContent = positions.length;
-
-  if (!positions.length) {
-    document.getElementById('openTable').innerHTML = '<div class="no-data">No open positions</div>';
-    return;
-  }
-
+function renderOpen(d) {
+  const pos = d.open_positions || [];
+  document.getElementById('openCount').textContent = pos.length;
+  if (!pos.length) { document.getElementById('openTable').innerHTML = '<div class="no-data">No open positions</div>'; return; }
   document.getElementById('openTable').innerHTML = `<table>
-    <tr><th>Asset</th><th>Direction</th><th>Lev</th><th>Signal</th><th>Class</th><th>Entry</th><th>Current</th><th>P&L</th><th>Stop</th><th>Target</th><th>Size</th><th>Held</th></tr>
-    ${positions.map(p => {
-      const cls = getClass(p.asset || '');
-      const pnl = p.unrealized_pnl || 0;
+    <tr><th>Asset</th><th>Dir</th><th>Lev</th><th>Size</th><th>Risk</th><th>Signal</th><th>TF</th><th>Filter</th><th>Class</th><th>Entry</th><th>Current</th><th>P&L $</th><th>P&L %</th><th>Stop</th><th>Target</th><th>R:R</th><th>Sharpe</th><th>WR</th><th>N</th><th>RSI</th><th>Held</th><th>Max Hold</th></tr>
+    ${pos.map(p => {
+      const cls = getClass(p.asset||'');
+      const pnl = p.unrealized_pnl||0;
+      const maxH = p.hold_max_hours ? (p.hold_max_hours >= 24 ? Math.round(p.hold_max_hours/24)+'d' : p.hold_max_hours+'h') : '—';
       return `<tr>
-        <td><strong>${p.asset || p.exec_symbol || '—'}</strong></td>
-        <td class="${p.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${p.direction}</td>
-        <td class="amber">${p.leverage || 1}x</td>
-        <td>${(p.signal_name || '—').replace(/_/g,' ').replace(/\b(macd bull|macd bear|breakout \d+|rsi lt\d+|vol spike|adx di|bb squeeze|st bull|ema cross|stoch oversold)\b/i, '<strong>$1</strong>')}</td>
-        <td><span class="tag tag-${cls}">${cls}</span></td>
-        <td>$${fmt(p.entry_price)}</td>
-        <td>$${fmt(p.current_price || p.entry_price)}</td>
-        <td class="${pnl >= 0 ? 'positive' : 'negative'}">${fmtPnl(pnl)}</td>
-        <td>$${fmt(p.stop)}</td>
-        <td>$${fmt(p.target)}</td>
+        <td><strong>${p.asset}</strong></td>
+        <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
+        <td class="lev">${p.leverage}x</td>
         <td>$${fmt(p.size)}</td>
+        <td class="negative">$${fmt(p.risk_amount)}</td>
+        <td class="signal-type">${p.signal_type||p.signal_name||'—'}</td>
+        <td class="tf">${p.timeframe||'—'}</td>
+        <td><span class="filter-tag filter-${p.filter||'none'}">${p.filter||'none'}</span></td>
+        <td><span class="tag tag-${cls}">${cls}</span></td>
+        <td>$${fmt(p.entry_price, p.entry_price<10?4:2)}</td>
+        <td>$${fmt(p.current_price, p.current_price<10?4:2)}</td>
+        <td class="${pnl>=0?'positive':'negative'}">${fmtPnl(pnl)}</td>
+        <td class="${(p.pnl_pct||0)>=0?'positive':'negative'}">${fmtPct(p.pnl_pct)}</td>
+        <td>$${fmt(p.stop, p.stop<10?4:2)} <span class="dim">(-${p.stop_pct||0}%)</span></td>
+        <td>$${fmt(p.target, p.target<10?4:2)} <span class="dim">(+${p.target_pct||0}%)</span></td>
+        <td>${p.rr_ratio ? fmt(p.rr_ratio,1)+':1' : '—'}</td>
+        <td class="amber">${fmt(p.sharpe,1)}</td>
+        <td>${fmt(p.wr,0)}%</td>
+        <td class="dim">${p.n||'—'}</td>
+        <td class="dim">${p.rsi_at_entry ? fmt(p.rsi_at_entry,0) : '—'}</td>
         <td>${p.opened_at ? holdTime(p.opened_at) : '—'}</td>
+        <td class="dim">${maxH}</td>
       </tr>`;
     }).join('')}
   </table>`;
 }
 
-function renderClosedTrades(data) {
-  const trades = (data.closed_trades || []).slice().reverse();
+function renderClosed(d) {
+  const trades = (d.closed_trades||[]).slice().reverse();
   document.getElementById('closedCount').textContent = trades.length;
-
-  if (!trades.length) {
-    document.getElementById('closedTable').innerHTML = '<div class="no-data">No closed trades yet — V4 just started</div>';
-    return;
-  }
-
+  if (!trades.length) { document.getElementById('closedTable').innerHTML = '<div class="no-data">No closed trades yet — V4 just started</div>'; return; }
   document.getElementById('closedTable').innerHTML = `<table>
-    <tr><th>Date</th><th>Asset</th><th>Dir</th><th>Lev</th><th>Signal</th><th>Class</th><th>Entry</th><th>Exit</th><th>P&L</th><th>P&L%</th><th>Reason</th><th>Held</th></tr>
-    ${trades.slice(0, 100).map(t => {
-      const cls = getClass(t.asset || '');
-      const pnl = t.pnl_usd || 0;
+    <tr><th>Closed</th><th>Asset</th><th>Dir</th><th>Lev</th><th>Size</th><th>Signal</th><th>TF</th><th>Class</th><th>Entry</th><th>Exit</th><th>P&L $</th><th>P&L %</th><th>Reason</th><th>Held</th></tr>
+    ${trades.slice(0,200).map(t => {
+      const cls = getClass(t.asset||''); const pnl = t.pnl_usd||0;
       return `<tr>
-        <td>${t.closed_at ? new Date(t.closed_at).toLocaleDateString('en-US', {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) : '—'}</td>
-        <td><strong>${t.asset || '—'}</strong></td>
-        <td class="${t.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${t.direction}</td>
-        <td class="amber">${t.leverage || 1}x</td>
-        <td>${t.signal_name || '—'}</td>
+        <td>${t.closed_at ? new Date(t.closed_at).toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' ' + new Date(t.closed_at).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false}) : '—'}</td>
+        <td><strong>${t.asset}</strong></td>
+        <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
+        <td class="lev">${t.leverage||1}x</td>
+        <td>$${fmt(t.size)}</td>
+        <td class="signal-type">${t.signal_type||t.signal_name||'—'}</td>
+        <td class="tf">${t.timeframe||'—'}</td>
         <td><span class="tag tag-${cls}">${cls}</span></td>
         <td>$${fmt(t.entry_price)}</td>
         <td>$${fmt(t.exit_price)}</td>
-        <td class="${pnl >= 0 ? 'positive' : 'negative'}">${fmtPnl(pnl)}</td>
-        <td class="${pnl >= 0 ? 'positive' : 'negative'}">${t.pnl_pct ? (t.pnl_pct >= 0 ? '+' : '') + fmt(t.pnl_pct,1) + '%' : '—'}</td>
-        <td>${t.exit_reason || '—'}</td>
-        <td>${t.hold_time || '—'}</td>
+        <td class="${pnl>=0?'positive':'negative'}">${fmtPnl(pnl)}<span class="pnl-bar" style="width:${Math.min(Math.abs(pnl)*2,60)}px;background:${pnl>=0?'var(--green)':'var(--red)'}"></span></td>
+        <td class="${pnl>=0?'positive':'negative'}">${fmtPct(t.pnl_pct)}</td>
+        <td>${t.exit_reason||'—'}</td>
+        <td>${t.hold_time||'—'}</td>
       </tr>`;
     }).join('')}
   </table>`;
 }
 
 async function init() {
-  const data = await loadData();
-  if (!data) {
-    document.querySelector('.container').innerHTML = '<div class="no-data" style="padding:100px">Failed to load data. Check data.json exists.</div>';
-    return;
-  }
-
-  document.getElementById('lastUpdate').textContent = data.updated_at ? `Updated ${timeAgo(data.updated_at)}` : '';
-  document.getElementById('status').textContent = data.version ? `● ${data.version.toUpperCase()} PAPER` : '● PAPER TRADING';
-
-  renderStats(data);
-  renderEquityChart(data);
-  renderBreakdown(data);
-  renderOpenPositions(data);
-  renderClosedTrades(data);
+  const d = await loadData();
+  if (!d) { document.querySelector('.container').innerHTML = '<div class="no-data" style="padding:80px">Failed to load data</div>'; return; }
+  document.getElementById('lastUpdate').textContent = d.updated_at ? 'Updated '+timeAgo(d.updated_at) : '';
+  document.getElementById('config').textContent = d.config || '';
+  renderStats(d); renderExposure(d); renderEquityChart(d); renderBreakdown(d); renderOpen(d); renderClosed(d);
 }
-
 init();
-setInterval(init, 300000); // refresh every 5min
+setInterval(init, 300000);
 </script>
 </body>
 </html>
