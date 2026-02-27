@@ -121,11 +121,11 @@ tr:hover td { background:rgba(245,166,35,.03); }
     <div id="closedTable"></div>
   </div>
 
-  <div class="footer">KOVA Multi-Version · v1–v5 parallel comparison · Started Feb 23, 2026 · $2,000 each · Updates every 30min</div>
+  <div class="footer">KOVA Multi-Version · v1–v6 parallel comparison · Started Feb 23, 2026 · $2,000 each · Updates every 30min</div>
 </div>
 
 <script>
-const COLORS = {v1:'#ef4444',v2:'#f59e0b',v3:'#22c55e',v4:'#3b82f6',v5:'#a855f7'};
+const COLORS = {v1:'#ef4444',v2:'#f59e0b',v3:'#22c55e',v4:'#3b82f6',v5:'#a855f7',v6:'#f97316'};
 const CLASS_MAP = {BTC:'crypto',ETH:'crypto',SOL:'crypto',XRP:'crypto',DOGE:'crypto',ADA:'crypto',BNB:'crypto',LTC:'crypto',LINK:'crypto',AVAX:'crypto',DOT:'crypto',MATIC:'crypto',OP:'crypto',RENDER:'crypto',AAVE:'crypto',CRV:'crypto',NEAR:'crypto',PAXG:'crypto',SEI:'crypto',TIA:'crypto',TAO:'crypto',XAU:'commodity',XAG:'commodity',Gold:'commodity',Silver:'commodity',TSLA:'stock',AMZN:'stock',MSTR:'stock',PLTR:'stock',COIN:'stock',SPX:'index'};
 function gc(a){return CLASS_MAP[a.replace(/\/USDT.*/,'').replace('_yf','')]||'crypto';}
 function fmt(n,d=2){return n==null?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
@@ -146,7 +146,7 @@ async function load(){
 }
 
 function renderCompare(){
-  const vs=['v1','v2','v3','v4','v5'];
+  const vs=['v1','v2','v3','v4','v5','v6'];
   let html='<tr><th>Version</th><th>Description</th><th>Signals</th><th>Capital</th><th>P&L</th><th>Trades</th><th>Win Rate</th><th>Max DD</th><th>Open</th></tr>';
   vs.forEach(v=>{
     const d=DATA.versions[v]; if(!d)return;
@@ -168,7 +168,7 @@ function renderCompare(){
 }
 
 function renderTabs(){
-  const vs=['v1','v2','v3','v4','v5'];
+  const vs=['v1','v2','v3','v4','v5','v6'];
   document.getElementById('tabs').innerHTML=vs.map(v=>{
     const d=DATA.versions[v]; if(!d)return '';
     const pnl=d.capital-d.initial_capital;
@@ -265,7 +265,7 @@ function renderAllEquity(){
   if(chart)chart.destroy();
   const ctx=document.getElementById('equityChart').getContext('2d');
   const datasets=[];
-  ['v1','v2','v3','v4','v5'].forEach(v=>{
+  ['v1','v2','v3','v4','v5','v6'].forEach(v=>{
     const d=DATA.versions[v]; if(!d||!d.equity_curve||d.equity_curve.length<1)return;
     datasets.push({
       label:v.toUpperCase(),
