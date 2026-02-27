@@ -109,7 +109,7 @@ tr:hover td { background: rgba(245,166,35,0.03); }
       <div><h1>KOVA</h1><span>PAPER TRADING DASHBOARD</span></div>
     </div>
     <div class="header-right">
-      <div class="status-badge status-live" id="status">● V4 PAPER</div>
+      <div class="status-badge status-live" id="status">● V5 PAPER</div>
       <div class="last-update" id="lastUpdate">Loading...</div>
       <div class="last-update" id="config"></div>
     </div>
@@ -149,7 +149,7 @@ tr:hover td { background: rgba(245,166,35,0.03); }
   </div>
 
   <div class="footer">
-    KOVA v4 · 169 signals · 27 assets · 3 timeframes · DD scaling · Data updates every 30 min
+    KOVA v5 · 19 signals (DSR-pruned) · Gold-dominant · Carry trade engine · Data updates every 30 min
   </div>
 </div>
 
@@ -316,7 +316,7 @@ function renderOpen(d) {
 function renderClosed(d) {
   const trades = (d.closed_trades||[]).slice().reverse();
   document.getElementById('closedCount').textContent = trades.length;
-  if (!trades.length) { document.getElementById('closedTable').innerHTML = '<div class="no-data">No closed trades yet — V4 just started</div>'; return; }
+  if (!trades.length) { document.getElementById('closedTable').innerHTML = '<div class="no-data">No closed trades yet</div>'; return; }
   document.getElementById('closedTable').innerHTML = `<table>
     <tr><th>Closed</th><th>Asset</th><th>Dir</th><th>Lev</th><th>Size</th><th>Signal</th><th>TF</th><th>Class</th><th>Entry</th><th>Exit</th><th>P&L $</th><th>P&L %</th><th>Reason</th><th>Held</th></tr>
     ${trades.slice(0,200).map(t => {
