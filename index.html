@@ -373,7 +373,7 @@ function renderAllEquity(){
     options:{responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:true,labels:{color:'#8888a0',font:{size:10,family:'monospace'},usePointStyle:true,pointStyle:'line'}}},
       scales:{x:{type:'time',time:{unit:'day',displayFormats:{day:'MMM d'}},grid:{color:'rgba(42,42,58,.4)'},ticks:{color:'#8888a0',font:{size:9}}},
-              y:{grid:{color:'rgba(42,42,58,.4)'},ticks:{color:'#8888a0',font:{size:9},callback:v=>'$'+v.toLocaleString()},suggestedMin:1950,suggestedMax:2050}}
+              y:{grid:{color:'rgba(42,42,58,.4)'},ticks:{color:'#8888a0',font:{size:9},callback:v=>'$'+v.toLocaleString()},beginAtZero:false}}
     }
   });
 }
