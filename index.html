@@ -125,6 +125,17 @@ tr:hover td { background:rgba(245,166,35,.03); }
     <div id="closedTable"></div>
   </div>
 
+  <!-- Live V6 Real Money Account -->
+  <div class="table-box" id="liveSection" style="border:1px solid #f97316;display:none">
+    <div class="table-head" style="background:rgba(249,115,22,0.1)">
+      <span class="table-title">💰 LIVE V6 — REAL MONEY</span>
+      <span class="table-count" id="liveCapital">$25</span>
+    </div>
+    <div class="stats-grid" id="liveStats"></div>
+    <div id="livePositions"></div>
+    <div id="liveClosed"></div>
+  </div>
+
   <div class="footer">KOVA Multi-Version · v1–v6 parallel comparison · Started Feb 23, 2026 · $2,000 each · Updates every 30min</div>
 </div>
 
@@ -168,6 +179,7 @@ async function load(){
   renderTabs();
   renderVersion(ACTIVE);
   renderAllEquity();
+  renderLive();
 }
 
 function renderCompare(){
@@ -337,6 +349,58 @@ function renderAllEquity(){
               y:{grid:{color:'rgba(42,42,58,.4)'},ticks:{color:'#8888a0',font:{size:9},callback:v=>'$'+v.toLocaleString()},suggestedMin:1950,suggestedMax:2050}}
     }
   });
+}
+
+function renderLive(){
+  const live=DATA.live_account;
+  const sec=document.getElementById('liveSection');
+  if(!live){sec.style.display='none';return;}
+  sec.style.display='block';
+  const s=live.stats||{}, pnl=live.capital-live.initial_capital, wr=s.total_trades>0?s.wins/s.total_trades*100:0;
+  const open=live.open_positions||[], closed=live.closed_trades||[];
+  document.getElementById('liveCapital').innerHTML=`$${fmt(live.effective_capital||live.capital)} <span style="font-size:10px;color:${pnl>=0?'var(--green)':'var(--red)'}"> (${fp(pnl)})</span>`;
+  
+  const stats=[
+    {l:'Capital',v:`$${fmt(live.capital)}`,c:pnl>=0?'positive':'negative'},
+    {l:'Leverage',v:'3x',c:'amber'},
+    {l:'Trades',v:s.total_trades||0,c:'blue',s:`${open.length} open`},
+    {l:'Win Rate',v:`${fmt(wr,0)}%`,c:wr>=50?'positive':'dim'},
+    {l:'Total P&L',v:fp(s.total_pnl),c:s.total_pnl>=0?'positive':'negative'},
+    {l:'Max DD',v:`${fmt(s.max_drawdown*100,1)}%`,c:s.max_drawdown>0.1?'negative':'positive'},
+  ];
+  document.getElementById('liveStats').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
+
+  if(!open.length){document.getElementById('livePositions').innerHTML='<div class="no-data">No live positions</div>';}
+  else{
+    document.getElementById('livePositions').innerHTML=`<div class="table-scroll"><table>
+      <thead><tr><th>Asset</th><th>Dir</th><th>Entry</th><th>Current</th><th>P&L</th><th>Size</th><th>Signal</th><th>Held</th></tr></thead>
+      <tbody>${open.map(p=>{
+        const dec=v=>v<1?6:v<10?4:2;
+        return `<tr>
+        <td><strong>${p.asset}</strong></td>
+        <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
+        <td>$${fmt(p.entry_price,dec(p.entry_price))}</td>
+        <td>$${fmt(p.current_price,dec(p.current_price))}</td>
+        <td class="${p.pnl_pct>=0?'positive':'negative'}">${fpct(p.pnl_pct)} ($${fmt(p.unrealized_pnl,4)})</td>
+        <td>$${fmt(p.size)}</td>
+        <td class="signal-type">${p.signal_type||'—'}</td>
+        <td>${p.opened_at?holdT(p.opened_at):'—'}</td>
+      </tr>`;}).join('')}</tbody></table></div>`;
+  }
+
+  if(closed.length){
+    document.getElementById('liveClosed').innerHTML=`<div class="table-scroll" style="margin-top:8px"><table>
+      <thead><tr><th>Asset</th><th>Dir</th><th>Entry</th><th>Exit</th><th>P&L</th><th>Reason</th><th>Held</th></tr></thead>
+      <tbody>${closed.map(t=>`<tr>
+        <td><strong>${t.asset}</strong></td>
+        <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
+        <td>$${fmt(t.entry_price,t.entry_price<1?6:2)}</td>
+        <td>$${fmt(t.close_price,t.close_price<1?6:2)}</td>
+        <td class="${t.pnl_usd>=0?'positive':'negative'}">${fp(t.pnl_usd)} (${fpct(t.pnl_pct)})</td>
+        <td>${t.close_reason||'—'}</td>
+        <td>${t.hours_held?fmt(t.hours_held,1)+'h':'—'}</td>
+      </tr>`).join('')}</tbody></table></div>`;
+  }
 }
 
 load();
