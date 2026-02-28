@@ -82,16 +82,16 @@ tr:hover td { background:rgba(245,166,35,.03); }
   <div class="header">
     <div class="logo">
       <div class="logo-icon">📊</div>
-      <div><h1>KOVA</h1><span>MULTI-VERSION PAPER TRADING</span></div>
+      <div><h1>KOVA</h1><span>SIGNAL ENGINE · MULTI-VERSION COMPARISON</span></div>
     </div>
     <div style="text-align:right">
-      <span class="badge">● LIVE COMPARISON</span>
+      <span class="badge" style="background:rgba(249,115,22,0.2);color:#f97316">● LIVE TRADING</span>
       <div style="font-size:10px;color:var(--dim);margin-top:3px" id="lastUpdate"></div>
     </div>
   </div>
 
   <!-- Version Comparison Table -->
-  <div class="chart-title">VERSION COMPARISON (all started Feb 23, 2026 · $2,000 each)</div>
+  <div class="chart-title">VERSION COMPARISON · Blind forward-test Jan 1–Feb 23 · Paper trading from Feb 23 · Live real trading (V6) from Feb 28 · $2,000 each</div>
   <table class="compare-table" id="compareTable"></table>
 
   <!-- Version Tabs -->
@@ -125,18 +125,7 @@ tr:hover td { background:rgba(245,166,35,.03); }
     <div id="closedTable"></div>
   </div>
 
-  <!-- Live V6 Real Money Account -->
-  <div class="table-box" id="liveSection" style="border:1px solid #f97316;display:none">
-    <div class="table-head" style="background:rgba(249,115,22,0.1)">
-      <span class="table-title">💰 LIVE V6 — REAL MONEY</span>
-      <span class="table-count" id="liveCapital">$25</span>
-    </div>
-    <div class="stats-grid" id="liveStats"></div>
-    <div id="livePositions"></div>
-    <div id="liveClosed"></div>
-  </div>
-
-  <div class="footer">KOVA Multi-Version · v1–v6 parallel comparison · Started Feb 23, 2026 · $2,000 each · Updates every 30min</div>
+  <div class="footer">KOVA Signal Engine · Blind forward-test Jan 1–Feb 23 · Paper trading from Feb 23 · 💰 Live real trading (V6) from Feb 28 · Updates every 4h</div>
 </div>
 
 <script>
@@ -148,7 +137,7 @@ function fp(n){return n==null?'—':`${n>=0?'+':''}$${fmt(n)}`;}
 function fpct(n){return n==null?'—':`${n>=0?'+':''}${fmt(n,1)}%`;}
 function holdT(ts){const h=Math.floor((Date.now()-new Date(ts))/36e5);return h<1?'<1h':h<24?h+'h':Math.floor(h/24)+'d';}
 
-let DATA=null, ACTIVE='v5', chart=null;
+let DATA=null, ACTIVE='v6', chart=null;
 const sortState={};
 function sortTable(tblId,col){
   const tbl=document.getElementById(tblId);if(!tbl)return;
@@ -179,18 +168,17 @@ async function load(){
   renderTabs();
   renderVersion(ACTIVE);
   renderAllEquity();
-  renderLive();
 }
 
 function renderCompare(){
-  const vs=['v1','v2','v3','v4','v5','v6'];
+  const vs=['v2','v3','v4','v6'];
   let html='<tr><th>Version</th><th>Description</th><th>Signals</th><th>Capital</th><th>P&L</th><th>Trades</th><th>Win Rate</th><th>Max DD</th><th>Open</th></tr>';
   vs.forEach(v=>{
     const d=DATA.versions[v]; if(!d)return;
     const s=d.stats, pnl=d.capital-d.initial_capital, wr=s.total_trades>0?s.wins/s.total_trades*100:0;
     const isActive=v===ACTIVE;
     html+=`<tr class="${isActive?'active-row':''}" style="cursor:pointer" onclick="switchVersion('${v}')">
-      <td><strong style="color:${COLORS[v]}">${v.toUpperCase()}</strong></td>
+      <td><strong style="color:${COLORS[v]}">${v.toUpperCase()} <span style="font-size:9px;color:var(--dim)">(paper)</span></strong></td>
       <td>${DATA.version_descriptions?.[v]||''}</td>
       <td>${d.n_signals||'—'}</td>
       <td class="${pnl>=0?'positive':'negative'}">$${fmt(d.capital)}</td>
@@ -201,23 +189,49 @@ function renderCompare(){
       <td>${(d.open_positions||[]).length}</td>
     </tr>`;
   });
+  // Live V6 row
+  const live=DATA.live_account;
+  if(live){
+    const ls=live.stats||{}, lpnl=live.capital-(live.initial_capital||25), lwr=ls.total_trades>0?ls.wins/ls.total_trades*100:0;
+    const isActive=ACTIVE==='live';
+    html+=`<tr class="${isActive?'active-row':''}" style="cursor:pointer;border-top:2px solid #f97316" onclick="switchVersion('live')">
+      <td><strong style="color:#f97316">V6 💰 <span style="font-size:9px">REAL</span></strong></td>
+      <td>Live trading · 3x · Binance Futures · Started Feb 28</td>
+      <td>192</td>
+      <td class="${lpnl>=0?'positive':'negative'}">$${fmt(live.effective_capital||live.capital)}</td>
+      <td class="${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</td>
+      <td>${ls.total_trades||0}</td>
+      <td class="${lwr>=50?'positive':lwr>0?'negative':'dim'}">${lwr>0?fmt(lwr,0)+'%':'—'}</td>
+      <td class="${(ls.max_drawdown||0)>0.05?'negative':'dim'}">${fmt((ls.max_drawdown||0)*100,1)}%</td>
+      <td>${(live.open_positions||[]).length}</td>
+    </tr>`;
+  }
   document.getElementById('compareTable').innerHTML=html;
 }
 
 function renderTabs(){
-  const vs=['v1','v2','v3','v4','v5','v6'];
-  document.getElementById('tabs').innerHTML=vs.map(v=>{
+  const vs=['v2','v3','v4','v6'];
+  let html=vs.map(v=>{
     const d=DATA.versions[v]; if(!d)return '';
     const pnl=d.capital-d.initial_capital;
     return `<button class="tab ${v===ACTIVE?'active':''}" onclick="switchVersion('${v}')" style="border-left:3px solid ${COLORS[v]}">
       ${v.toUpperCase()} <span class="tab-pnl ${pnl>=0?'positive':'negative'}">${fp(pnl)}</span>
     </button>`;
   }).join('');
+  // Live tab
+  if(DATA.live_account){
+    const lpnl=(DATA.live_account.capital||25)-(DATA.live_account.initial_capital||25);
+    html+=`<button class="tab ${ACTIVE==='live'?'active':''}" onclick="switchVersion('live')" style="border-left:3px solid #f97316">
+      💰 LIVE <span class="tab-pnl ${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</span>
+    </button>`;
+  }
+  document.getElementById('tabs').innerHTML=html;
 }
 
 function switchVersion(v){ACTIVE=v;renderCompare();renderTabs();renderVersion(v);}
 
 function renderVersion(v){
+  if(v==='live'){renderLiveAsVersion();return;}
   const d=DATA.versions[v]; if(!d)return;
   const s=d.stats, pnl=d.capital-d.initial_capital, pnlPct=pnl/d.initial_capital*100;
   const wr=s.total_trades>0?s.wins/s.total_trades*100:0;
@@ -321,7 +335,7 @@ function renderAllEquity(){
   if(chart)chart.destroy();
   const ctx=document.getElementById('equityChart').getContext('2d');
   const datasets=[];
-  ['v1','v2','v3','v4','v5','v6'].forEach(v=>{
+  ['v2','v3','v4','v6'].forEach(v=>{
     const d=DATA.versions[v]; if(!d||!d.equity_curve||d.equity_curve.length<1)return;
     datasets.push({
       label:v.toUpperCase(),
@@ -334,6 +348,19 @@ function renderAllEquity(){
       borderDash:v===ACTIVE?[]:[5,5],
     });
   });
+  // Live V6 equity curve
+  if(DATA.live_account&&DATA.live_account.equity_curve&&DATA.live_account.equity_curve.length>0){
+    datasets.push({
+      label:'💰 LIVE V6',
+      data:DATA.live_account.equity_curve.map(p=>({x:new Date(p.ts),y:p.capital})),
+      borderColor:'#f97316',
+      backgroundColor:'transparent',
+      borderWidth:ACTIVE==='live'?3:2,
+      pointRadius:2,
+      tension:.3,
+      borderDash:[],
+    });
+  }
   // Add $2000 baseline
   if(datasets.length>0){
     const allTs=datasets.flatMap(ds=>ds.data.map(p=>p.x));
@@ -351,52 +378,63 @@ function renderAllEquity(){
   });
 }
 
-function renderLive(){
-  const live=DATA.live_account;
-  const sec=document.getElementById('liveSection');
-  if(!live){sec.style.display='none';return;}
-  sec.style.display='block';
-  const s=live.stats||{}, pnl=live.capital-live.initial_capital, wr=s.total_trades>0?s.wins/s.total_trades*100:0;
+function renderLiveAsVersion(){
+  const live=DATA.live_account; if(!live)return;
+  const s=live.stats||{}, pnl=live.capital-(live.initial_capital||25), pnlPct=pnl/(live.initial_capital||25)*100;
+  const wr=s.total_trades>0?s.wins/s.total_trades*100:0;
   const open=live.open_positions||[], closed=live.closed_trades||[];
-  document.getElementById('liveCapital').innerHTML=`$${fmt(live.effective_capital||live.capital)} <span style="font-size:10px;color:${pnl>=0?'var(--green)':'var(--red)'}"> (${fp(pnl)})</span>`;
-  
-  const stats=[
-    {l:'Capital',v:`$${fmt(live.capital)}`,c:pnl>=0?'positive':'negative'},
-    {l:'Leverage',v:'3x',c:'amber'},
-    {l:'Trades',v:s.total_trades||0,c:'blue',s:`${open.length} open`},
-    {l:'Win Rate',v:`${fmt(wr,0)}%`,c:wr>=50?'positive':'dim'},
-    {l:'Total P&L',v:fp(s.total_pnl),c:s.total_pnl>=0?'positive':'negative'},
-    {l:'Max DD',v:`${fmt(s.max_drawdown*100,1)}%`,c:s.max_drawdown>0.1?'negative':'positive'},
-  ];
-  document.getElementById('liveStats').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
+  const exposure=open.reduce((a,p)=>a+(p.size||0),0);
+  const ddPct=(s.max_drawdown||0)*100;
 
-  if(!open.length){document.getElementById('livePositions').innerHTML='<div class="no-data">No live positions</div>';}
+  const stats=[
+    {l:'Capital',v:`$${fmt(live.effective_capital||live.capital)}`,c:pnl>=0?'positive':'negative',s:fpct(pnlPct)},
+    {l:'Total P&L',v:fp(s.total_pnl),c:(s.total_pnl||0)>=0?'positive':'negative'},
+    {l:'Win Rate',v:wr>0?`${fmt(wr,0)}%`:'—',c:wr>=50?'positive':wr>0?'negative':'dim',s:`${s.wins||0}W / ${s.losses||0}L`},
+    {l:'Trades',v:s.total_trades||0,c:'amber',s:`${open.length} open`},
+    {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
+    {l:'Leverage',v:'3x',c:'amber'},
+    {l:'Initial',v:`$${fmt(live.initial_capital||25)}`,c:'dim'},
+    {l:'Signals',v:'192',c:'blue'},
+    {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
+  ];
+  document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
+  document.getElementById('exposureGrid').innerHTML='';
+
+  document.getElementById('openCount').textContent=open.length;
+  if(!open.length){document.getElementById('openTable').innerHTML='<div class="no-data">No live positions — waiting for next signal</div>';}
   else{
-    document.getElementById('livePositions').innerHTML=`<div class="table-scroll"><table>
-      <thead><tr><th>Asset</th><th>Dir</th><th>Entry</th><th>Current</th><th>P&L</th><th>Size</th><th>Signal</th><th>Held</th></tr></thead>
+    const openCols=['Asset','Dir','Lev','Size','Entry','Current','P/L','P/L %','Signal','Held'];
+    document.getElementById('openTable').innerHTML=`<div class="table-scroll"><table id="openTbl">
+      <thead><tr>${openCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('openTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
       <tbody>${open.map(p=>{
         const dec=v=>v<1?6:v<10?4:2;
         return `<tr>
-        <td><strong>${p.asset}</strong></td>
+        <td><strong>${p.asset}</strong> <span class="tag tag-${gc(p.asset)}">${gc(p.asset)}</span></td>
         <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
+        <td class="lev">${p.leverage||3}x</td>
+        <td>$${fmt(p.size)}</td>
         <td>$${fmt(p.entry_price,dec(p.entry_price))}</td>
         <td>$${fmt(p.current_price,dec(p.current_price))}</td>
-        <td class="${p.pnl_pct>=0?'positive':'negative'}">${fpct(p.pnl_pct)} ($${fmt(p.unrealized_pnl,4)})</td>
-        <td>$${fmt(p.size)}</td>
+        <td class="${(p.unrealized_pnl||0)>=0?'positive':'negative'}">${fp(p.unrealized_pnl)}</td>
+        <td class="${(p.pnl_pct||0)>=0?'positive':'negative'}">${fpct(p.pnl_pct)}</td>
         <td class="signal-type">${p.signal_type||'—'}</td>
         <td>${p.opened_at?holdT(p.opened_at):'—'}</td>
       </tr>`;}).join('')}</tbody></table></div>`;
   }
 
-  if(closed.length){
-    document.getElementById('liveClosed').innerHTML=`<div class="table-scroll" style="margin-top:8px"><table>
-      <thead><tr><th>Asset</th><th>Dir</th><th>Entry</th><th>Exit</th><th>P&L</th><th>Reason</th><th>Held</th></tr></thead>
+  document.getElementById('closedCount').textContent=closed.length;
+  if(!closed.length){document.getElementById('closedTable').innerHTML='<div class="no-data">No closed trades yet</div>';}
+  else{
+    const closedCols=['Asset','Dir','Entry','Exit','P&L','P&L %','Reason','Held'];
+    document.getElementById('closedTable').innerHTML=`<div class="table-scroll"><table id="closedTbl">
+      <thead><tr>${closedCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('closedTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
       <tbody>${closed.map(t=>`<tr>
         <td><strong>${t.asset}</strong></td>
         <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
         <td>$${fmt(t.entry_price,t.entry_price<1?6:2)}</td>
         <td>$${fmt(t.close_price,t.close_price<1?6:2)}</td>
-        <td class="${t.pnl_usd>=0?'positive':'negative'}">${fp(t.pnl_usd)} (${fpct(t.pnl_pct)})</td>
+        <td class="${(t.pnl_usd||0)>=0?'positive':'negative'}">${fp(t.pnl_usd)}</td>
+        <td class="${(t.pnl_pct||0)>=0?'positive':'negative'}">${fpct(t.pnl_pct)}</td>
         <td>${t.close_reason||'—'}</td>
         <td>${t.hours_held?fmt(t.hours_held,1)+'h':'—'}</td>
       </tr>`).join('')}</tbody></table></div>`;
