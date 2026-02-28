@@ -206,6 +206,23 @@ function renderCompare(){
       <td>${(live.open_positions||[]).length}</td>
     </tr>`;
   }
+  // Efe's Live V6 row
+  const efe=DATA.live_account_efe;
+  if(efe){
+    const es=efe.stats||{}, epnl=efe.capital-(efe.initial_capital||50), ewr=es.total_trades>0?es.wins/es.total_trades*100:0;
+    const isEfe=ACTIVE==='efe_live';
+    html+=`<tr class="${isEfe?'active-row':''}" style="cursor:pointer;border-top:1px solid #a855f7" onclick="switchVersion('efe_live')">
+      <td><strong style="color:#a855f7">EFE 💰 <span style="font-size:9px">REAL</span></strong></td>
+      <td>Efe's live · 3x · Binance Futures · Started Feb 28</td>
+      <td>87</td>
+      <td class="${epnl>=0?'positive':'negative'}">$${fmt(efe.effective_capital||efe.capital)}</td>
+      <td class="${epnl>=0?'positive':'negative'}">${fp(epnl)}</td>
+      <td>${es.total_trades||0}</td>
+      <td class="${ewr>=50?'positive':ewr>0?'negative':'dim'}">${ewr>0?fmt(ewr,0)+'%':'—'}</td>
+      <td class="${(es.max_drawdown||0)>0.05?'negative':'dim'}">${fmt((es.max_drawdown||0)*100,1)}%</td>
+      <td>${(efe.open_positions||[]).length}</td>
+    </tr>`;
+  }
   document.getElementById('compareTable').innerHTML=html;
 }
 
@@ -225,6 +242,13 @@ function renderTabs(){
       💰 LIVE <span class="tab-pnl ${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</span>
     </button>`;
   }
+  // Efe's live tab
+  if(DATA.live_account_efe){
+    const epnl=(DATA.live_account_efe.capital||50)-(DATA.live_account_efe.initial_capital||50);
+    html+=`<button class="tab ${ACTIVE==='efe_live'?'active':''}" onclick="switchVersion('efe_live')" style="border-left:3px solid #a855f7">
+      💰 EFE <span class="tab-pnl ${epnl>=0?'positive':'negative'}">${fp(epnl)}</span>
+    </button>`;
+  }
   document.getElementById('tabs').innerHTML=html;
 }
 
@@ -232,6 +256,7 @@ function switchVersion(v){ACTIVE=v;renderCompare();renderTabs();renderVersion(v)
 
 function renderVersion(v){
   if(v==='live'){renderLiveAsVersion();return;}
+  if(v==='efe_live'){renderEfeAsVersion();return;}
   const d=DATA.versions[v]; if(!d)return;
   const s=d.stats, pnl=d.capital-d.initial_capital, pnlPct=pnl/d.initial_capital*100;
   const wr=s.total_trades>0?s.wins/s.total_trades*100:0;
@@ -361,6 +386,19 @@ function renderAllEquity(){
       borderDash:[],
     });
   }
+  // Efe's Live V6 equity curve
+  if(DATA.live_account_efe&&DATA.live_account_efe.equity_curve&&DATA.live_account_efe.equity_curve.length>0){
+    datasets.push({
+      label:'💰 EFE LIVE',
+      data:DATA.live_account_efe.equity_curve.map(p=>({x:new Date(p.ts),y:p.capital})),
+      borderColor:'#a855f7',
+      backgroundColor:'transparent',
+      borderWidth:ACTIVE==='efe_live'?3:2,
+      pointRadius:2,
+      tension:.3,
+      borderDash:[],
+    });
+  }
   // Add $2000 baseline
   if(datasets.length>0){
     const allTs=datasets.flatMap(ds=>ds.data.map(p=>p.x));
@@ -395,6 +433,69 @@ function renderLiveAsVersion(){
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(live.initial_capital||25)}`,c:'dim'},
     {l:'Signals',v:'192',c:'blue'},
+    {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
+  ];
+  document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
+  document.getElementById('exposureGrid').innerHTML='';
+
+  document.getElementById('openCount').textContent=open.length;
+  if(!open.length){document.getElementById('openTable').innerHTML='<div class="no-data">No live positions — waiting for next signal</div>';}
+  else{
+    const openCols=['Asset','Dir','Lev','Size','Entry','Current','P/L','P/L %','Signal','Held'];
+    document.getElementById('openTable').innerHTML=`<div class="table-scroll"><table id="openTbl">
+      <thead><tr>${openCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('openTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
+      <tbody>${open.map(p=>{
+        const dec=v=>v<1?6:v<10?4:2;
+        return `<tr>
+        <td><strong>${p.asset}</strong> <span class="tag tag-${gc(p.asset)}">${gc(p.asset)}</span></td>
+        <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
+        <td class="lev">${p.leverage||3}x</td>
+        <td>$${fmt(p.size)}</td>
+        <td>$${fmt(p.entry_price,dec(p.entry_price))}</td>
+        <td>$${fmt(p.current_price,dec(p.current_price))}</td>
+        <td class="${(p.unrealized_pnl||0)>=0?'positive':'negative'}">${fp(p.unrealized_pnl)}</td>
+        <td class="${(p.pnl_pct||0)>=0?'positive':'negative'}">${fpct(p.pnl_pct)}</td>
+        <td class="signal-type">${p.signal_type||'—'}</td>
+        <td>${p.opened_at?holdT(p.opened_at):'—'}</td>
+      </tr>`;}).join('')}</tbody></table></div>`;
+  }
+
+  document.getElementById('closedCount').textContent=closed.length;
+  if(!closed.length){document.getElementById('closedTable').innerHTML='<div class="no-data">No closed trades yet</div>';}
+  else{
+    const closedCols=['Asset','Dir','Entry','Exit','P&L','P&L %','Reason','Held'];
+    document.getElementById('closedTable').innerHTML=`<div class="table-scroll"><table id="closedTbl">
+      <thead><tr>${closedCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('closedTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
+      <tbody>${closed.map(t=>`<tr>
+        <td><strong>${t.asset}</strong></td>
+        <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
+        <td>$${fmt(t.entry_price,t.entry_price<1?6:2)}</td>
+        <td>$${fmt(t.close_price,t.close_price<1?6:2)}</td>
+        <td class="${(t.pnl_usd||0)>=0?'positive':'negative'}">${fp(t.pnl_usd)}</td>
+        <td class="${(t.pnl_pct||0)>=0?'positive':'negative'}">${fpct(t.pnl_pct)}</td>
+        <td>${t.close_reason||'—'}</td>
+        <td>${t.hours_held?fmt(t.hours_held,1)+'h':'—'}</td>
+      </tr>`).join('')}</tbody></table></div>`;
+  }
+}
+
+function renderEfeAsVersion(){
+  const efe=DATA.live_account_efe; if(!efe)return;
+  const s=efe.stats||{}, pnl=efe.capital-(efe.initial_capital||50), pnlPct=pnl/(efe.initial_capital||50)*100;
+  const wr=s.total_trades>0?s.wins/s.total_trades*100:0;
+  const open=efe.open_positions||[], closed=efe.closed_trades||[];
+  const exposure=open.reduce((a,p)=>a+(p.size||0),0);
+  const ddPct=(s.max_drawdown||0)*100;
+
+  const stats=[
+    {l:'Capital',v:`$${fmt(efe.effective_capital||efe.capital)}`,c:pnl>=0?'positive':'negative',s:fpct(pnlPct)},
+    {l:'Total P&L',v:fp(s.total_pnl),c:(s.total_pnl||0)>=0?'positive':'negative'},
+    {l:'Win Rate',v:wr>0?`${fmt(wr,0)}%`:'—',c:wr>=50?'positive':wr>0?'negative':'dim',s:`${s.wins||0}W / ${s.losses||0}L`},
+    {l:'Trades',v:s.total_trades||0,c:'amber',s:`${open.length} open`},
+    {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
+    {l:'Leverage',v:'3x',c:'amber'},
+    {l:'Initial',v:`$${fmt(efe.initial_capital||50)}`,c:'dim'},
+    {l:'Signals',v:'87',c:'blue'},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
