@@ -197,7 +197,7 @@ function renderCompare(){
     html+=`<tr class="${isActive?'active-row':''}" style="cursor:pointer;border-top:2px solid #f97316" onclick="switchVersion('live')">
       <td><strong style="color:#f97316">V6 💰 <span style="font-size:9px">REAL</span></strong></td>
       <td>Live trading · 3x · Binance Futures · Started Feb 28</td>
-      <td>87</td>
+      <td>91</td>
       <td class="${lpnl>=0?'positive':'negative'}">$${fmt(live.effective_capital||live.capital)}</td>
       <td class="${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</td>
       <td>${ls.total_trades||0}</td>
@@ -214,7 +214,7 @@ function renderCompare(){
     html+=`<tr class="${isEfe?'active-row':''}" style="cursor:pointer;border-top:1px solid #a855f7" onclick="switchVersion('efe_live')">
       <td><strong style="color:#a855f7">EFE 💰 <span style="font-size:9px">REAL</span></strong></td>
       <td>Efe's live · 3x · Binance Futures · Started Feb 28</td>
-      <td>87</td>
+      <td>91</td>
       <td class="${epnl>=0?'positive':'negative'}">$${fmt(efe.effective_capital||efe.capital)}</td>
       <td class="${epnl>=0?'positive':'negative'}">${fp(epnl)}</td>
       <td>${es.total_trades||0}</td>
@@ -432,7 +432,7 @@ function renderLiveAsVersion(){
     {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(live.initial_capital||25)}`,c:'dim'},
-    {l:'Signals',v:'87',c:'blue'},
+    {l:'Signals',v:'91',c:'blue'},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
@@ -495,7 +495,7 @@ function renderEfeAsVersion(){
     {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(efe.initial_capital||50)}`,c:'dim'},
-    {l:'Signals',v:'87',c:'blue'},
+    {l:'Signals',v:'91',c:'blue'},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
