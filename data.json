@@ -3,10 +3,10 @@
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
   "capital": 1993.84,
-  "effective_capital": 1998.37,
-  "unrealized_pnl": 4.53,
+  "effective_capital": 2004.15,
+  "unrealized_pnl": 10.31,
   "peak_capital": 2010.08,
-  "updated_at": "2026-03-02T14:30:06Z",
+  "updated_at": "2026-03-02T15:00:07Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
     "total_trades": 4,
@@ -28,9 +28,9 @@
       "timeframe": "1d_yf",
       "filter": "none",
       "entry_price": 5273.0,
-      "current_price": 5335.24,
-      "unrealized_pnl": 9.09,
-      "pnl_pct": 1.18,
+      "current_price": 5333.92,
+      "unrealized_pnl": 8.9,
+      "pnl_pct": 1.16,
       "stop": 4997.88,
       "target": 5823.24,
       "stop_pct": 5.2,
@@ -55,9 +55,9 @@
       "timeframe": "1d_yf",
       "filter": "trend",
       "entry_price": 93.74,
-      "current_price": 89.63,
-      "unrealized_pnl": -12.47,
-      "pnl_pct": -4.38,
+      "current_price": 89.99,
+      "unrealized_pnl": -11.38,
+      "pnl_pct": -4.0,
       "stop": 80.4947,
       "target": 120.2307,
       "stop_pct": 14.1,
@@ -82,9 +82,9 @@
       "timeframe": "1d_yf",
       "filter": "trend",
       "entry_price": 136.85,
-      "current_price": 141.13,
-      "unrealized_pnl": 7.91,
-      "pnl_pct": 3.13,
+      "current_price": 143.77,
+      "unrealized_pnl": 12.79,
+      "pnl_pct": 5.06,
       "stop": 115.1,
       "target": 180.36,
       "stop_pct": 15.9,
@@ -392,6 +392,10 @@
     {
       "ts": "2026-03-02T14:00:00Z",
       "capital": 1998.37
+    },
+    {
+      "ts": "2026-03-02T15:00:00Z",
+      "capital": 2004.15
     }
   ],
   "versions": {
@@ -401,7 +405,7 @@
       "effective_capital": 3439.01,
       "n_signals": 31,
       "config": "",
-      "updated": "2026-03-02T14:30:06Z",
+      "updated": "2026-03-02T15:00:07Z",
       "stats": {
         "total_trades": 18,
         "wins": 12,
@@ -980,48 +984,30 @@
         {
           "ts": "2026-03-02T14:00:00Z",
           "equity": 3439.01
+        },
+        {
+          "ts": "2026-03-02T15:00:00Z",
+          "equity": 3439.01
         }
       ]
     },
     "v3": {
-      "capital": 3937.24,
+      "capital": 3712.06,
       "initial_capital": 2000,
-      "effective_capital": 3987.92,
+      "effective_capital": 3844.25,
       "n_signals": 62,
       "config": "",
-      "updated": "2026-03-02T14:30:09Z",
+      "updated": "2026-03-02T15:00:10Z",
       "stats": {
-        "total_trades": 43,
+        "total_trades": 44,
         "wins": 25,
-        "losses": 18,
-        "total_pnl": 1937.24,
+        "losses": 19,
+        "total_pnl": 1712.06,
         "max_drawdown": 11.3,
-        "largest_win": 350.07,
-        "largest_loss": -132.42
+        "largest_win": 330.05,
+        "largest_loss": -125.72
       },
       "open_positions": [
-        {
-          "asset": "TSLA_yf",
-          "direction": "LONG",
-          "signal_name": "TSLA_yf_1d_yf_bb_squeeze_long_long_121",
-          "signal_type": "bb_squeeze_long",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 417.399994,
-          "current_price": 391.15,
-          "unrealized_pnl": -94.22,
-          "position_size": 1498.18,
-          "stop_loss": 391.227134,
-          "take_profit": 469.745714,
-          "leverage": 2,
-          "sharpe": 2.82,
-          "wr": 67.7,
-          "n": 31,
-          "opened_at": "2026-02-25 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 120,
-          "risk_amount": 46.97
-        },
         {
           "asset": "Gold",
           "direction": "LONG",
@@ -1030,9 +1016,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5204.700195,
-          "current_price": 5336.95,
-          "unrealized_pnl": 26.15,
-          "position_size": 1029.04,
+          "current_price": 5327.41,
+          "unrealized_pnl": 23.03,
+          "position_size": 976.92,
           "stop_loss": 4788.107108,
           "take_profit": 6037.88637,
           "leverage": 2,
@@ -1042,7 +1028,7 @@
           "opened_at": "2026-02-23 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 480,
-          "risk_amount": 41.18
+          "risk_amount": 39.1
         },
         {
           "asset": "Gold",
@@ -1052,9 +1038,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5204.700195,
-          "current_price": 5336.95,
-          "unrealized_pnl": 39.22,
-          "position_size": 1543.56,
+          "current_price": 5327.41,
+          "unrealized_pnl": 34.55,
+          "position_size": 1465.38,
           "stop_loss": 4926.97147,
           "take_profit": 5760.157645,
           "leverage": 2,
@@ -1064,7 +1050,7 @@
           "opened_at": "2026-02-23 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 41.18
+          "risk_amount": 39.1
         },
         {
           "asset": "Gold",
@@ -1074,9 +1060,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5155.799805,
-          "current_price": 5336.95,
-          "unrealized_pnl": 41.44,
-          "position_size": 1179.55,
+          "current_price": 5327.41,
+          "unrealized_pnl": 37.27,
+          "position_size": 1119.8,
           "stop_loss": 4795.778251,
           "take_profit": 5875.842913,
           "leverage": 2,
@@ -1086,7 +1072,7 @@
           "opened_at": "2026-02-24 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 41.18
+          "risk_amount": 39.1
         },
         {
           "asset": "Silver",
@@ -1096,9 +1082,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 87.457001,
-          "current_price": 89.91,
-          "unrealized_pnl": 38.08,
-          "position_size": 1357.8,
+          "current_price": 89.99,
+          "unrealized_pnl": 37.33,
+          "position_size": 1289.02,
           "stop_loss": 78.140571,
           "take_profit": 106.089861,
           "leverage": 2,
@@ -1108,7 +1094,7 @@
           "opened_at": "2026-02-24 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 72.32
+          "risk_amount": 68.66
         }
       ],
       "closed_trades": [
@@ -1128,19 +1114,34 @@
           "position_size": 1435.36
         },
         {
+          "asset": "TSLA_yf",
+          "direction": "LONG",
+          "signal_type": "bb_squeeze_long",
+          "signal_name": "TSLA_yf_1d_yf_bb_squeeze_long_long_121",
+          "entry_price": 417.399994,
+          "close_price": 390.8349914550781,
+          "pnl": -95.14,
+          "pnl_pct": -6.4,
+          "close_reason": "stop",
+          "opened_at": "2026-02-25 00:00:00",
+          "closed_at": "2026-03-02 00:00:00",
+          "leverage": 2,
+          "position_size": 1498.18
+        },
+        {
           "asset": "Gold",
           "direction": "LONG",
           "signal_type": "stoch_oversold",
           "signal_name": "Gold_1d_yf_stoch_oversold_long_75",
           "entry_price": 4314.399902,
           "close_price": 4449.2998046875,
-          "pnl": 58.0,
+          "pnl": 55.06,
           "pnl_pct": 3.1,
           "close_reason": "expired",
           "opened_at": "2026-01-02 00:00:00",
           "closed_at": "2026-01-07 00:00:00",
           "leverage": 2,
-          "position_size": 1878.85
+          "position_size": 1783.71
         },
         {
           "asset": "Gold",
@@ -1149,13 +1150,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 4604.299805,
           "close_price": 4759.60009765625,
-          "pnl": 64.55,
+          "pnl": 61.29,
           "pnl_pct": 3.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -1164,13 +1165,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 4604.299805,
           "close_price": 4759.60009765625,
-          "pnl": 64.55,
+          "pnl": 61.29,
           "pnl_pct": 3.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -1179,13 +1180,13 @@
           "signal_name": "Gold_1d_yf_breakout_20_long_5",
           "entry_price": 4604.299805,
           "close_price": 4831.7998046875,
-          "pnl": 77.24,
+          "pnl": 73.33,
           "pnl_pct": 4.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -1194,13 +1195,13 @@
           "signal_name": "Gold_1d_yf_breakout_10_long_71",
           "entry_price": 4604.299805,
           "close_price": 4831.7998046875,
-          "pnl": 77.24,
+          "pnl": 73.33,
           "pnl_pct": 4.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -1209,13 +1210,13 @@
           "signal_name": "Gold_1d_yf_macd_bull_long_132",
           "entry_price": 4604.299805,
           "close_price": 4908.7998046875,
-          "pnl": 116.25,
+          "pnl": 110.36,
           "pnl_pct": 6.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-22 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -1224,13 +1225,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 4759.600098,
           "close_price": 4976.2001953125,
-          "pnl": 69.43,
+          "pnl": 65.91,
           "pnl_pct": 3.4,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 2065.95
+          "position_size": 1961.35
         },
         {
           "asset": "Gold",
@@ -1239,13 +1240,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 4759.600098,
           "close_price": 4976.2001953125,
-          "pnl": 69.43,
+          "pnl": 65.91,
           "pnl_pct": 3.4,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 2065.95
+          "position_size": 1961.35
         },
         {
           "asset": "Gold",
@@ -1254,13 +1255,13 @@
           "signal_name": "Gold_1d_yf_breakout_20_long_5",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -1269,13 +1270,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -1284,13 +1285,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -1299,13 +1300,13 @@
           "signal_name": "Gold_1d_yf_breakout_10_long_71",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -1314,13 +1315,13 @@
           "signal_name": "Gold_1d_yf_stoch_oversold_long_75",
           "entry_price": 4713.899902,
           "close_price": 4622.5,
-          "pnl": -116.51,
+          "pnl": -110.61,
           "pnl_pct": -5.4,
           "close_reason": "stop",
           "opened_at": "2026-01-30 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 2,
-          "position_size": 2164.27
+          "position_size": 2054.65
         },
         {
           "asset": "ETH",
@@ -1329,13 +1330,13 @@
           "signal_name": "ETH_1d_macd_bear_short_46",
           "entry_price": 2938.24,
           "close_price": 2815.49,
-          "pnl": 26.23,
+          "pnl": 24.9,
           "pnl_pct": 4.1,
           "close_reason": "expired",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-25 00:00:00",
           "leverage": 2,
-          "position_size": 646.52
+          "position_size": 613.77
         },
         {
           "asset": "BTC",
@@ -1344,13 +1345,13 @@
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 88390.6,
           "close_price": 84211.4,
-          "pnl": 164.2,
+          "pnl": 155.88,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-30 00:00:00",
           "leverage": 2,
-          "position_size": 2083.74
+          "position_size": 1978.2
         },
         {
           "asset": "AMZN_yf",
@@ -1359,13 +1360,13 @@
           "signal_name": "AMZN_yf_1d_yf_breakout_10_long_48",
           "entry_price": 240.929993,
           "close_price": 246.47000122070312,
-          "pnl": 52.97,
+          "pnl": 50.29,
           "pnl_pct": 2.2,
           "close_reason": "expired",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-12 00:00:00",
           "leverage": 2,
-          "position_size": 2386.86
+          "position_size": 2265.96
         },
         {
           "asset": "AMZN_yf",
@@ -1374,13 +1375,13 @@
           "signal_name": "AMZN_yf_1d_yf_breakout_20_long_101",
           "entry_price": 240.929993,
           "close_price": 231.0,
-          "pnl": -88.21,
+          "pnl": -83.74,
           "pnl_pct": -3.7,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 2386.86
+          "position_size": 2265.96
         },
         {
           "asset": "AMZN_yf",
@@ -1389,13 +1390,13 @@
           "signal_name": "AMZN_yf_1d_yf_macd_bull_long_19",
           "entry_price": 244.679993,
           "close_price": 232.99000549316406,
-          "pnl": -98.86,
+          "pnl": -93.85,
           "pnl_pct": -4.2,
           "close_reason": "stop",
           "opened_at": "2026-01-27 00:00:00",
           "closed_at": "2026-02-04 00:00:00",
           "leverage": 2,
-          "position_size": 2351.62
+          "position_size": 2232.51
         },
         {
           "asset": "AMZN_yf",
@@ -1404,13 +1405,13 @@
           "signal_name": "AMZN_yf_1d_yf_rsi_lt30_long_24",
           "entry_price": 210.320007,
           "close_price": 204.0800018310547,
-          "pnl": -43.59,
+          "pnl": -41.38,
           "pnl_pct": -3.0,
           "close_reason": "expired",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-11 00:00:00",
           "leverage": 2,
-          "position_size": 1430.65
+          "position_size": 1358.19
         },
         {
           "asset": "BNB",
@@ -1419,13 +1420,13 @@
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 884.71,
           "close_price": 859.11,
-          "pnl": 61.27,
+          "pnl": 58.17,
           "pnl_pct": 2.8,
           "close_reason": "expired",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-30 00:00:00",
           "leverage": 2,
-          "position_size": 2209.17
+          "position_size": 2097.28
         },
         {
           "asset": "ADA",
@@ -1434,13 +1435,13 @@
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.3754,
           "close_price": 0.3581,
-          "pnl": 84.92,
+          "pnl": 80.62,
           "pnl_pct": 4.5,
           "close_reason": "expired",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-28 00:00:00",
           "leverage": 2,
-          "position_size": 1892.03
+          "position_size": 1796.21
         },
         {
           "asset": "SOL",
@@ -1449,13 +1450,13 @@
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 133.38,
           "close_price": 118.76,
-          "pnl": 279.82,
+          "pnl": 265.65,
           "pnl_pct": 11.9,
           "close_reason": "target",
           "opened_at": "2026-01-19 00:00:00",
           "closed_at": "2026-01-25 00:00:00",
           "leverage": 2,
-          "position_size": 2355.36
+          "position_size": 2236.07
         },
         {
           "asset": "Silver",
@@ -1464,13 +1465,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 80.529999,
           "close_price": 74.71600341796875,
-          "pnl": -132.42,
+          "pnl": -125.72,
           "pnl_pct": -8.0,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-08 00:00:00",
           "leverage": 2,
-          "position_size": 1657.94
+          "position_size": 1573.97
         },
         {
           "asset": "Silver",
@@ -1479,13 +1480,13 @@
           "signal_name": "Silver_1d_yf_breakout_50_long_120",
           "entry_price": 80.529999,
           "close_price": 74.71600341796875,
-          "pnl": -132.42,
+          "pnl": -125.72,
           "pnl_pct": -8.0,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-08 00:00:00",
           "leverage": 2,
-          "position_size": 1657.94
+          "position_size": 1573.97
         },
         {
           "asset": "Silver",
@@ -1494,13 +1495,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 84.610001,
           "close_price": 94.20600128173828,
-          "pnl": 105.07,
+          "pnl": 99.74,
           "pnl_pct": 11.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 929.66
+          "position_size": 882.57
         },
         {
           "asset": "Silver",
@@ -1509,13 +1510,13 @@
           "signal_name": "Silver_1d_yf_breakout_50_long_120",
           "entry_price": 84.610001,
           "close_price": 100.92500305175781,
-          "pnl": 177.4,
+          "pnl": 168.42,
           "pnl_pct": 19.1,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 929.66
+          "position_size": 882.57
         },
         {
           "asset": "Silver",
@@ -1524,13 +1525,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 94.206001,
           "close_price": 115.08000183105469,
-          "pnl": 247.0,
+          "pnl": 234.49,
           "pnl_pct": 18.2,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-26 00:00:00",
           "leverage": 2,
-          "position_size": 1358.74
+          "position_size": 1289.91
         },
         {
           "asset": "Silver",
@@ -1539,13 +1540,13 @@
           "signal_name": "Silver_1d_yf_stoch_oversold_long_151",
           "entry_price": 78.290001,
           "close_price": 77.56500244140625,
-          "pnl": -7.0,
+          "pnl": -6.65,
           "pnl_pct": -1.0,
           "close_reason": "expired",
           "opened_at": "2026-01-30 00:00:00",
           "closed_at": "2026-02-19 00:00:00",
           "leverage": 2,
-          "position_size": 724.95
+          "position_size": 688.23
         },
         {
           "asset": "Silver",
@@ -1553,14 +1554,14 @@
           "signal_type": "breakout_10",
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 86.523003,
-          "close_price": 93.73999786376953,
-          "pnl": 100.66,
-          "pnl_pct": 8.3,
+          "close_price": 92.2699966430664,
+          "pnl": 76.0,
+          "pnl_pct": 6.6,
           "close_reason": "expired",
           "opened_at": "2026-02-23 00:00:00",
           "closed_at": "2026-03-02 00:00:00",
           "leverage": 2,
-          "position_size": 1212.62
+          "position_size": 1151.19
         },
         {
           "asset": "DOGE",
@@ -1569,13 +1570,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.12679,
           "close_price": 0.14181,
-          "pnl": -46.7,
+          "pnl": -44.03,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-01-01 00:00:00",
           "closed_at": "2026-01-02 00:00:00",
           "leverage": 1,
-          "position_size": 1496.73
+          "position_size": 1411.14
         },
         {
           "asset": "DOGE",
@@ -1584,13 +1585,13 @@
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.13781,
           "close_price": 0.12909,
-          "pnl": 350.07,
+          "pnl": 330.05,
           "pnl_pct": 11.9,
           "close_reason": "target",
           "opened_at": "2026-01-17 00:00:00",
           "closed_at": "2026-01-19 00:00:00",
           "leverage": 2,
-          "position_size": 2946.77
+          "position_size": 2778.25
         },
         {
           "asset": "DOGE",
@@ -1599,13 +1600,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.13156,
           "close_price": 0.12909,
-          "pnl": 130.83,
+          "pnl": 123.35,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-19 00:00:00",
           "leverage": 1,
-          "position_size": 1473.38
+          "position_size": 1389.12
         },
         {
           "asset": "DOGE",
@@ -1614,13 +1615,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.12909,
           "close_price": 0.1172,
-          "pnl": 152.19,
+          "pnl": 143.48,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-19 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 1,
-          "position_size": 1713.83
+          "position_size": 1615.82
         },
         {
           "asset": "DOGE",
@@ -1629,13 +1630,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.1172,
           "close_price": 0.10417,
-          "pnl": 158.95,
+          "pnl": 149.86,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-29 00:00:00",
           "closed_at": "2026-01-31 00:00:00",
           "leverage": 1,
-          "position_size": 1789.93
+          "position_size": 1687.56
         },
         {
           "asset": "DOGE",
@@ -1644,13 +1645,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10417,
           "close_price": 0.10785,
-          "pnl": -58.32,
+          "pnl": -54.99,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-01-31 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 1,
-          "position_size": 1869.4
+          "position_size": 1762.5
         },
         {
           "asset": "DOGE",
@@ -1659,13 +1660,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10785,
           "close_price": 0.08841,
-          "pnl": 163.4,
+          "pnl": 154.06,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-02 00:00:00",
           "closed_at": "2026-02-05 00:00:00",
           "leverage": 1,
-          "position_size": 1840.24
+          "position_size": 1735.0
         },
         {
           "asset": "DOGE",
@@ -1674,13 +1675,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.08841,
           "close_price": 0.09842,
-          "pnl": -59.96,
+          "pnl": -56.53,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-05 00:00:00",
           "closed_at": "2026-02-06 00:00:00",
           "leverage": 1,
-          "position_size": 1921.94
+          "position_size": 1812.03
         },
         {
           "asset": "DOGE",
@@ -1689,13 +1690,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09842,
           "close_price": 0.09107,
-          "pnl": 168.01,
+          "pnl": 158.4,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-11 00:00:00",
           "leverage": 1,
-          "position_size": 1891.96
+          "position_size": 1783.76
         },
         {
           "asset": "DOGE",
@@ -1704,13 +1705,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09107,
           "close_price": 0.09296,
-          "pnl": -61.65,
+          "pnl": -58.12,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-11 00:00:00",
           "closed_at": "2026-02-12 00:00:00",
           "leverage": 1,
-          "position_size": 1975.97
+          "position_size": 1862.96
         },
         {
           "asset": "DOGE",
@@ -1719,13 +1720,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09296,
           "close_price": 0.09663,
-          "pnl": -60.69,
+          "pnl": -57.22,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-12 00:00:00",
           "closed_at": "2026-02-13 00:00:00",
           "leverage": 1,
-          "position_size": 1945.14
+          "position_size": 1833.91
         },
         {
           "asset": "DOGE",
@@ -1734,13 +1735,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09663,
           "close_price": 0.11099,
-          "pnl": -59.74,
+          "pnl": -56.33,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-13 00:00:00",
           "closed_at": "2026-02-14 00:00:00",
           "leverage": 1,
-          "position_size": 1914.8
+          "position_size": 1805.3
         },
         {
           "asset": "DOGE",
@@ -1749,13 +1750,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10097,
           "close_price": 0.09263,
-          "pnl": 167.38,
+          "pnl": 157.8,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-16 00:00:00",
           "closed_at": "2026-02-23 00:00:00",
           "leverage": 1,
-          "position_size": 1884.93
+          "position_size": 1777.13
         }
       ],
       "equity_curve": [
@@ -2150,48 +2151,30 @@
         {
           "ts": "2026-03-02T14:00:00Z",
           "equity": 3987.92
+        },
+        {
+          "ts": "2026-03-02T15:00:00Z",
+          "equity": 3844.25
         }
       ]
     },
     "v4": {
-      "capital": 5098.01,
+      "capital": 4806.47,
       "initial_capital": 2000,
-      "effective_capital": 5331.46,
+      "effective_capital": 4985.0,
       "n_signals": 87,
       "config": "",
-      "updated": "2026-03-02T14:30:15Z",
+      "updated": "2026-03-02T15:00:16Z",
       "stats": {
-        "total_trades": 58,
+        "total_trades": 59,
         "wins": 33,
-        "losses": 25,
-        "total_pnl": 3098.01,
+        "losses": 26,
+        "total_pnl": 2806.47,
         "max_drawdown": 11.9,
-        "largest_win": 388.38,
-        "largest_loss": -219.06
+        "largest_win": 366.17,
+        "largest_loss": -206.54
       },
       "open_positions": [
-        {
-          "asset": "TSLA_yf",
-          "direction": "LONG",
-          "signal_name": "TSLA_yf_1d_yf_bb_squeeze_long_long_121",
-          "signal_type": "bb_squeeze_long",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 417.399994,
-          "current_price": 390.94,
-          "unrealized_pnl": -94.97,
-          "position_size": 1498.18,
-          "stop_loss": 391.227134,
-          "take_profit": 469.745714,
-          "leverage": 2,
-          "sharpe": 2.82,
-          "wr": 67.7,
-          "n": 31,
-          "opened_at": "2026-02-25 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 120,
-          "risk_amount": 46.97
-        },
         {
           "asset": "Gold",
           "direction": "LONG",
@@ -2200,9 +2183,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5204.700195,
-          "current_price": 5336.95,
-          "unrealized_pnl": 26.15,
-          "position_size": 1029.04,
+          "current_price": 5330.49,
+          "unrealized_pnl": 23.61,
+          "position_size": 976.92,
           "stop_loss": 4788.107108,
           "take_profit": 6037.88637,
           "leverage": 2,
@@ -2212,7 +2195,7 @@
           "opened_at": "2026-02-23 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 480,
-          "risk_amount": 41.18
+          "risk_amount": 39.1
         },
         {
           "asset": "Gold",
@@ -2222,9 +2205,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5204.700195,
-          "current_price": 5336.95,
-          "unrealized_pnl": 39.22,
-          "position_size": 1543.56,
+          "current_price": 5330.49,
+          "unrealized_pnl": 35.42,
+          "position_size": 1465.38,
           "stop_loss": 4926.97147,
           "take_profit": 5760.157645,
           "leverage": 2,
@@ -2234,7 +2217,7 @@
           "opened_at": "2026-02-23 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 41.18
+          "risk_amount": 39.1
         },
         {
           "asset": "Gold",
@@ -2244,9 +2227,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5155.799805,
-          "current_price": 5336.95,
-          "unrealized_pnl": 41.44,
-          "position_size": 1179.55,
+          "current_price": 5330.49,
+          "unrealized_pnl": 37.94,
+          "position_size": 1119.8,
           "stop_loss": 4795.778251,
           "take_profit": 5875.842913,
           "leverage": 2,
@@ -2256,7 +2239,7 @@
           "opened_at": "2026-02-24 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 41.18
+          "risk_amount": 39.1
         },
         {
           "asset": "Silver",
@@ -2266,9 +2249,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 87.457001,
-          "current_price": 89.91,
-          "unrealized_pnl": 38.08,
-          "position_size": 1357.8,
+          "current_price": 89.86,
+          "unrealized_pnl": 35.42,
+          "position_size": 1289.02,
           "stop_loss": 78.140571,
           "take_profit": 106.089861,
           "leverage": 2,
@@ -2278,7 +2261,7 @@
           "opened_at": "2026-02-24 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 72.32
+          "risk_amount": 68.66
         },
         {
           "asset": "CRV",
@@ -2288,9 +2271,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.25,
-          "current_price": 0.241,
-          "unrealized_pnl": 183.53,
-          "position_size": 5098.01,
+          "current_price": 0.2476,
+          "unrealized_pnl": 46.14,
+          "position_size": 4806.47,
           "stop_loss": 0.26,
           "take_profit": 0.23,
           "leverage": 2,
@@ -2300,7 +2283,7 @@
           "opened_at": "2026-02-28 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 480,
-          "risk_amount": 127.45
+          "risk_amount": 120.16
         }
       ],
       "closed_trades": [
@@ -2320,19 +2303,34 @@
           "position_size": 1435.36
         },
         {
+          "asset": "TSLA_yf",
+          "direction": "LONG",
+          "signal_type": "bb_squeeze_long",
+          "signal_name": "TSLA_yf_1d_yf_bb_squeeze_long_long_121",
+          "entry_price": 417.399994,
+          "close_price": 390.8349914550781,
+          "pnl": -95.14,
+          "pnl_pct": -6.4,
+          "close_reason": "stop",
+          "opened_at": "2026-02-25 00:00:00",
+          "closed_at": "2026-03-02 00:00:00",
+          "leverage": 2,
+          "position_size": 1498.18
+        },
+        {
           "asset": "Gold",
           "direction": "LONG",
           "signal_type": "stoch_oversold",
           "signal_name": "Gold_1d_yf_stoch_oversold_long_75",
           "entry_price": 4314.399902,
           "close_price": 4449.2998046875,
-          "pnl": 58.0,
+          "pnl": 55.06,
           "pnl_pct": 3.1,
           "close_reason": "expired",
           "opened_at": "2026-01-02 00:00:00",
           "closed_at": "2026-01-07 00:00:00",
           "leverage": 2,
-          "position_size": 1878.85
+          "position_size": 1783.71
         },
         {
           "asset": "Gold",
@@ -2341,13 +2339,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 4604.299805,
           "close_price": 4759.60009765625,
-          "pnl": 64.55,
+          "pnl": 61.29,
           "pnl_pct": 3.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -2356,13 +2354,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 4604.299805,
           "close_price": 4759.60009765625,
-          "pnl": 64.55,
+          "pnl": 61.29,
           "pnl_pct": 3.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -2371,13 +2369,13 @@
           "signal_name": "Gold_1d_yf_breakout_20_long_5",
           "entry_price": 4604.299805,
           "close_price": 4831.7998046875,
-          "pnl": 77.24,
+          "pnl": 73.33,
           "pnl_pct": 4.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -2386,13 +2384,13 @@
           "signal_name": "Gold_1d_yf_breakout_10_long_71",
           "entry_price": 4604.299805,
           "close_price": 4831.7998046875,
-          "pnl": 77.24,
+          "pnl": 73.33,
           "pnl_pct": 4.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -2401,13 +2399,13 @@
           "signal_name": "Gold_1d_yf_macd_bull_long_132",
           "entry_price": 4604.299805,
           "close_price": 4908.7998046875,
-          "pnl": 116.25,
+          "pnl": 110.36,
           "pnl_pct": 6.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-22 00:00:00",
           "leverage": 2,
-          "position_size": 1936.85
+          "position_size": 1838.77
         },
         {
           "asset": "Gold",
@@ -2416,13 +2414,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 4759.600098,
           "close_price": 4976.2001953125,
-          "pnl": 69.43,
+          "pnl": 65.91,
           "pnl_pct": 3.4,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 2065.95
+          "position_size": 1961.35
         },
         {
           "asset": "Gold",
@@ -2431,13 +2429,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 4759.600098,
           "close_price": 4976.2001953125,
-          "pnl": 69.43,
+          "pnl": 65.91,
           "pnl_pct": 3.4,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 2065.95
+          "position_size": 1961.35
         },
         {
           "asset": "Gold",
@@ -2446,13 +2444,13 @@
           "signal_name": "Gold_1d_yf_breakout_20_long_5",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -2461,13 +2459,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -2476,13 +2474,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -2491,13 +2489,13 @@
           "signal_name": "Gold_1d_yf_breakout_10_long_71",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -40.65,
+          "pnl": -38.6,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 2,
-          "position_size": 2475.54
+          "position_size": 2350.19
         },
         {
           "asset": "Gold",
@@ -2506,13 +2504,13 @@
           "signal_name": "Gold_1d_yf_stoch_oversold_long_75",
           "entry_price": 4713.899902,
           "close_price": 4622.5,
-          "pnl": -116.51,
+          "pnl": -110.61,
           "pnl_pct": -5.4,
           "close_reason": "stop",
           "opened_at": "2026-01-30 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 2,
-          "position_size": 2164.27
+          "position_size": 2054.65
         },
         {
           "asset": "ETH",
@@ -2521,13 +2519,13 @@
           "signal_name": "ETH_1d_macd_bear_short_46",
           "entry_price": 2938.24,
           "close_price": 2815.49,
-          "pnl": 26.23,
+          "pnl": 24.9,
           "pnl_pct": 4.1,
           "close_reason": "expired",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-25 00:00:00",
           "leverage": 2,
-          "position_size": 646.52
+          "position_size": 613.77
         },
         {
           "asset": "BTC",
@@ -2536,13 +2534,13 @@
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 88390.6,
           "close_price": 84211.4,
-          "pnl": 164.2,
+          "pnl": 155.88,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-30 00:00:00",
           "leverage": 2,
-          "position_size": 2083.74
+          "position_size": 1978.2
         },
         {
           "asset": "AMZN_yf",
@@ -2551,13 +2549,13 @@
           "signal_name": "AMZN_yf_1d_yf_breakout_10_long_48",
           "entry_price": 240.929993,
           "close_price": 246.47000122070312,
-          "pnl": 52.97,
+          "pnl": 50.29,
           "pnl_pct": 2.2,
           "close_reason": "expired",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-12 00:00:00",
           "leverage": 2,
-          "position_size": 2386.86
+          "position_size": 2265.96
         },
         {
           "asset": "AMZN_yf",
@@ -2566,13 +2564,13 @@
           "signal_name": "AMZN_yf_1d_yf_breakout_20_long_101",
           "entry_price": 240.929993,
           "close_price": 231.0,
-          "pnl": -88.21,
+          "pnl": -83.74,
           "pnl_pct": -3.7,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 2386.86
+          "position_size": 2265.96
         },
         {
           "asset": "AMZN_yf",
@@ -2581,13 +2579,13 @@
           "signal_name": "AMZN_yf_1d_yf_macd_bull_long_19",
           "entry_price": 244.679993,
           "close_price": 232.99000549316406,
-          "pnl": -98.86,
+          "pnl": -93.85,
           "pnl_pct": -4.2,
           "close_reason": "stop",
           "opened_at": "2026-01-27 00:00:00",
           "closed_at": "2026-02-04 00:00:00",
           "leverage": 2,
-          "position_size": 2351.62
+          "position_size": 2232.51
         },
         {
           "asset": "AMZN_yf",
@@ -2596,13 +2594,13 @@
           "signal_name": "AMZN_yf_1d_yf_rsi_lt30_long_24",
           "entry_price": 210.320007,
           "close_price": 204.0800018310547,
-          "pnl": -43.59,
+          "pnl": -41.38,
           "pnl_pct": -3.0,
           "close_reason": "expired",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-11 00:00:00",
           "leverage": 2,
-          "position_size": 1430.65
+          "position_size": 1358.19
         },
         {
           "asset": "BNB",
@@ -2611,13 +2609,13 @@
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 884.71,
           "close_price": 859.11,
-          "pnl": 61.27,
+          "pnl": 58.17,
           "pnl_pct": 2.8,
           "close_reason": "expired",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-30 00:00:00",
           "leverage": 2,
-          "position_size": 2209.17
+          "position_size": 2097.28
         },
         {
           "asset": "ADA",
@@ -2626,13 +2624,13 @@
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.3754,
           "close_price": 0.3581,
-          "pnl": 84.92,
+          "pnl": 80.62,
           "pnl_pct": 4.5,
           "close_reason": "expired",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-28 00:00:00",
           "leverage": 2,
-          "position_size": 1892.03
+          "position_size": 1796.21
         },
         {
           "asset": "SOL",
@@ -2641,13 +2639,13 @@
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 133.38,
           "close_price": 118.76,
-          "pnl": 279.82,
+          "pnl": 265.65,
           "pnl_pct": 11.9,
           "close_reason": "target",
           "opened_at": "2026-01-19 00:00:00",
           "closed_at": "2026-01-25 00:00:00",
           "leverage": 2,
-          "position_size": 2355.36
+          "position_size": 2236.07
         },
         {
           "asset": "Silver",
@@ -2656,13 +2654,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 80.529999,
           "close_price": 74.71600341796875,
-          "pnl": -132.42,
+          "pnl": -125.72,
           "pnl_pct": -8.0,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-08 00:00:00",
           "leverage": 2,
-          "position_size": 1657.94
+          "position_size": 1573.97
         },
         {
           "asset": "Silver",
@@ -2671,13 +2669,13 @@
           "signal_name": "Silver_1d_yf_breakout_50_long_120",
           "entry_price": 80.529999,
           "close_price": 74.71600341796875,
-          "pnl": -132.42,
+          "pnl": -125.72,
           "pnl_pct": -8.0,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-08 00:00:00",
           "leverage": 2,
-          "position_size": 1657.94
+          "position_size": 1573.97
         },
         {
           "asset": "Silver",
@@ -2686,13 +2684,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 84.610001,
           "close_price": 94.20600128173828,
-          "pnl": 105.07,
+          "pnl": 99.74,
           "pnl_pct": 11.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 2,
-          "position_size": 929.66
+          "position_size": 882.57
         },
         {
           "asset": "Silver",
@@ -2701,13 +2699,13 @@
           "signal_name": "Silver_1d_yf_breakout_50_long_120",
           "entry_price": 84.610001,
           "close_price": 100.92500305175781,
-          "pnl": 177.4,
+          "pnl": 168.42,
           "pnl_pct": 19.1,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 929.66
+          "position_size": 882.57
         },
         {
           "asset": "Silver",
@@ -2716,13 +2714,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 94.206001,
           "close_price": 115.08000183105469,
-          "pnl": 247.0,
+          "pnl": 234.49,
           "pnl_pct": 18.2,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-26 00:00:00",
           "leverage": 2,
-          "position_size": 1358.74
+          "position_size": 1289.91
         },
         {
           "asset": "Silver",
@@ -2731,13 +2729,13 @@
           "signal_name": "Silver_1d_yf_stoch_oversold_long_151",
           "entry_price": 78.290001,
           "close_price": 77.56500244140625,
-          "pnl": -7.0,
+          "pnl": -6.65,
           "pnl_pct": -1.0,
           "close_reason": "expired",
           "opened_at": "2026-01-30 00:00:00",
           "closed_at": "2026-02-19 00:00:00",
           "leverage": 2,
-          "position_size": 724.95
+          "position_size": 688.23
         },
         {
           "asset": "Silver",
@@ -2745,14 +2743,14 @@
           "signal_type": "breakout_10",
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 86.523003,
-          "close_price": 93.73999786376953,
-          "pnl": 100.66,
-          "pnl_pct": 8.3,
+          "close_price": 92.2699966430664,
+          "pnl": 76.0,
+          "pnl_pct": 6.6,
           "close_reason": "expired",
           "opened_at": "2026-02-23 00:00:00",
           "closed_at": "2026-03-02 00:00:00",
           "leverage": 2,
-          "position_size": 1212.62
+          "position_size": 1151.19
         },
         {
           "asset": "TIA",
@@ -2761,13 +2759,13 @@
           "signal_name": "TIA_1d_stoch_ob_cross_short_202",
           "entry_price": 0.5303,
           "close_price": 0.5736,
-          "pnl": -183.2,
+          "pnl": -172.72,
           "pnl_pct": -6.1,
           "close_reason": "stop",
           "opened_at": "2026-01-03 00:00:00",
           "closed_at": "2026-01-04 00:00:00",
           "leverage": 2,
-          "position_size": 2993.47
+          "position_size": 2822.28
         },
         {
           "asset": "TIA",
@@ -2776,13 +2774,13 @@
           "signal_name": "TIA_1d_stoch_ob_cross_short_202",
           "entry_price": 0.59,
           "close_price": 0.5467,
-          "pnl": 202.87,
+          "pnl": 191.27,
           "pnl_pct": 7.2,
           "close_reason": "expired",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-11 00:00:00",
           "leverage": 2,
-          "position_size": 2810.27
+          "position_size": 2649.56
         },
         {
           "asset": "DOGE",
@@ -2791,13 +2789,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.12679,
           "close_price": 0.14181,
-          "pnl": -47.01,
+          "pnl": -44.32,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-01-01 00:00:00",
           "closed_at": "2026-01-02 00:00:00",
           "leverage": 1,
-          "position_size": 1506.57
+          "position_size": 1420.42
         },
         {
           "asset": "DOGE",
@@ -2806,13 +2804,13 @@
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.13781,
           "close_price": 0.12909,
-          "pnl": 352.37,
+          "pnl": 332.22,
           "pnl_pct": 11.9,
           "close_reason": "target",
           "opened_at": "2026-01-17 00:00:00",
           "closed_at": "2026-01-19 00:00:00",
           "leverage": 2,
-          "position_size": 2966.13
+          "position_size": 2796.51
         },
         {
           "asset": "DOGE",
@@ -2821,13 +2819,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.13156,
           "close_price": 0.12909,
-          "pnl": 131.69,
+          "pnl": 124.16,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-19 00:00:00",
           "leverage": 1,
-          "position_size": 1483.06
+          "position_size": 1398.26
         },
         {
           "asset": "DOGE",
@@ -2836,13 +2834,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.12909,
           "close_price": 0.1172,
-          "pnl": 153.19,
+          "pnl": 144.43,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-19 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 1,
-          "position_size": 1725.09
+          "position_size": 1626.45
         },
         {
           "asset": "DOGE",
@@ -2851,13 +2849,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.1172,
           "close_price": 0.10417,
-          "pnl": 159.99,
+          "pnl": 150.84,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-29 00:00:00",
           "closed_at": "2026-01-31 00:00:00",
           "leverage": 1,
-          "position_size": 1801.69
+          "position_size": 1698.66
         },
         {
           "asset": "DOGE",
@@ -2866,13 +2864,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10417,
           "close_price": 0.10785,
-          "pnl": -58.71,
+          "pnl": -55.35,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-01-31 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 1,
-          "position_size": 1881.68
+          "position_size": 1774.08
         },
         {
           "asset": "DOGE",
@@ -2881,13 +2879,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10785,
           "close_price": 0.08841,
-          "pnl": 164.48,
+          "pnl": 155.07,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-02 00:00:00",
           "closed_at": "2026-02-05 00:00:00",
           "leverage": 1,
-          "position_size": 1852.33
+          "position_size": 1746.41
         },
         {
           "asset": "DOGE",
@@ -2896,13 +2894,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.08841,
           "close_price": 0.09842,
-          "pnl": -60.35,
+          "pnl": -56.9,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-05 00:00:00",
           "closed_at": "2026-02-06 00:00:00",
           "leverage": 1,
-          "position_size": 1934.57
+          "position_size": 1823.94
         },
         {
           "asset": "DOGE",
@@ -2911,13 +2909,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09842,
           "close_price": 0.09107,
-          "pnl": 169.11,
+          "pnl": 159.44,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-11 00:00:00",
           "leverage": 1,
-          "position_size": 1904.39
+          "position_size": 1795.49
         },
         {
           "asset": "DOGE",
@@ -2926,13 +2924,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09107,
           "close_price": 0.09296,
-          "pnl": -62.05,
+          "pnl": -58.5,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-11 00:00:00",
           "closed_at": "2026-02-12 00:00:00",
           "leverage": 1,
-          "position_size": 1988.95
+          "position_size": 1875.21
         },
         {
           "asset": "DOGE",
@@ -2941,13 +2939,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09296,
           "close_price": 0.09663,
-          "pnl": -61.09,
+          "pnl": -57.6,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-12 00:00:00",
           "closed_at": "2026-02-13 00:00:00",
           "leverage": 1,
-          "position_size": 1957.92
+          "position_size": 1845.96
         },
         {
           "asset": "DOGE",
@@ -2956,13 +2954,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09663,
           "close_price": 0.11099,
-          "pnl": -60.14,
+          "pnl": -56.7,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-13 00:00:00",
           "closed_at": "2026-02-14 00:00:00",
           "leverage": 1,
-          "position_size": 1927.38
+          "position_size": 1817.16
         },
         {
           "asset": "DOGE",
@@ -2971,13 +2969,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10097,
           "close_price": 0.09263,
-          "pnl": 168.48,
+          "pnl": 158.84,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-16 00:00:00",
           "closed_at": "2026-02-23 00:00:00",
           "leverage": 1,
-          "position_size": 1897.31
+          "position_size": 1788.81
         },
         {
           "asset": "SEI",
@@ -2986,13 +2984,13 @@
           "signal_name": "SEI_1d_macd_bear_short_207",
           "entry_price": 0.1144,
           "close_price": 0.1067,
-          "pnl": 261.99,
+          "pnl": 247.01,
           "pnl_pct": 6.6,
           "close_reason": "expired",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 2,
-          "position_size": 3963.1
+          "position_size": 3736.46
         },
         {
           "asset": "AAVE",
@@ -3001,13 +2999,13 @@
           "signal_name": "AAVE_1d_macd_bear_short_217",
           "entry_price": 153.2,
           "close_price": 159.38,
-          "pnl": -215.48,
+          "pnl": -203.16,
           "pnl_pct": -6.1,
           "close_reason": "stop",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 2,
-          "position_size": 3520.91
+          "position_size": 3319.56
         },
         {
           "asset": "CRV",
@@ -3016,13 +3014,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.33,
           "close_price": 0.289,
-          "pnl": 315.96,
+          "pnl": 297.89,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-29 00:00:00",
           "closed_at": "2026-01-31 00:00:00",
           "leverage": 2,
-          "position_size": 4009.61
+          "position_size": 3780.31
         },
         {
           "asset": "CRV",
@@ -3031,13 +3029,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.289,
           "close_price": 0.287,
-          "pnl": 340.85,
+          "pnl": 321.36,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-31 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 2,
-          "position_size": 4325.57
+          "position_size": 4078.2
         },
         {
           "asset": "CRV",
@@ -3046,13 +3044,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.287,
           "close_price": 0.231,
-          "pnl": 367.71,
+          "pnl": 346.69,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-02 00:00:00",
           "closed_at": "2026-02-05 00:00:00",
           "leverage": 2,
-          "position_size": 4666.42
+          "position_size": 4399.56
         },
         {
           "asset": "CRV",
@@ -3061,13 +3059,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.231,
           "close_price": 0.258,
-          "pnl": -207.41,
+          "pnl": -195.55,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-05 00:00:00",
           "closed_at": "2026-02-06 00:00:00",
           "leverage": 2,
-          "position_size": 5034.13
+          "position_size": 4746.25
         },
         {
           "asset": "CRV",
@@ -3076,13 +3074,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.258,
           "close_price": 0.233,
-          "pnl": 380.35,
+          "pnl": 358.6,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-10 00:00:00",
           "leverage": 2,
-          "position_size": 4826.72
+          "position_size": 4550.7
         },
         {
           "asset": "CRV",
@@ -3091,13 +3089,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.233,
           "close_price": 0.238,
-          "pnl": -214.53,
+          "pnl": -202.26,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-10 00:00:00",
           "closed_at": "2026-02-12 00:00:00",
           "leverage": 2,
-          "position_size": 5207.07
+          "position_size": 4909.3
         },
         {
           "asset": "CRV",
@@ -3106,13 +3104,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.238,
           "close_price": 0.251,
-          "pnl": -205.69,
+          "pnl": -193.93,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-12 00:00:00",
           "closed_at": "2026-02-13 00:00:00",
           "leverage": 2,
-          "position_size": 4992.54
+          "position_size": 4707.04
         },
         {
           "asset": "CRV",
@@ -3121,13 +3119,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.251,
           "close_price": 0.265,
-          "pnl": -197.22,
+          "pnl": -185.94,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-13 00:00:00",
           "closed_at": "2026-02-14 00:00:00",
           "leverage": 2,
-          "position_size": 4786.85
+          "position_size": 4513.11
         },
         {
           "asset": "CRV",
@@ -3136,13 +3134,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.265,
           "close_price": 0.243,
-          "pnl": 339.06,
+          "pnl": 319.67,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-14 00:00:00",
           "closed_at": "2026-02-18 00:00:00",
           "leverage": 2,
-          "position_size": 4302.78
+          "position_size": 4056.72
         },
         {
           "asset": "CRV",
@@ -3151,13 +3149,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.243,
           "close_price": 0.222,
-          "pnl": 388.38,
+          "pnl": 366.17,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-18 00:00:00",
           "closed_at": "2026-02-23 00:00:00",
           "leverage": 2,
-          "position_size": 4928.69
+          "position_size": 4646.84
         },
         {
           "asset": "CRV",
@@ -3166,13 +3164,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.222,
           "close_price": 0.253,
-          "pnl": -219.06,
+          "pnl": -206.54,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-23 00:00:00",
           "closed_at": "2026-02-25 00:00:00",
           "leverage": 2,
-          "position_size": 5317.07
+          "position_size": 5013.01
         }
       ],
       "equity_curve": [
@@ -3627,48 +3625,30 @@
         {
           "ts": "2026-03-02T14:00:00Z",
           "equity": 5331.46
+        },
+        {
+          "ts": "2026-03-02T15:00:00Z",
+          "equity": 4985.0
         }
       ]
     },
     "v6": {
-      "capital": 9258.45,
+      "capital": 8468.31,
       "initial_capital": 2000,
-      "effective_capital": 9839.91,
+      "effective_capital": 8784.24,
       "n_signals": 87,
       "config": "",
-      "updated": "2026-03-02T14:30:20Z",
+      "updated": "2026-03-02T15:00:21Z",
       "stats": {
-        "total_trades": 58,
+        "total_trades": 59,
         "wins": 33,
-        "losses": 25,
-        "total_pnl": 7258.45,
+        "losses": 26,
+        "total_pnl": 6468.31,
         "max_drawdown": 17.1,
-        "largest_win": 1043.14,
-        "largest_loss": -609.86
+        "largest_win": 954.11,
+        "largest_loss": -557.82
       },
       "open_positions": [
-        {
-          "asset": "TSLA_yf",
-          "direction": "LONG",
-          "signal_name": "TSLA_yf_1d_yf_bb_squeeze_long_long_121",
-          "signal_type": "bb_squeeze_long",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 417.399994,
-          "current_price": 390.97,
-          "unrealized_pnl": -137.71,
-          "position_size": 2174.82,
-          "stop_loss": 391.227134,
-          "take_profit": 469.745714,
-          "leverage": 3,
-          "sharpe": 2.82,
-          "wr": 67.7,
-          "n": 31,
-          "opened_at": "2026-02-25 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 120,
-          "risk_amount": 45.46
-        },
         {
           "asset": "Gold",
           "direction": "LONG",
@@ -3677,9 +3657,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5204.700195,
-          "current_price": 5336.47,
-          "unrealized_pnl": 40.07,
-          "position_size": 1582.74,
+          "current_price": 5328.55,
+          "unrealized_pnl": 34.8,
+          "position_size": 1462.52,
           "stop_loss": 4788.107108,
           "take_profit": 6037.88637,
           "leverage": 3,
@@ -3689,7 +3669,7 @@
           "opened_at": "2026-02-23 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 480,
-          "risk_amount": 42.23
+          "risk_amount": 39.02
         },
         {
           "asset": "Gold",
@@ -3699,9 +3679,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5204.700195,
-          "current_price": 5336.47,
-          "unrealized_pnl": 60.11,
-          "position_size": 2374.11,
+          "current_price": 5328.55,
+          "unrealized_pnl": 52.2,
+          "position_size": 2193.78,
           "stop_loss": 4926.97147,
           "take_profit": 5760.157645,
           "leverage": 3,
@@ -3711,7 +3691,7 @@
           "opened_at": "2026-02-23 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 42.23
+          "risk_amount": 39.02
         },
         {
           "asset": "Gold",
@@ -3721,9 +3701,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 5155.799805,
-          "current_price": 5336.47,
-          "unrealized_pnl": 63.57,
-          "position_size": 1814.23,
+          "current_price": 5328.55,
+          "unrealized_pnl": 56.17,
+          "position_size": 1676.43,
           "stop_loss": 4795.778251,
           "take_profit": 5875.842913,
           "leverage": 3,
@@ -3733,7 +3713,7 @@
           "opened_at": "2026-02-24 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 42.23
+          "risk_amount": 39.02
         },
         {
           "asset": "Silver",
@@ -3743,9 +3723,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 87.457001,
-          "current_price": 89.75,
-          "unrealized_pnl": 61.02,
-          "position_size": 2327.29,
+          "current_price": 89.73,
+          "unrealized_pnl": 55.89,
+          "position_size": 2150.5,
           "stop_loss": 78.140571,
           "take_profit": 106.089861,
           "leverage": 3,
@@ -3755,7 +3735,7 @@
           "opened_at": "2026-02-24 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 240,
-          "risk_amount": 82.64
+          "risk_amount": 76.36
         },
         {
           "asset": "CRV",
@@ -3765,9 +3745,9 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.25,
-          "current_price": 0.2411,
-          "unrealized_pnl": 494.4,
-          "position_size": 13887.68,
+          "current_price": 0.2477,
+          "unrealized_pnl": 116.86,
+          "position_size": 12702.47,
           "stop_loss": 0.26,
           "take_profit": 0.23,
           "leverage": 3,
@@ -3777,7 +3757,7 @@
           "opened_at": "2026-02-28 00:00:00",
           "rr_ratio": 2.0,
           "hold_max_hours": 480,
-          "risk_amount": 231.46
+          "risk_amount": 211.71
         }
       ],
       "closed_trades": [
@@ -3797,19 +3777,34 @@
           "position_size": 2153.04
         },
         {
+          "asset": "TSLA_yf",
+          "direction": "LONG",
+          "signal_type": "bb_squeeze_long",
+          "signal_name": "TSLA_yf_1d_yf_bb_squeeze_long_long_121",
+          "entry_price": 417.399994,
+          "close_price": 390.8349914550781,
+          "pnl": -138.11,
+          "pnl_pct": -6.4,
+          "close_reason": "stop",
+          "opened_at": "2026-02-25 00:00:00",
+          "closed_at": "2026-03-02 00:00:00",
+          "leverage": 3,
+          "position_size": 2174.82
+        },
+        {
           "asset": "Gold",
           "direction": "LONG",
           "signal_type": "stoch_oversold",
           "signal_name": "Gold_1d_yf_stoch_oversold_long_75",
           "entry_price": 4314.399902,
           "close_price": 4449.2998046875,
-          "pnl": 84.19,
+          "pnl": 77.79,
           "pnl_pct": 3.1,
           "close_reason": "expired",
           "opened_at": "2026-01-02 00:00:00",
           "closed_at": "2026-01-07 00:00:00",
           "leverage": 3,
-          "position_size": 2727.42
+          "position_size": 2520.26
         },
         {
           "asset": "Gold",
@@ -3818,13 +3813,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 4604.299805,
           "close_price": 4759.60009765625,
-          "pnl": 95.11,
+          "pnl": 87.89,
           "pnl_pct": 3.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 3,
-          "position_size": 2853.7
+          "position_size": 2636.94
         },
         {
           "asset": "Gold",
@@ -3833,13 +3828,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 4604.299805,
           "close_price": 4759.60009765625,
-          "pnl": 95.11,
+          "pnl": 87.89,
           "pnl_pct": 3.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 3,
-          "position_size": 2853.7
+          "position_size": 2636.94
         },
         {
           "asset": "Gold",
@@ -3848,13 +3843,13 @@
           "signal_name": "Gold_1d_yf_breakout_20_long_5",
           "entry_price": 4604.299805,
           "close_price": 4831.7998046875,
-          "pnl": 113.8,
+          "pnl": 105.16,
           "pnl_pct": 4.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 3,
-          "position_size": 2853.7
+          "position_size": 2636.94
         },
         {
           "asset": "Gold",
@@ -3863,13 +3858,13 @@
           "signal_name": "Gold_1d_yf_breakout_10_long_71",
           "entry_price": 4604.299805,
           "close_price": 4831.7998046875,
-          "pnl": 113.8,
+          "pnl": 105.16,
           "pnl_pct": 4.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 3,
-          "position_size": 2853.7
+          "position_size": 2636.94
         },
         {
           "asset": "Gold",
@@ -3878,13 +3873,13 @@
           "signal_name": "Gold_1d_yf_macd_bull_long_132",
           "entry_price": 4604.299805,
           "close_price": 4908.7998046875,
-          "pnl": 171.28,
+          "pnl": 158.27,
           "pnl_pct": 6.0,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-22 00:00:00",
           "leverage": 3,
-          "position_size": 2853.7
+          "position_size": 2636.94
         },
         {
           "asset": "Gold",
@@ -3893,13 +3888,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 4759.600098,
           "close_price": 4976.2001953125,
-          "pnl": 105.49,
+          "pnl": 97.48,
           "pnl_pct": 3.4,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 3,
-          "position_size": 3139.04
+          "position_size": 2900.61
         },
         {
           "asset": "Gold",
@@ -3908,13 +3903,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 4759.600098,
           "close_price": 4976.2001953125,
-          "pnl": 105.49,
+          "pnl": 97.48,
           "pnl_pct": 3.4,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 3,
-          "position_size": 3139.04
+          "position_size": 2900.61
         },
         {
           "asset": "Gold",
@@ -3923,13 +3918,13 @@
           "signal_name": "Gold_1d_yf_breakout_20_long_5",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -66.57,
+          "pnl": -61.52,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 3,
-          "position_size": 4053.82
+          "position_size": 3745.94
         },
         {
           "asset": "Gold",
@@ -3938,13 +3933,13 @@
           "signal_name": "Gold_1d_yf_breakout_50_long_6",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -66.57,
+          "pnl": -61.52,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 3,
-          "position_size": 4053.82
+          "position_size": 3745.94
         },
         {
           "asset": "Gold",
@@ -3953,13 +3948,13 @@
           "signal_name": "Gold_1d_yf_breakout_100_long_22",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -66.57,
+          "pnl": -61.52,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 3,
-          "position_size": 4053.82
+          "position_size": 3745.94
         },
         {
           "asset": "Gold",
@@ -3968,13 +3963,13 @@
           "signal_name": "Gold_1d_yf_breakout_10_long_71",
           "entry_price": 5301.600098,
           "close_price": 5318.39990234375,
-          "pnl": -66.57,
+          "pnl": -61.52,
           "pnl_pct": -1.6,
           "close_reason": "stop",
           "opened_at": "2026-01-28 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 3,
-          "position_size": 4053.82
+          "position_size": 3745.94
         },
         {
           "asset": "Gold",
@@ -3983,13 +3978,13 @@
           "signal_name": "Gold_1d_yf_stoch_oversold_long_75",
           "entry_price": 4713.899902,
           "close_price": 4622.5,
-          "pnl": -184.09,
+          "pnl": -170.1,
           "pnl_pct": -5.4,
           "close_reason": "stop",
           "opened_at": "2026-01-30 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 3,
-          "position_size": 3419.51
+          "position_size": 3159.76
         },
         {
           "asset": "ETH",
@@ -3998,13 +3993,13 @@
           "signal_name": "ETH_1d_macd_bear_short_46",
           "entry_price": 2938.24,
           "close_price": 2815.49,
-          "pnl": 40.35,
+          "pnl": 37.28,
           "pnl_pct": 4.1,
           "close_reason": "expired",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-25 00:00:00",
           "leverage": 3,
-          "position_size": 994.39
+          "position_size": 918.86
         },
         {
           "asset": "BTC",
@@ -4013,13 +4008,13 @@
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 88390.6,
           "close_price": 84211.4,
-          "pnl": 254.04,
+          "pnl": 234.74,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-30 00:00:00",
           "leverage": 3,
-          "position_size": 3223.87
+          "position_size": 2978.99
         },
         {
           "asset": "AMZN_yf",
@@ -4028,13 +4023,13 @@
           "signal_name": "AMZN_yf_1d_yf_breakout_10_long_48",
           "entry_price": 240.929993,
           "close_price": 246.47000122070312,
-          "pnl": 84.78,
+          "pnl": 78.34,
           "pnl_pct": 2.2,
           "close_reason": "expired",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-12 00:00:00",
           "leverage": 3,
-          "position_size": 3819.85
+          "position_size": 3529.7
         },
         {
           "asset": "AMZN_yf",
@@ -4043,13 +4038,13 @@
           "signal_name": "AMZN_yf_1d_yf_breakout_20_long_101",
           "entry_price": 240.929993,
           "close_price": 231.0,
-          "pnl": -141.17,
+          "pnl": -130.45,
           "pnl_pct": -3.7,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 3,
-          "position_size": 3819.85
+          "position_size": 3529.7
         },
         {
           "asset": "AMZN_yf",
@@ -4058,13 +4053,13 @@
           "signal_name": "AMZN_yf_1d_yf_macd_bull_long_19",
           "entry_price": 244.679993,
           "close_price": 232.99000549316406,
-          "pnl": -157.02,
+          "pnl": -145.09,
           "pnl_pct": -4.2,
           "close_reason": "stop",
           "opened_at": "2026-01-27 00:00:00",
           "closed_at": "2026-02-04 00:00:00",
           "leverage": 3,
-          "position_size": 3735.27
+          "position_size": 3451.53
         },
         {
           "asset": "AMZN_yf",
@@ -4073,13 +4068,13 @@
           "signal_name": "AMZN_yf_1d_yf_rsi_lt30_long_24",
           "entry_price": 210.320007,
           "close_price": 204.0800018310547,
-          "pnl": -50.79,
+          "pnl": -46.93,
           "pnl_pct": -3.0,
           "close_reason": "expired",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-11 00:00:00",
           "leverage": 3,
-          "position_size": 1666.92
+          "position_size": 1540.3
         },
         {
           "asset": "BNB",
@@ -4088,13 +4083,13 @@
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 884.71,
           "close_price": 859.11,
-          "pnl": 94.96,
+          "pnl": 87.74,
           "pnl_pct": 2.8,
           "close_reason": "expired",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-30 00:00:00",
           "leverage": 3,
-          "position_size": 3423.55
+          "position_size": 3163.5
         },
         {
           "asset": "ADA",
@@ -4103,13 +4098,13 @@
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.3754,
           "close_price": 0.3581,
-          "pnl": 100.04,
+          "pnl": 92.44,
           "pnl_pct": 4.5,
           "close_reason": "expired",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-28 00:00:00",
           "leverage": 3,
-          "position_size": 2228.75
+          "position_size": 2059.44
         },
         {
           "asset": "SOL",
@@ -4118,13 +4113,13 @@
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 133.38,
           "close_price": 118.76,
-          "pnl": 441.47,
+          "pnl": 407.93,
           "pnl_pct": 11.9,
           "close_reason": "target",
           "opened_at": "2026-01-19 00:00:00",
           "closed_at": "2026-01-25 00:00:00",
           "leverage": 3,
-          "position_size": 3716.05
+          "position_size": 3433.77
         },
         {
           "asset": "Silver",
@@ -4133,13 +4128,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 80.529999,
           "close_price": 74.71600341796875,
-          "pnl": -220.01,
+          "pnl": -203.3,
           "pnl_pct": -8.0,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-08 00:00:00",
           "leverage": 3,
-          "position_size": 2754.6
+          "position_size": 2545.35
         },
         {
           "asset": "Silver",
@@ -4148,13 +4143,13 @@
           "signal_name": "Silver_1d_yf_breakout_50_long_120",
           "entry_price": 80.529999,
           "close_price": 74.71600341796875,
-          "pnl": -220.01,
+          "pnl": -203.3,
           "pnl_pct": -8.0,
           "close_reason": "stop",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-08 00:00:00",
           "leverage": 3,
-          "position_size": 2754.6
+          "position_size": 2545.35
         },
         {
           "asset": "Silver",
@@ -4163,13 +4158,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 84.610001,
           "close_price": 94.20600128173828,
-          "pnl": 164.81,
+          "pnl": 152.29,
           "pnl_pct": 11.3,
           "close_reason": "expired",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-20 00:00:00",
           "leverage": 3,
-          "position_size": 1458.31
+          "position_size": 1347.52
         },
         {
           "asset": "Silver",
@@ -4178,13 +4173,13 @@
           "signal_name": "Silver_1d_yf_breakout_50_long_120",
           "entry_price": 84.610001,
           "close_price": 100.92500305175781,
-          "pnl": 278.28,
+          "pnl": 257.14,
           "pnl_pct": 19.1,
           "close_reason": "target",
           "opened_at": "2026-01-12 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 3,
-          "position_size": 1458.31
+          "position_size": 1347.52
         },
         {
           "asset": "Silver",
@@ -4193,13 +4188,13 @@
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 94.206001,
           "close_price": 115.08000183105469,
-          "pnl": 395.67,
+          "pnl": 365.62,
           "pnl_pct": 18.2,
           "close_reason": "target",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-26 00:00:00",
           "leverage": 3,
-          "position_size": 2176.61
+          "position_size": 2011.26
         },
         {
           "asset": "Silver",
@@ -4208,13 +4203,13 @@
           "signal_name": "Silver_1d_yf_stoch_oversold_long_151",
           "entry_price": 78.290001,
           "close_price": 77.56500244140625,
-          "pnl": -12.02,
+          "pnl": -11.11,
           "pnl_pct": -1.0,
           "close_reason": "expired",
           "opened_at": "2026-01-30 00:00:00",
           "closed_at": "2026-02-19 00:00:00",
           "leverage": 3,
-          "position_size": 1244.09
+          "position_size": 1149.58
         },
         {
           "asset": "Silver",
@@ -4222,14 +4217,14 @@
           "signal_type": "breakout_10",
           "signal_name": "Silver_1d_yf_breakout_10_long_106",
           "entry_price": 86.523003,
-          "close_price": 93.73999786376953,
-          "pnl": 172.53,
-          "pnl_pct": 8.3,
+          "close_price": 92.2699966430664,
+          "pnl": 126.8,
+          "pnl_pct": 6.6,
           "close_reason": "expired",
           "opened_at": "2026-02-23 00:00:00",
           "closed_at": "2026-03-02 00:00:00",
           "leverage": 3,
-          "position_size": 2078.45
+          "position_size": 1920.56
         },
         {
           "asset": "TIA",
@@ -4238,13 +4233,13 @@
           "signal_name": "TIA_1d_stoch_ob_cross_short_202",
           "entry_price": 0.5303,
           "close_price": 0.5736,
-          "pnl": -319.29,
+          "pnl": -292.04,
           "pnl_pct": -6.1,
           "close_reason": "stop",
           "opened_at": "2026-01-03 00:00:00",
           "closed_at": "2026-01-04 00:00:00",
           "leverage": 3,
-          "position_size": 5217.13
+          "position_size": 4771.88
         },
         {
           "asset": "TIA",
@@ -4253,13 +4248,13 @@
           "signal_name": "TIA_1d_stoch_ob_cross_short_202",
           "entry_price": 0.59,
           "close_price": 0.5467,
-          "pnl": 342.05,
+          "pnl": 312.86,
           "pnl_pct": 7.2,
           "close_reason": "expired",
           "opened_at": "2026-01-06 00:00:00",
           "closed_at": "2026-01-11 00:00:00",
           "leverage": 3,
-          "position_size": 4738.2
+          "position_size": 4333.82
         },
         {
           "asset": "DOGE",
@@ -4268,13 +4263,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.12679,
           "close_price": 0.14181,
-          "pnl": -163.85,
+          "pnl": -149.87,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-01-01 00:00:00",
           "closed_at": "2026-01-02 00:00:00",
           "leverage": 3,
-          "position_size": 5251.28
+          "position_size": 4803.11
         },
         {
           "asset": "DOGE",
@@ -4283,13 +4278,13 @@
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.13781,
           "close_price": 0.12909,
-          "pnl": 594.65,
+          "pnl": 543.9,
           "pnl_pct": 11.9,
           "close_reason": "target",
           "opened_at": "2026-01-17 00:00:00",
           "closed_at": "2026-01-19 00:00:00",
           "leverage": 3,
-          "position_size": 5005.5
+          "position_size": 4578.3
         },
         {
           "asset": "DOGE",
@@ -4298,13 +4293,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.13156,
           "close_price": 0.12909,
-          "pnl": 444.47,
+          "pnl": 406.54,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-19 00:00:00",
           "leverage": 3,
-          "position_size": 5005.5
+          "position_size": 4578.3
         },
         {
           "asset": "DOGE",
@@ -4313,13 +4308,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.12909,
           "close_price": 0.1172,
-          "pnl": 582.89,
+          "pnl": 533.15,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-19 00:00:00",
           "closed_at": "2026-01-29 00:00:00",
           "leverage": 3,
-          "position_size": 6564.18
+          "position_size": 6003.96
         },
         {
           "asset": "DOGE",
@@ -4328,13 +4323,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.1172,
           "close_price": 0.10417,
-          "pnl": 660.54,
+          "pnl": 604.17,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-01-29 00:00:00",
           "closed_at": "2026-01-31 00:00:00",
           "leverage": 3,
-          "position_size": 7438.52
+          "position_size": 6803.69
         },
         {
           "asset": "DOGE",
@@ -4343,13 +4338,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10417,
           "close_price": 0.10785,
-          "pnl": -262.99,
+          "pnl": -240.54,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-01-31 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 3,
-          "position_size": 8429.33
+          "position_size": 7709.94
         },
         {
           "asset": "DOGE",
@@ -4358,13 +4353,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10785,
           "close_price": 0.08841,
-          "pnl": 713.46,
+          "pnl": 652.57,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-02 00:00:00",
           "closed_at": "2026-02-05 00:00:00",
           "leverage": 3,
-          "position_size": 8034.84
+          "position_size": 7349.13
         },
         {
           "asset": "DOGE",
@@ -4373,13 +4368,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.08841,
           "close_price": 0.09842,
-          "pnl": -284.05,
+          "pnl": -259.8,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-05 00:00:00",
           "closed_at": "2026-02-06 00:00:00",
           "leverage": 3,
-          "position_size": 9105.03
+          "position_size": 8327.98
         },
         {
           "asset": "DOGE",
@@ -4388,13 +4383,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09842,
           "close_price": 0.09107,
-          "pnl": 770.71,
+          "pnl": 704.94,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-11 00:00:00",
           "leverage": 3,
-          "position_size": 8678.96
+          "position_size": 7938.29
         },
         {
           "asset": "DOGE",
@@ -4403,13 +4398,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09107,
           "close_price": 0.09296,
-          "pnl": -306.84,
+          "pnl": -280.66,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-11 00:00:00",
           "closed_at": "2026-02-12 00:00:00",
           "leverage": 3,
-          "position_size": 9835.02
+          "position_size": 8995.7
         },
         {
           "asset": "DOGE",
@@ -4418,13 +4413,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09296,
           "close_price": 0.09663,
-          "pnl": -292.51,
+          "pnl": -267.55,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-12 00:00:00",
           "closed_at": "2026-02-13 00:00:00",
           "leverage": 3,
-          "position_size": 9374.76
+          "position_size": 8574.71
         },
         {
           "asset": "DOGE",
@@ -4433,13 +4428,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.09663,
           "close_price": 0.11099,
-          "pnl": -278.81,
+          "pnl": -255.02,
           "pnl_pct": -3.1,
           "close_reason": "stop",
           "opened_at": "2026-02-13 00:00:00",
           "closed_at": "2026-02-14 00:00:00",
           "leverage": 3,
-          "position_size": 8935.99
+          "position_size": 8173.38
         },
         {
           "asset": "DOGE",
@@ -4448,13 +4443,13 @@
           "signal_name": "DOGE_1d_adx_di_short_short_222",
           "entry_price": 0.10097,
           "close_price": 0.09263,
-          "pnl": 756.35,
+          "pnl": 691.8,
           "pnl_pct": 8.9,
           "close_reason": "target",
           "opened_at": "2026-02-16 00:00:00",
           "closed_at": "2026-02-23 00:00:00",
           "leverage": 3,
-          "position_size": 8517.78
+          "position_size": 7790.85
         },
         {
           "asset": "SEI",
@@ -4463,13 +4458,13 @@
           "signal_name": "SEI_1d_macd_bear_short_207",
           "entry_price": 0.1144,
           "close_price": 0.1067,
-          "pnl": 638.09,
+          "pnl": 583.64,
           "pnl_pct": 6.6,
           "close_reason": "expired",
           "opened_at": "2026-01-18 00:00:00",
           "closed_at": "2026-01-23 00:00:00",
           "leverage": 3,
-          "position_size": 9652.3
+          "position_size": 8828.55
         },
         {
           "asset": "AAVE",
@@ -4478,13 +4473,13 @@
           "signal_name": "AAVE_1d_macd_bear_short_217",
           "entry_price": 153.2,
           "close_price": 159.38,
-          "pnl": -541.08,
+          "pnl": -494.9,
           "pnl_pct": -6.1,
           "close_reason": "stop",
           "opened_at": "2026-01-20 00:00:00",
           "closed_at": "2026-01-21 00:00:00",
           "leverage": 3,
-          "position_size": 8841.2
+          "position_size": 8086.68
         },
         {
           "asset": "CRV",
@@ -4493,13 +4488,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.33,
           "close_price": 0.289,
-          "pnl": 772.07,
+          "pnl": 706.18,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-29 00:00:00",
           "closed_at": "2026-01-31 00:00:00",
           "leverage": 3,
-          "position_size": 9797.82
+          "position_size": 8961.66
         },
         {
           "asset": "CRV",
@@ -4508,13 +4503,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.289,
           "close_price": 0.287,
-          "pnl": 863.33,
+          "pnl": 789.65,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-01-31 00:00:00",
           "closed_at": "2026-02-02 00:00:00",
           "leverage": 3,
-          "position_size": 10955.92
+          "position_size": 10020.93
         },
         {
           "asset": "CRV",
@@ -4523,13 +4518,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.287,
           "close_price": 0.231,
-          "pnl": 965.37,
+          "pnl": 882.99,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-02 00:00:00",
           "closed_at": "2026-02-05 00:00:00",
           "leverage": 3,
-          "position_size": 12250.92
+          "position_size": 11205.41
         },
         {
           "asset": "CRV",
@@ -4538,13 +4533,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.231,
           "close_price": 0.258,
-          "pnl": -564.4,
+          "pnl": -516.23,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-05 00:00:00",
           "closed_at": "2026-02-06 00:00:00",
           "leverage": 3,
-          "position_size": 13698.97
+          "position_size": 12529.89
         },
         {
           "asset": "CRV",
@@ -4553,13 +4548,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.258,
           "close_price": 0.233,
-          "pnl": 1012.77,
+          "pnl": 926.34,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-06 00:00:00",
           "closed_at": "2026-02-10 00:00:00",
           "leverage": 3,
-          "position_size": 12852.38
+          "position_size": 11755.55
         },
         {
           "asset": "CRV",
@@ -4568,13 +4563,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.233,
           "close_price": 0.238,
-          "pnl": -592.11,
+          "pnl": -541.58,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-10 00:00:00",
           "closed_at": "2026-02-12 00:00:00",
           "leverage": 3,
-          "position_size": 14371.53
+          "position_size": 13145.06
         },
         {
           "asset": "CRV",
@@ -4583,13 +4578,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.238,
           "close_price": 0.251,
-          "pnl": -555.51,
+          "pnl": -508.11,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-12 00:00:00",
           "closed_at": "2026-02-13 00:00:00",
           "leverage": 3,
-          "position_size": 13483.36
+          "position_size": 12332.69
         },
         {
           "asset": "CRV",
@@ -4598,13 +4593,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.251,
           "close_price": 0.265,
-          "pnl": -488.61,
+          "pnl": -446.91,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-13 00:00:00",
           "closed_at": "2026-02-14 00:00:00",
           "leverage": 3,
-          "position_size": 11859.47
+          "position_size": 10847.36
         },
         {
           "asset": "CRV",
@@ -4613,13 +4608,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.265,
           "close_price": 0.243,
-          "pnl": 880.38,
+          "pnl": 805.25,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-14 00:00:00",
           "closed_at": "2026-02-18 00:00:00",
           "leverage": 3,
-          "position_size": 11172.36
+          "position_size": 10218.9
         },
         {
           "asset": "CRV",
@@ -4628,13 +4623,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.243,
           "close_price": 0.222,
-          "pnl": 1043.14,
+          "pnl": 954.11,
           "pnl_pct": 7.9,
           "close_reason": "target",
           "opened_at": "2026-02-18 00:00:00",
           "closed_at": "2026-02-23 00:00:00",
           "leverage": 3,
-          "position_size": 13237.76
+          "position_size": 12108.03
         },
         {
           "asset": "CRV",
@@ -4643,13 +4638,13 @@
           "signal_name": "CRV_1d_adx_di_short_short_219",
           "entry_price": 0.222,
           "close_price": 0.253,
-          "pnl": -609.86,
+          "pnl": -557.82,
           "pnl_pct": -4.1,
           "close_reason": "stop",
           "opened_at": "2026-02-23 00:00:00",
           "closed_at": "2026-02-25 00:00:00",
           "leverage": 3,
-          "position_size": 14802.46
+          "position_size": 13539.2
         }
       ],
       "equity_curve": [
@@ -5104,6 +5099,10 @@
         {
           "ts": "2026-03-02T14:00:00Z",
           "equity": 9839.91
+        },
+        {
+          "ts": "2026-03-02T15:00:00Z",
+          "equity": 8784.24
         }
       ]
     }
@@ -5118,8 +5117,8 @@
     "version": "v6_live",
     "initial_capital": 25.0,
     "capital": 24.39,
-    "effective_capital": 24.74,
-    "unrealized_pnl": 0.3481,
+    "effective_capital": 24.34,
+    "unrealized_pnl": -0.0472,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
@@ -5140,9 +5139,9 @@
         "timeframe": "1d",
         "filter": "btc_regime",
         "entry_price": 0.247,
-        "current_price": 0.2411,
-        "unrealized_pnl": 0.3481,
-        "pnl_pct": 2.39,
+        "current_price": 0.2478,
+        "unrealized_pnl": -0.0472,
+        "pnl_pct": -0.32,
         "stop": 0.25792,
         "target": 0.22816,
         "stop_pct": 4.4,
@@ -5384,6 +5383,10 @@
       {
         "ts": "2026-03-02T14:00:00Z",
         "capital": 24.74
+      },
+      {
+        "ts": "2026-03-02T15:00:00Z",
+        "capital": 24.34
       }
     ]
   },
@@ -5392,8 +5395,8 @@
     "label": "Efe",
     "initial_capital": 50.0,
     "capital": 48.7,
-    "effective_capital": 49.51,
-    "unrealized_pnl": 0.8094,
+    "effective_capital": 48.72,
+    "unrealized_pnl": 0.0235,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
@@ -5414,9 +5417,9 @@
         "timeframe": "1d",
         "filter": "btc_regime",
         "entry_price": 0.248,
-        "current_price": 0.2411,
-        "unrealized_pnl": 0.8094,
-        "pnl_pct": 2.78,
+        "current_price": 0.2478,
+        "unrealized_pnl": 0.0235,
+        "pnl_pct": 0.08,
         "stop": 0.25896,
         "target": 0.22908,
         "stop_pct": 4.4,
@@ -5642,6 +5645,10 @@
       {
         "ts": "2026-03-02T14:00:00Z",
         "capital": 49.51
+      },
+      {
+        "ts": "2026-03-02T15:00:00Z",
+        "capital": 48.72
       }
     ]
   }
