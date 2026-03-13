@@ -301,7 +301,8 @@ function renderVersion(v){
       const upl=p.direction==='LONG'?(cp-p.entry_price)/p.entry_price*p.position_size:(p.entry_price-cp)/p.entry_price*p.position_size;
       return a+upl;
     },0);
-    const openCols=['Asset','Dir','Lev','Size','Entry','Current','Unreal P/L','Unreal %','Stop','Target','Signal','Sharpe','Held'];
+    const openCols=['Asset','Dir','Lev','Size','Entry','Current','Unreal P/L','Unreal %','Stop','Trail','Target','Signal','Sharpe','Held'];
+    const trailLabel=ph=>ph===0?'—':ph===1?'🟡 BE':ph>=2?'🟢 Trail':'—';
     document.getElementById('openTable').innerHTML=`<div class="table-scroll"><table id="openTbl">
       <thead><tr>${openCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('openTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
       <tbody>${open.map(p=>{
@@ -309,6 +310,8 @@ function renderVersion(v){
         const upl=p.direction==='LONG'?(cp-p.entry_price)/p.entry_price*p.position_size:(p.entry_price-cp)/p.entry_price*p.position_size;
         const uplPct=p.direction==='LONG'?(cp-p.entry_price)/p.entry_price*100*(p.leverage||1):(p.entry_price-cp)/p.entry_price*100*(p.leverage||1);
         const dec=v=>v<1?6:v<10?4:2;
+        const ph=p.trail_phase||0;
+        const stopMoved=p.original_stop&&Math.abs(p.stop_loss-p.original_stop)>0.000001;
         return `<tr>
         <td><strong>${p.asset}</strong> <span class="tag tag-${gc(p.asset)}">${gc(p.asset)}</span></td>
         <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
@@ -318,7 +321,8 @@ function renderVersion(v){
         <td>$${fmt(cp,dec(cp))}</td>
         <td class="${upl>=0?'positive':'negative'}" data-val="${upl.toFixed(2)}">${fp(upl)}</td>
         <td class="${uplPct>=0?'positive':'negative'}">${fpct(uplPct)}</td>
-        <td>$${fmt(p.stop_loss,dec(p.stop_loss||0))}</td>
+        <td${stopMoved?' style="color:#f0b429;font-weight:600"':''}>${stopMoved?'⬆ ':''}$${fmt(p.stop_loss,dec(p.stop_loss||0))}</td>
+        <td>${trailLabel(ph)}${ph>=2&&p.peak_price?' <small>pk:$'+fmt(p.peak_price,dec(p.peak_price))+'</small>':''}</td>
         <td>$${fmt(p.take_profit,dec(p.take_profit||0))}</td>
         <td class="signal-type">${p.signal_type||'—'}</td>
         <td class="amber">${fmt(p.sharpe,1)}</td>
@@ -441,11 +445,14 @@ function renderLiveAsVersion(){
   document.getElementById('openCount').textContent=open.length;
   if(!open.length){document.getElementById('openTable').innerHTML='<div class="no-data">No live positions — waiting for next signal</div>';}
   else{
-    const openCols=['Asset','Dir','Lev','Size','Entry','Current','P/L','P/L %','Signal','Held'];
+    const openCols=['Asset','Dir','Lev','Size','Entry','Current','P/L','P/L %','Stop','Trail','Signal','Held'];
+    const trailLabel=ph=>ph===0?'\u2014':ph===1?'\ud83d\udfe1 BE':ph>=2?'\ud83d\udfe2 Trail':'\u2014';
     document.getElementById('openTable').innerHTML=`<div class="table-scroll"><table id="openTbl">
       <thead><tr>${openCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('openTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
       <tbody>${open.map(p=>{
         const dec=v=>v<1?6:v<10?4:2;
+        const ph=p.trail_phase||0;
+        const stopMoved=p.original_stop&&Math.abs(p.stop-p.original_stop)>0.000001;
         return `<tr>
         <td><strong>${p.asset}</strong> <span class="tag tag-${gc(p.asset)}">${gc(p.asset)}</span></td>
         <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
@@ -455,6 +462,8 @@ function renderLiveAsVersion(){
         <td>$${fmt(p.current_price,dec(p.current_price))}</td>
         <td class="${(p.unrealized_pnl||0)>=0?'positive':'negative'}">${fp(p.unrealized_pnl)}</td>
         <td class="${(p.pnl_pct||0)>=0?'positive':'negative'}">${fpct(p.pnl_pct)}</td>
+        <td${stopMoved?' style="color:#f0b429;font-weight:600"':''}>${stopMoved?'\u2b06 ':''}$${fmt(p.stop,dec(p.stop||0))}</td>
+        <td>${trailLabel(ph)}${ph>=2&&p.peak_price?' <small>pk:$'+fmt(p.peak_price,dec(p.peak_price))+'</small>':''}</td>
         <td class="signal-type">${p.signal_type||'—'}</td>
         <td>${p.opened_at?holdT(p.opened_at):'—'}</td>
       </tr>`;}).join('')}</tbody></table></div>`;
@@ -504,11 +513,14 @@ function renderEfeAsVersion(){
   document.getElementById('openCount').textContent=open.length;
   if(!open.length){document.getElementById('openTable').innerHTML='<div class="no-data">No live positions — waiting for next signal</div>';}
   else{
-    const openCols=['Asset','Dir','Lev','Size','Entry','Current','P/L','P/L %','Signal','Held'];
+    const openCols=['Asset','Dir','Lev','Size','Entry','Current','P/L','P/L %','Stop','Trail','Signal','Held'];
+    const trailLabel=ph=>ph===0?'\u2014':ph===1?'\ud83d\udfe1 BE':ph>=2?'\ud83d\udfe2 Trail':'\u2014';
     document.getElementById('openTable').innerHTML=`<div class="table-scroll"><table id="openTbl">
       <thead><tr>${openCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('openTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
       <tbody>${open.map(p=>{
         const dec=v=>v<1?6:v<10?4:2;
+        const ph=p.trail_phase||0;
+        const stopMoved=p.original_stop&&Math.abs(p.stop-p.original_stop)>0.000001;
         return `<tr>
         <td><strong>${p.asset}</strong> <span class="tag tag-${gc(p.asset)}">${gc(p.asset)}</span></td>
         <td class="${p.direction==='LONG'?'dir-long':'dir-short'}">${p.direction}</td>
@@ -518,6 +530,8 @@ function renderEfeAsVersion(){
         <td>$${fmt(p.current_price,dec(p.current_price))}</td>
         <td class="${(p.unrealized_pnl||0)>=0?'positive':'negative'}">${fp(p.unrealized_pnl)}</td>
         <td class="${(p.pnl_pct||0)>=0?'positive':'negative'}">${fpct(p.pnl_pct)}</td>
+        <td${stopMoved?' style="color:#f0b429;font-weight:600"':''}>${stopMoved?'\u2b06 ':''}$${fmt(p.stop,dec(p.stop||0))}</td>
+        <td>${trailLabel(ph)}${ph>=2&&p.peak_price?' <small>pk:$'+fmt(p.peak_price,dec(p.peak_price))+'</small>':''}</td>
         <td class="signal-type">${p.signal_type||'—'}</td>
         <td>${p.opened_at?holdT(p.opened_at):'—'}</td>
       </tr>`;}).join('')}</tbody></table></div>`;
