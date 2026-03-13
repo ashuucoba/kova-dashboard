@@ -341,19 +341,22 @@ function renderVersion(v){
     document.getElementById('closedTable').innerHTML=`<div class="table-scroll"><table id="closedTbl">
       <thead><tr>${closedCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('closedTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
       <tbody>${cl.map(t=>{
-        const pnlPct=t.entry_price?((t.close_price-t.entry_price)/t.entry_price*100*(t.direction==='SHORT'?-1:1)*(t.leverage||1)):0;
+        const exitP=t.exit_price||t.close_price||0;
+        const pnlPct=t.pnl_pct||(t.entry_price?((exitP-t.entry_price)/t.entry_price*100*(t.direction==='SHORT'?-1:1)*(t.leverage||1)):0);
+        const pnl=t.pnl_usd||t.pnl||0;
+        const reason=t.exit_reason||t.close_reason||'—';
         const held=t.opened_at&&t.closed_at?Math.round((new Date(t.closed_at)-new Date(t.opened_at))/36e5)+'h':'—';
-        const reasonClass=t.close_reason==='target'?'positive':t.close_reason==='stop'?'negative':'amber';
+        const reasonClass=reason.includes('target')||reason.includes('profit')?'positive':reason.includes('stop')?'negative':'amber';
         return `<tr>
         <td class="dim">${t.closed_at?new Date(t.closed_at).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):''}</td>
         <td><strong>${t.asset}</strong> <span class="tag tag-${gc(t.asset)}">${gc(t.asset)}</span></td>
         <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
         <td class="signal-type">${t.signal_type||'—'}</td>
         <td>$${fmt(t.entry_price,t.entry_price<1?6:2)}</td>
-        <td>$${fmt(t.close_price,t.close_price<1?6:2)}</td>
-        <td class="${(t.pnl||0)>=0?'positive':'negative'}" data-val="${(t.pnl||0).toFixed(2)}">${fp(t.pnl)}</td>
+        <td>$${fmt(exitP,exitP<1?6:2)}</td>
+        <td class="${pnl>=0?'positive':'negative'}" data-val="${pnl.toFixed(2)}">${fp(pnl)}</td>
         <td class="${pnlPct>=0?'positive':'negative'}">${fpct(pnlPct)}</td>
-        <td class="${reasonClass}">${t.close_reason||'—'}</td>
+        <td class="${reasonClass}">${reason}</td>
         <td class="dim">${held}</td>
       </tr>`;}).join('')}</tbody>
     </table></div>`;
