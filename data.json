@@ -3,10 +3,10 @@
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
   "capital": 1871.74,
-  "effective_capital": 1883.49,
-  "unrealized_pnl": 11.75,
+  "effective_capital": 1880.32,
+  "unrealized_pnl": 8.58,
   "peak_capital": 2048.17,
-  "updated_at": "2026-03-14T13:05:03Z",
+  "updated_at": "2026-03-14T13:35:03Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
     "total_trades": 17,
@@ -28,9 +28,9 @@
       "timeframe": "4h",
       "filter": "btc_regime",
       "entry_price": 0.09664,
-      "current_price": 0.095,
-      "unrealized_pnl": 11.75,
-      "pnl_pct": 1.73,
+      "current_price": 0.0954,
+      "unrealized_pnl": 8.58,
+      "pnl_pct": 1.26,
       "stop": 0.0961044,
       "target": 0.085043,
       "stop_pct": 0.6,
@@ -1494,7 +1494,7 @@
     },
     {
       "ts": "2026-03-14T13:00:00Z",
-      "capital": 1883.49
+      "capital": 1880.32
     }
   ],
   "versions": {
@@ -1504,7 +1504,7 @@
       "effective_capital": 3128.27,
       "n_signals": 32,
       "config": "",
-      "updated": "2026-03-14T13:05:03Z",
+      "updated": "2026-03-14T13:35:03Z",
       "stats": {
         "total_trades": 76,
         "wins": 55,
@@ -3882,7 +3882,7 @@
       "effective_capital": 3128.27,
       "n_signals": 139,
       "config": "",
-      "updated": "2026-03-14T13:05:03Z",
+      "updated": "2026-03-14T13:35:03Z",
       "stats": {
         "total_trades": 76,
         "wins": 55,
@@ -6353,10 +6353,10 @@
     "v4": {
       "capital": 5044.68,
       "initial_capital": 2000,
-      "effective_capital": 5044.68,
+      "effective_capital": 5040.49,
       "n_signals": 166,
       "config": "",
-      "updated": "2026-03-14T13:05:03Z",
+      "updated": "2026-03-14T13:35:04Z",
       "stats": {
         "total_trades": 145,
         "wins": 106,
@@ -6366,7 +6366,33 @@
         "largest_win": 621.68,
         "largest_loss": -267.97
       },
-      "open_positions": [],
+      "open_positions": [
+        {
+          "asset": "TIA",
+          "direction": "SHORT",
+          "signal_name": "TIA_1d_stoch_ob_cross_short_202",
+          "signal_type": "stoch_ob_cross",
+          "timeframe": "",
+          "filter": "none",
+          "entry_price": 0.3478,
+          "current_price": 0.3485,
+          "unrealized_pnl": -4.19,
+          "position_size": 2083.75,
+          "stop_loss": 0.368668,
+          "take_profit": 0.306064,
+          "leverage": 2,
+          "sharpe": 4.1,
+          "wr": 0.6,
+          "n": 20,
+          "opened_at": "2026-03-14 00:00:00",
+          "rr_ratio": 2.0,
+          "hold_max_hours": 120,
+          "risk_amount": 62.51,
+          "trail_phase": 0,
+          "peak_price": 0.3478,
+          "original_stop": 0.368668
+        }
+      ],
       "closed_trades": [
         {
           "asset": "RENDER",
@@ -9915,17 +9941,17 @@
         },
         {
           "ts": "2026-03-14T13:00:00Z",
-          "equity": 5044.68
+          "equity": 5040.49
         }
       ]
     },
     "v6": {
       "capital": 9963.4,
       "initial_capital": 2000,
-      "effective_capital": 9963.4,
+      "effective_capital": 9958.78,
       "n_signals": 166,
       "config": "",
-      "updated": "2026-03-14T13:05:03Z",
+      "updated": "2026-03-14T13:35:05Z",
       "stats": {
         "total_trades": 145,
         "wins": 106,
@@ -9935,7 +9961,33 @@
         "largest_win": 1654.78,
         "largest_loss": -806.14
       },
-      "open_positions": [],
+      "open_positions": [
+        {
+          "asset": "TIA",
+          "direction": "SHORT",
+          "signal_name": "TIA_1d_stoch_ob_cross_short_202",
+          "signal_type": "stoch_ob_cross",
+          "timeframe": "",
+          "filter": "none",
+          "entry_price": 0.3478,
+          "current_price": 0.3485,
+          "unrealized_pnl": -4.62,
+          "position_size": 2293.78,
+          "stop_loss": 0.368668,
+          "take_profit": 0.306064,
+          "leverage": 3,
+          "sharpe": 4.1,
+          "wr": 0.6,
+          "n": 20,
+          "opened_at": "2026-03-14 00:00:00",
+          "rr_ratio": 2.0,
+          "hold_max_hours": 120,
+          "risk_amount": 45.88,
+          "trail_phase": 0,
+          "peak_price": 0.3478,
+          "original_stop": 0.368668
+        }
+      ],
       "closed_trades": [
         {
           "asset": "RENDER",
@@ -13484,7 +13536,7 @@
         },
         {
           "ts": "2026-03-14T13:00:00Z",
-          "equity": 9963.4
+          "equity": 9958.78
         }
       ]
     }
@@ -13500,8 +13552,8 @@
     "n_signals": 166,
     "initial_capital": 160.54,
     "capital": 146.44,
-    "effective_capital": 149.94,
-    "unrealized_pnl": 3.4965,
+    "effective_capital": 149.11,
+    "unrealized_pnl": 2.6649,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
@@ -13522,9 +13574,9 @@
         "timeframe": "4h",
         "filter": "btc_regime",
         "entry_price": 0.09682,
-        "current_price": 0.095,
-        "unrealized_pnl": 3.4965,
-        "pnl_pct": 1.91,
+        "current_price": 0.0954,
+        "unrealized_pnl": 2.6649,
+        "pnl_pct": 1.46,
         "stop": 0.09612480000000001,
         "target": 0.08522800000000001,
         "stop_pct": 0.7,
@@ -14787,7 +14839,7 @@
       },
       {
         "ts": "2026-03-14T13:00:00Z",
-        "capital": 149.94
+        "capital": 149.11
       }
     ]
   },
@@ -14797,8 +14849,8 @@
     "n_signals": 166,
     "initial_capital": 160.35,
     "capital": 142.0,
-    "effective_capital": 144.53,
-    "unrealized_pnl": 2.5282,
+    "effective_capital": 143.93,
+    "unrealized_pnl": 1.9236,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
@@ -14819,9 +14871,9 @@
         "timeframe": "4h",
         "filter": "btc_regime",
         "entry_price": 0.09681,
-        "current_price": 0.095,
-        "unrealized_pnl": 2.5282,
-        "pnl_pct": 1.9,
+        "current_price": 0.0954,
+        "unrealized_pnl": 1.9236,
+        "pnl_pct": 1.45,
         "stop": 0.09612480000000001,
         "target": 0.0852104,
         "stop_pct": 0.7,
@@ -16057,7 +16109,7 @@
       },
       {
         "ts": "2026-03-14T13:00:00Z",
-        "capital": 144.53
+        "capital": 143.93
       }
     ]
   }
