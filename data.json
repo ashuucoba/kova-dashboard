@@ -3,10 +3,10 @@
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
   "capital": 1737.4,
-  "effective_capital": 1728.93,
-  "unrealized_pnl": -8.47,
+  "effective_capital": 1731.89,
+  "unrealized_pnl": -5.51,
   "peak_capital": 2048.17,
-  "updated_at": "2026-03-17T01:35:03Z",
+  "updated_at": "2026-03-17T02:05:02Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
     "total_trades": 19,
@@ -28,9 +28,9 @@
       "timeframe": "4h",
       "filter": "double",
       "entry_price": 2314.62,
-      "current_price": 2369.44,
-      "unrealized_pnl": -7.72,
-      "pnl_pct": -2.37,
+      "current_price": 2358.07,
+      "unrealized_pnl": -6.12,
+      "pnl_pct": -1.88,
       "stop": 2407.2,
       "target": 2129.45,
       "stop_pct": 4.0,
@@ -58,9 +58,9 @@
       "timeframe": "4h",
       "filter": "double",
       "entry_price": 95.76,
-      "current_price": 95.87,
-      "unrealized_pnl": -0.75,
-      "pnl_pct": -0.11,
+      "current_price": 95.67,
+      "unrealized_pnl": 0.61,
+      "pnl_pct": 0.09,
       "stop": 99.5904,
       "target": 88.0992,
       "stop_pct": 4.0,
@@ -1801,6 +1801,10 @@
     {
       "ts": "2026-03-17T01:00:00Z",
       "capital": 1728.93
+    },
+    {
+      "ts": "2026-03-17T02:00:00Z",
+      "capital": 1731.89
     }
   ],
   "versions": {
@@ -1810,7 +1814,7 @@
       "effective_capital": 2964.71,
       "n_signals": 32,
       "config": "",
-      "updated": "2026-03-17T01:35:03Z",
+      "updated": "2026-03-17T02:05:02Z",
       "stats": {
         "total_trades": 77,
         "wins": 55,
@@ -4434,6 +4438,10 @@
         {
           "ts": "2026-03-17T01:00:00Z",
           "equity": 2964.71
+        },
+        {
+          "ts": "2026-03-17T02:00:00Z",
+          "equity": 2964.71
         }
       ]
     },
@@ -4443,7 +4451,7 @@
       "effective_capital": 2964.71,
       "n_signals": 139,
       "config": "",
-      "updated": "2026-03-17T01:35:03Z",
+      "updated": "2026-03-17T02:05:02Z",
       "stats": {
         "total_trades": 77,
         "wins": 55,
@@ -7163,16 +7171,20 @@
         {
           "ts": "2026-03-17T01:00:00Z",
           "equity": 2964.71
+        },
+        {
+          "ts": "2026-03-17T02:00:00Z",
+          "equity": 2964.71
         }
       ]
     },
     "v4": {
       "capital": 4824.66,
       "initial_capital": 2000,
-      "effective_capital": 4824.66,
+      "effective_capital": 4822.41,
       "n_signals": 166,
       "config": "",
-      "updated": "2026-03-17T01:35:03Z",
+      "updated": "2026-03-17T02:05:04Z",
       "stats": {
         "total_trades": 148,
         "wins": 107,
@@ -7182,7 +7194,33 @@
         "largest_win": 594.57,
         "largest_loss": -256.28
       },
-      "open_positions": [],
+      "open_positions": [
+        {
+          "asset": "TIA",
+          "direction": "SHORT",
+          "signal_name": "TIA_1d_stoch_ob_cross_short_202",
+          "signal_type": "stoch_ob_cross",
+          "timeframe": "",
+          "filter": "none",
+          "entry_price": 0.3785,
+          "current_price": 0.3791,
+          "unrealized_pnl": -2.25,
+          "position_size": 1417.81,
+          "stop_loss": 0.40121,
+          "take_profit": 0.33308,
+          "leverage": 2,
+          "sharpe": 4.1,
+          "wr": 0.6,
+          "n": 20,
+          "opened_at": "2026-03-17 00:00:00",
+          "rr_ratio": 2.0,
+          "hold_max_hours": 120,
+          "risk_amount": 42.53,
+          "trail_phase": 0,
+          "peak_price": 0.3785,
+          "original_stop": 0.40121
+        }
+      ],
       "closed_trades": [
         {
           "asset": "RENDER",
@@ -11017,16 +11055,20 @@
         {
           "ts": "2026-03-17T01:00:00Z",
           "equity": 4824.66
+        },
+        {
+          "ts": "2026-03-17T02:00:00Z",
+          "equity": 4822.41
         }
       ]
     },
     "v6": {
       "capital": 8786.47,
       "initial_capital": 2000,
-      "effective_capital": 8786.47,
+      "effective_capital": 8785.07,
       "n_signals": 166,
       "config": "",
-      "updated": "2026-03-17T01:35:03Z",
+      "updated": "2026-03-17T02:05:06Z",
       "stats": {
         "total_trades": 148,
         "wins": 107,
@@ -11036,7 +11078,33 @@
         "largest_win": 1459.31,
         "largest_loss": -710.92
       },
-      "open_positions": [],
+      "open_positions": [
+        {
+          "asset": "TIA",
+          "direction": "SHORT",
+          "signal_name": "TIA_1d_stoch_ob_cross_short_202",
+          "signal_type": "stoch_ob_cross",
+          "timeframe": "",
+          "filter": "none",
+          "entry_price": 0.3785,
+          "current_price": 0.3789,
+          "unrealized_pnl": -1.4,
+          "position_size": 1320.68,
+          "stop_loss": 0.40121,
+          "take_profit": 0.33308,
+          "leverage": 3,
+          "sharpe": 4.1,
+          "wr": 0.6,
+          "n": 20,
+          "opened_at": "2026-03-17 00:00:00",
+          "rr_ratio": 2.0,
+          "hold_max_hours": 120,
+          "risk_amount": 26.41,
+          "trail_phase": 0,
+          "peak_price": 0.3785,
+          "original_stop": 0.40121
+        }
+      ],
       "closed_trades": [
         {
           "asset": "RENDER",
@@ -14871,6 +14939,10 @@
         {
           "ts": "2026-03-17T01:00:00Z",
           "equity": 8786.47
+        },
+        {
+          "ts": "2026-03-17T02:00:00Z",
+          "equity": 8785.07
         }
       ]
     }
@@ -16388,6 +16460,10 @@
       {
         "ts": "2026-03-17T01:00:00Z",
         "capital": 148.3
+      },
+      {
+        "ts": "2026-03-17T02:00:00Z",
+        "capital": 148.3
       }
     ]
   },
@@ -17871,6 +17947,10 @@
       },
       {
         "ts": "2026-03-17T01:00:00Z",
+        "capital": 143.35
+      },
+      {
+        "ts": "2026-03-17T02:00:00Z",
         "capital": 143.35
       }
     ]
