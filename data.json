@@ -2,18 +2,18 @@
   "version": "v4",
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
-  "capital": 1737.4,
-  "effective_capital": 1736.36,
-  "unrealized_pnl": -1.04,
+  "capital": 1744.27,
+  "effective_capital": 1741.74,
+  "unrealized_pnl": -2.53,
   "peak_capital": 2048.17,
-  "updated_at": "2026-03-17T18:35:04Z",
+  "updated_at": "2026-03-17T19:05:03Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
-    "total_trades": 19,
-    "wins": 10,
+    "total_trades": 20,
+    "wins": 11,
     "losses": 9,
     "expired": 1,
-    "total_pnl": -262.6,
+    "total_pnl": -255.73,
     "max_drawdown": 15.17,
     "profit_factor": 0,
     "largest_win": 49.33,
@@ -28,9 +28,9 @@
       "timeframe": "4h",
       "filter": "double",
       "entry_price": 2314.62,
-      "current_price": 2337.98,
-      "unrealized_pnl": -3.29,
-      "pnl_pct": -1.01,
+      "current_price": 2332.62,
+      "unrealized_pnl": -2.53,
+      "pnl_pct": -0.78,
       "stop": 2407.2,
       "target": 2129.45,
       "stop_pct": 4.0,
@@ -49,36 +49,6 @@
       "trail_phase": 0,
       "peak_price": 2307.61,
       "original_stop": 2407.2
-    },
-    {
-      "asset": "SOL",
-      "direction": "SHORT",
-      "signal_name": "SOL_4h_rsi_gt75_short_213",
-      "signal_type": "rsi_gt75",
-      "timeframe": "4h",
-      "filter": "double",
-      "entry_price": 95.76,
-      "current_price": 95.43,
-      "unrealized_pnl": 2.25,
-      "pnl_pct": 0.34,
-      "stop": 95.3088,
-      "target": 88.0992,
-      "stop_pct": 0.5,
-      "target_pct": 8.0,
-      "rr_ratio": 2.0,
-      "leverage": 3,
-      "size": 651.53,
-      "risk_amount": 26.06,
-      "sharpe": 2.96,
-      "wr": 0.5429999999999999,
-      "n": 35,
-      "hold_max_hours": 160,
-      "opened_at": "2026-03-16T20:30:10.023849+00:00",
-      "tp1_taken": false,
-      "rsi_at_entry": 75.2,
-      "trail_phase": 2,
-      "peak_price": 93.44,
-      "original_stop": 99.5904
     }
   ],
   "closed_trades": [
@@ -423,6 +393,24 @@
       "leverage": 3,
       "size": 779.89,
       "risk_amount": 46.79
+    },
+    {
+      "asset": "SOL",
+      "direction": "SHORT",
+      "signal_name": "SOL_4h_rsi_gt75_short_213",
+      "signal_type": "rsi_gt75",
+      "timeframe": "4h",
+      "entry_price": 95.76,
+      "exit_price": 95.3088,
+      "pnl_usd": 6.86,
+      "pnl_pct": 0.47,
+      "exit_reason": "trailing_stop",
+      "opened_at": "2026-03-16T20:30:10.023849+00:00",
+      "closed_at": "2026-03-17T19:00:05.447568+00:00",
+      "hold_time": "",
+      "leverage": 3,
+      "size": 651.53,
+      "risk_amount": 26.06
     }
   ],
   "equity_curve": [
@@ -1869,6 +1857,10 @@
     {
       "ts": "2026-03-17T18:00:00Z",
       "capital": 1736.36
+    },
+    {
+      "ts": "2026-03-17T19:00:00Z",
+      "capital": 1741.74
     }
   ],
   "versions": {
@@ -1878,7 +1870,7 @@
       "effective_capital": 2964.71,
       "n_signals": 32,
       "config": "",
-      "updated": "2026-03-17T18:35:04Z",
+      "updated": "2026-03-17T19:05:03Z",
       "stats": {
         "total_trades": 77,
         "wins": 55,
@@ -4570,6 +4562,10 @@
         {
           "ts": "2026-03-17T18:00:00Z",
           "equity": 2964.71
+        },
+        {
+          "ts": "2026-03-17T19:00:00Z",
+          "equity": 2964.71
         }
       ]
     },
@@ -4579,7 +4575,7 @@
       "effective_capital": 2964.71,
       "n_signals": 141,
       "config": "",
-      "updated": "2026-03-17T18:35:04Z",
+      "updated": "2026-03-17T19:05:03Z",
       "stats": {
         "total_trades": 77,
         "wins": 55,
@@ -7367,16 +7363,20 @@
         {
           "ts": "2026-03-17T18:00:00Z",
           "equity": 2964.71
+        },
+        {
+          "ts": "2026-03-17T19:00:00Z",
+          "equity": 2964.71
         }
       ]
     },
     "v4": {
       "capital": 4824.66,
       "initial_capital": 2000,
-      "effective_capital": 4822.75,
+      "effective_capital": 4826.19,
       "n_signals": 203,
       "config": "",
-      "updated": "2026-03-17T18:35:06Z",
+      "updated": "2026-03-17T19:05:06Z",
       "stats": {
         "total_trades": 148,
         "wins": 107,
@@ -7394,12 +7394,12 @@
           "signal_type": "stoch_ob_cross",
           "timeframe": "",
           "filter": "none",
-          "entry_price": 0.3704,
-          "current_price": 0.3709,
-          "unrealized_pnl": -1.91,
+          "entry_price": 0.3706,
+          "current_price": 0.3702,
+          "unrealized_pnl": 1.53,
           "position_size": 1417.81,
-          "stop_loss": 0.392624,
-          "take_profit": 0.325952,
+          "stop_loss": 0.392836,
+          "take_profit": 0.326128,
           "leverage": 2,
           "sharpe": 4.1,
           "wr": 0.6,
@@ -7409,8 +7409,8 @@
           "hold_max_hours": 120,
           "risk_amount": 42.53,
           "trail_phase": 0,
-          "peak_price": 0.3704,
-          "original_stop": 0.392624
+          "peak_price": 0.3706,
+          "original_stop": 0.392836
         }
       ],
       "closed_trades": [
@@ -11315,16 +11315,20 @@
         {
           "ts": "2026-03-17T18:00:00Z",
           "equity": 4822.75
+        },
+        {
+          "ts": "2026-03-17T19:00:00Z",
+          "equity": 4826.19
         }
       ]
     },
     "v6": {
       "capital": 8786.47,
       "initial_capital": 2000,
-      "effective_capital": 8784.33,
+      "effective_capital": 8787.9,
       "n_signals": 203,
       "config": "",
-      "updated": "2026-03-17T18:35:08Z",
+      "updated": "2026-03-17T19:05:08Z",
       "stats": {
         "total_trades": 148,
         "wins": 107,
@@ -11342,12 +11346,12 @@
           "signal_type": "stoch_ob_cross",
           "timeframe": "",
           "filter": "none",
-          "entry_price": 0.3704,
-          "current_price": 0.371,
-          "unrealized_pnl": -2.14,
+          "entry_price": 0.3706,
+          "current_price": 0.3702,
+          "unrealized_pnl": 1.43,
           "position_size": 1320.68,
-          "stop_loss": 0.392624,
-          "take_profit": 0.325952,
+          "stop_loss": 0.392836,
+          "take_profit": 0.326128,
           "leverage": 3,
           "sharpe": 4.1,
           "wr": 0.6,
@@ -11357,8 +11361,8 @@
           "hold_max_hours": 120,
           "risk_amount": 26.41,
           "trail_phase": 0,
-          "peak_price": 0.3704,
-          "original_stop": 0.392624
+          "peak_price": 0.3706,
+          "original_stop": 0.392836
         }
       ],
       "closed_trades": [
@@ -15263,6 +15267,10 @@
         {
           "ts": "2026-03-17T18:00:00Z",
           "equity": 8784.33
+        },
+        {
+          "ts": "2026-03-17T19:00:00Z",
+          "equity": 8787.9
         }
       ]
     }
@@ -16848,6 +16856,10 @@
       {
         "ts": "2026-03-17T18:00:00Z",
         "capital": 148.3
+      },
+      {
+        "ts": "2026-03-17T19:00:00Z",
+        "capital": 148.3
       }
     ]
   },
@@ -18399,6 +18411,10 @@
       },
       {
         "ts": "2026-03-17T18:00:00Z",
+        "capital": 143.35
+      },
+      {
+        "ts": "2026-03-17T19:00:00Z",
         "capital": 143.35
       }
     ]
