@@ -3,10 +3,10 @@
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
   "capital": 1919.34,
-  "effective_capital": 1917.39,
-  "unrealized_pnl": -1.95,
+  "effective_capital": 1917.27,
+  "unrealized_pnl": -2.07,
   "peak_capital": 2048.17,
-  "updated_at": "2026-03-23T20:35:05Z",
+  "updated_at": "2026-03-23T21:05:06Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
     "total_trades": 40,
@@ -79,6 +79,96 @@
       "trail_phase": 0,
       "peak_price": 0.000112,
       "original_stop": 9e-06
+    },
+    {
+      "asset": "XAU",
+      "direction": "LONG",
+      "signal_name": "Gold_1d_yf_bb_lower_long_282",
+      "signal_type": "bb_lower_long",
+      "timeframe": "1d_yf",
+      "filter": "none",
+      "entry_price": 4416.91,
+      "current_price": 4414.62,
+      "unrealized_pnl": -0.36,
+      "pnl_pct": -0.05,
+      "stop": 4107.71,
+      "target": 5035.31,
+      "stop_pct": 7.0,
+      "target_pct": 14.0,
+      "rr_ratio": 2.0,
+      "leverage": 2,
+      "size": 685.48,
+      "risk_amount": 47.98,
+      "sharpe": 7.02,
+      "wr": 0.69,
+      "n": 253,
+      "hold_max_hours": 480,
+      "opened_at": "2026-03-23T21:00:12.078474+00:00",
+      "tp1_taken": false,
+      "rsi_at_entry": 28.2,
+      "trail_phase": 0,
+      "peak_price": 4416.91,
+      "original_stop": 4107.71
+    },
+    {
+      "asset": "XAG",
+      "direction": "LONG",
+      "signal_name": "Silver_1d_yf_bb_lower_long_294",
+      "signal_type": "bb_lower_long",
+      "timeframe": "1d_yf",
+      "filter": "none",
+      "entry_price": 69.26,
+      "current_price": 69.23,
+      "unrealized_pnl": -0.12,
+      "pnl_pct": -0.04,
+      "stop": 57.6426,
+      "target": 92.4948,
+      "stop_pct": 16.8,
+      "target_pct": 33.5,
+      "rr_ratio": 2.0,
+      "leverage": 2,
+      "size": 286.13,
+      "risk_amount": 47.98,
+      "sharpe": 4.84,
+      "wr": 0.64,
+      "n": 284,
+      "hold_max_hours": 480,
+      "opened_at": "2026-03-23T21:00:12.078495+00:00",
+      "tp1_taken": false,
+      "rsi_at_entry": 35.5,
+      "trail_phase": 0,
+      "peak_price": 69.26,
+      "original_stop": 57.6426
+    },
+    {
+      "asset": "PLTR",
+      "direction": "LONG",
+      "signal_name": "PLTR_1d_yf_breakout_10_long_315",
+      "signal_type": "breakout_10_long",
+      "timeframe": "1d_yf",
+      "filter": "none",
+      "entry_price": 160.79,
+      "current_price": 160.89,
+      "unrealized_pnl": 0.36,
+      "pnl_pct": 0.06,
+      "stop": 147.37,
+      "target": 187.63,
+      "stop_pct": 8.3,
+      "target_pct": 16.7,
+      "rr_ratio": 2.0,
+      "leverage": 2,
+      "size": 574.65,
+      "risk_amount": 47.98,
+      "sharpe": 3.783,
+      "wr": 0.5556,
+      "n": 288,
+      "hold_max_hours": 480,
+      "opened_at": "2026-03-23T21:00:12.078506+00:00",
+      "tp1_taken": false,
+      "rsi_at_entry": 60.6,
+      "trail_phase": 0,
+      "peak_price": 160.79,
+      "original_stop": 147.37
     }
   ],
   "closed_trades": [
@@ -2831,6 +2921,10 @@
     {
       "ts": "2026-03-23T20:00:00Z",
       "capital": 1917.39
+    },
+    {
+      "ts": "2026-03-23T21:00:00Z",
+      "capital": 1917.27
     }
   ],
   "versions": {
@@ -2840,7 +2934,7 @@
       "effective_capital": 2585.79,
       "n_signals": 40,
       "config": "",
-      "updated": "2026-03-23T20:35:05Z",
+      "updated": "2026-03-23T21:05:06Z",
       "stats": {
         "total_trades": 87,
         "wins": 60,
@@ -2888,7 +2982,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 67830.6,
-          "close_price": 70769.0,
+          "close_price": 70930.3,
           "pnl": -82.49,
           "pnl_pct": -4.1,
           "close_reason": "stop",
@@ -2918,7 +3012,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 626.08,
-          "close_price": 638.34,
+          "close_price": 639.73,
           "pnl": -59.94,
           "pnl_pct": -3.1,
           "close_reason": "stop",
@@ -2963,7 +3057,7 @@
           "signal_type": "macd_bear",
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.2504,
-          "close_price": 0.2617,
+          "close_price": 0.2632,
           "pnl": -100.69,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -4148,7 +4242,7 @@
           "signal_type": "macd_bear",
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.09008,
-          "close_price": 0.09511,
+          "close_price": 0.09512,
           "pnl": -168.57,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -6266,6 +6360,10 @@
         {
           "ts": "2026-03-23T20:00:00Z",
           "equity": 2585.79
+        },
+        {
+          "ts": "2026-03-23T21:00:00Z",
+          "equity": 2585.79
         }
       ]
     },
@@ -6275,7 +6373,7 @@
       "effective_capital": 2585.79,
       "n_signals": 155,
       "config": "",
-      "updated": "2026-03-23T20:35:05Z",
+      "updated": "2026-03-23T21:05:06Z",
       "stats": {
         "total_trades": 87,
         "wins": 60,
@@ -6323,7 +6421,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 67830.6,
-          "close_price": 70769.0,
+          "close_price": 70930.3,
           "pnl": -82.49,
           "pnl_pct": -4.1,
           "close_reason": "stop",
@@ -6353,7 +6451,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 626.08,
-          "close_price": 638.34,
+          "close_price": 639.73,
           "pnl": -59.94,
           "pnl_pct": -3.1,
           "close_reason": "stop",
@@ -6398,7 +6496,7 @@
           "signal_type": "macd_bear",
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.2504,
-          "close_price": 0.2617,
+          "close_price": 0.2632,
           "pnl": -100.69,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -7583,7 +7681,7 @@
           "signal_type": "macd_bear",
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.09008,
-          "close_price": 0.09511,
+          "close_price": 0.09512,
           "pnl": -168.57,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -9797,16 +9895,20 @@
         {
           "ts": "2026-03-23T20:00:00Z",
           "equity": 2585.79
+        },
+        {
+          "ts": "2026-03-23T21:00:00Z",
+          "equity": 2585.79
         }
       ]
     },
     "v4": {
       "capital": 4369.65,
       "initial_capital": 2000,
-      "effective_capital": 4224.87,
+      "effective_capital": 4217.51,
       "n_signals": 519,
       "config": "",
-      "updated": "2026-03-23T20:35:07Z",
+      "updated": "2026-03-23T21:05:08Z",
       "stats": {
         "total_trades": 164,
         "wins": 117,
@@ -9825,8 +9927,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.05916,
-          "current_price": 0.0601,
-          "unrealized_pnl": -39.51,
+          "current_price": 0.0602,
+          "unrealized_pnl": -43.72,
           "position_size": 2486.72,
           "stop_loss": 0.06271,
           "take_profit": 0.052061,
@@ -9875,8 +9977,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.06448,
-          "current_price": 0.0654,
-          "unrealized_pnl": -25.22,
+          "current_price": 0.0656,
+          "unrealized_pnl": -28.37,
           "position_size": 1693.77,
           "stop_loss": 0.07295,
           "take_profit": 0.04754,
@@ -10275,7 +10377,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 67830.6,
-          "close_price": 70769.0,
+          "close_price": 70930.3,
           "pnl": -84.67,
           "pnl_pct": -4.1,
           "close_reason": "stop",
@@ -10305,7 +10407,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 626.08,
-          "close_price": 638.34,
+          "close_price": 639.73,
           "pnl": -61.53,
           "pnl_pct": -3.1,
           "close_reason": "stop",
@@ -10350,7 +10452,7 @@
           "signal_type": "macd_bear",
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.2504,
-          "close_price": 0.2617,
+          "close_price": 0.2632,
           "pnl": -101.89,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -11775,7 +11877,7 @@
           "signal_type": "macd_bear",
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.09008,
-          "close_price": 0.09511,
+          "close_price": 0.09512,
           "pnl": -151.36,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -12315,7 +12417,7 @@
           "signal_type": "macd_bear",
           "signal_name": "RONIN_1d_macd_bear_short_universe",
           "entry_price": 0.0882,
-          "close_price": 0.0918,
+          "close_price": 0.0923,
           "pnl": 0.7,
           "pnl_pct": 0.1,
           "close_reason": "stop",
@@ -14619,16 +14721,20 @@
         {
           "ts": "2026-03-23T20:00:00Z",
           "equity": 4224.87
+        },
+        {
+          "ts": "2026-03-23T21:00:00Z",
+          "equity": 4217.51
         }
       ]
     },
     "v6": {
       "capital": 8551.37,
       "initial_capital": 2000,
-      "effective_capital": 8190.27,
+      "effective_capital": 8176.22,
       "n_signals": 519,
       "config": "",
-      "updated": "2026-03-23T20:35:09Z",
+      "updated": "2026-03-23T21:05:10Z",
       "stats": {
         "total_trades": 164,
         "wins": 117,
@@ -14647,8 +14753,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.05916,
-          "current_price": 0.0601,
-          "unrealized_pnl": -67.5,
+          "current_price": 0.0602,
+          "unrealized_pnl": -74.68,
           "position_size": 4248.17,
           "stop_loss": 0.06271,
           "take_profit": 0.052061,
@@ -14697,8 +14803,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.06448,
-          "current_price": 0.0654,
-          "unrealized_pnl": -54.99,
+          "current_price": 0.0656,
+          "unrealized_pnl": -61.86,
           "position_size": 3693.34,
           "stop_loss": 0.07295,
           "take_profit": 0.04754,
@@ -15097,7 +15203,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BTC_1d_macd_bear_short_218",
           "entry_price": 67830.6,
-          "close_price": 70769.0,
+          "close_price": 70930.3,
           "pnl": -128.02,
           "pnl_pct": -4.1,
           "close_reason": "stop",
@@ -15127,7 +15233,7 @@
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
           "entry_price": 626.08,
-          "close_price": 638.34,
+          "close_price": 639.73,
           "pnl": -91.07,
           "pnl_pct": -3.1,
           "close_reason": "stop",
@@ -15172,7 +15278,7 @@
           "signal_type": "macd_bear",
           "signal_name": "ADA_1d_macd_bear_short_214",
           "entry_price": 0.2504,
-          "close_price": 0.2617,
+          "close_price": 0.2632,
           "pnl": -113.69,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -16597,7 +16703,7 @@
           "signal_type": "macd_bear",
           "signal_name": "DOGE_1d_macd_bear_short_203",
           "entry_price": 0.09008,
-          "close_price": 0.09511,
+          "close_price": 0.09512,
           "pnl": -252.34,
           "pnl_pct": -6.1,
           "close_reason": "stop",
@@ -17137,7 +17243,7 @@
           "signal_type": "macd_bear",
           "signal_name": "RONIN_1d_macd_bear_short_universe",
           "entry_price": 0.0882,
-          "close_price": 0.0918,
+          "close_price": 0.0923,
           "pnl": 2.02,
           "pnl_pct": 0.1,
           "close_reason": "stop",
@@ -19441,6 +19547,10 @@
         {
           "ts": "2026-03-23T20:00:00Z",
           "equity": 8190.27
+        },
+        {
+          "ts": "2026-03-23T21:00:00Z",
+          "equity": 8176.22
         }
       ]
     }
@@ -19456,8 +19566,8 @@
     "n_signals": 519,
     "initial_capital": 160.54,
     "capital": 145.77,
-    "effective_capital": 139.96,
-    "unrealized_pnl": -5.8131,
+    "effective_capital": 139.86,
+    "unrealized_pnl": -5.911,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
@@ -19478,9 +19588,9 @@
         "timeframe": "4h",
         "filter": "regime",
         "entry_price": 2042.35,
-        "current_price": 2161.79,
-        "unrealized_pnl": -3.4638,
-        "pnl_pct": -5.85,
+        "current_price": 2158.98,
+        "unrealized_pnl": -3.3823,
+        "pnl_pct": -5.71,
         "stop": 2367.596428571428,
         "target": 1392.6071428571431,
         "stop_pct": 15.9,
@@ -19503,9 +19613,9 @@
         "timeframe": "4h",
         "filter": "none",
         "entry_price": 3.000987,
-        "current_price": 3.12,
-        "unrealized_pnl": -2.3493,
-        "pnl_pct": -3.97,
+        "current_price": 3.13,
+        "unrealized_pnl": -2.5467,
+        "pnl_pct": -4.3,
         "stop": 3.325,
         "target": 2.356,
         "stop_pct": 10.8,
@@ -19519,6 +19629,31 @@
         "trail_phase": 0,
         "peak_price": 3.000987,
         "original_stop": 3.325
+      },
+      {
+        "asset": "PLTR",
+        "direction": "LONG",
+        "signal_name": "PLTR_1d_yf_breakout_10_long_315",
+        "signal_type": "breakout_10_long",
+        "timeframe": "1d_yf",
+        "filter": "none",
+        "entry_price": 160.84,
+        "current_price": 160.89,
+        "unrealized_pnl": 0.018,
+        "pnl_pct": 0.03,
+        "stop": 151.0442857142857,
+        "target": 180.34142857142857,
+        "stop_pct": 6.1,
+        "target_pct": 12.1,
+        "leverage": 3,
+        "size": 57.9,
+        "sharpe": 3.783,
+        "wr": 0.5556,
+        "opened_at": "2026-03-23T21:02:06.759774+00:00",
+        "order_id": "43527277",
+        "trail_phase": 0,
+        "peak_price": 160.84,
+        "original_stop": 151.044286
       }
     ],
     "closed_trades": [
@@ -21815,6 +21950,10 @@
       {
         "ts": "2026-03-23T20:00:00Z",
         "capital": 139.96
+      },
+      {
+        "ts": "2026-03-23T21:00:00Z",
+        "capital": 139.86
       }
     ]
   },
@@ -21824,8 +21963,8 @@
     "n_signals": 519,
     "initial_capital": 160.35,
     "capital": 140.64,
-    "effective_capital": 137.53,
-    "unrealized_pnl": -3.1073,
+    "effective_capital": 137.59,
+    "unrealized_pnl": -3.0497,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
@@ -21846,9 +21985,9 @@
         "timeframe": "4h",
         "filter": "regime",
         "entry_price": 2031.92,
-        "current_price": 2161.39,
-        "unrealized_pnl": -3.1073,
-        "pnl_pct": -6.37,
+        "current_price": 2158.99,
+        "unrealized_pnl": -3.0497,
+        "pnl_pct": -6.25,
         "stop": 2358.246428571428,
         "target": 1383.2571428571432,
         "stop_pct": 16.1,
@@ -24120,6 +24259,10 @@
       {
         "ts": "2026-03-23T20:00:00Z",
         "capital": 137.53
+      },
+      {
+        "ts": "2026-03-23T21:00:00Z",
+        "capital": 137.59
       }
     ]
   }
