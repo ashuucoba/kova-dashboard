@@ -2,18 +2,18 @@
   "version": "v4",
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
-  "capital": 2341.31,
-  "effective_capital": 2377.77,
-  "unrealized_pnl": 36.46,
+  "capital": 2355.77,
+  "effective_capital": 2396.39,
+  "unrealized_pnl": 40.62,
   "peak_capital": 2406.9,
-  "updated_at": "2026-04-13T13:35:06Z",
+  "updated_at": "2026-04-13T14:05:06Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
-    "total_trades": 93,
-    "wins": 70,
+    "total_trades": 94,
+    "wins": 71,
     "losses": 23,
     "expired": 3,
-    "total_pnl": 341.31,
+    "total_pnl": 355.77,
     "max_drawdown": 21.3,
     "profit_factor": 0,
     "largest_win": 176.66,
@@ -51,36 +51,6 @@
       "original_stop": 0.005962
     },
     {
-      "asset": "DOGE",
-      "direction": "SHORT",
-      "signal_name": "DOGE_4h_below_ema200_short_210",
-      "signal_type": "below_ema200",
-      "timeframe": "4h",
-      "filter": "btc_regime",
-      "entry_price": 0.09269,
-      "current_price": 0.0911,
-      "unrealized_pnl": 8.93,
-      "pnl_pct": 1.73,
-      "stop": 0.0917154,
-      "target": 0.081567,
-      "stop_pct": 1.1,
-      "target_pct": 12.0,
-      "rr_ratio": 2.0,
-      "leverage": 3,
-      "size": 517.53,
-      "risk_amount": 31.05,
-      "sharpe": 3.23,
-      "wr": 0.667,
-      "n": 45,
-      "hold_max_hours": 160,
-      "opened_at": "2026-04-09T23:30:33.039969+00:00",
-      "tp1_taken": false,
-      "rsi_at_entry": 51.8,
-      "trail_phase": 2,
-      "peak_price": 0.09036,
-      "original_stop": 0.098251
-    },
-    {
       "asset": "INTC",
       "direction": "LONG",
       "signal_name": "INTC_1d_yf_breakout_100_long_375",
@@ -88,12 +58,12 @@
       "timeframe": "1d_yf",
       "filter": "none",
       "entry_price": 62.5,
-      "current_price": 62.2,
-      "unrealized_pnl": -3.24,
-      "pnl_pct": -0.48,
-      "stop": 58.75,
+      "current_price": 63.75,
+      "unrealized_pnl": 13.51,
+      "pnl_pct": 2.0,
+      "stop": 62.625,
       "target": 70.0,
-      "stop_pct": 6.0,
+      "stop_pct": 0.2,
       "target_pct": 12.0,
       "rr_ratio": 2.0,
       "leverage": 2,
@@ -106,8 +76,8 @@
       "opened_at": "2026-04-12T00:00:52.896213+00:00",
       "tp1_taken": false,
       "rsi_at_entry": 75.4,
-      "trail_phase": 0,
-      "peak_price": 62.54,
+      "trail_phase": 1,
+      "peak_price": 63.75,
       "original_stop": 58.75
     },
     {
@@ -118,9 +88,9 @@
       "timeframe": "1d",
       "filter": "btc_regime",
       "entry_price": 0.2362,
-      "current_price": 0.2399,
-      "unrealized_pnl": -8.47,
-      "pnl_pct": -1.57,
+      "current_price": 0.2415,
+      "unrealized_pnl": -12.13,
+      "pnl_pct": -2.24,
       "stop": 0.250372,
       "target": 0.207856,
       "stop_pct": 6.0,
@@ -1815,13 +1785,27 @@
       "leverage": 3,
       "size": 675.52,
       "risk_amount": 40.53
+    },
+    {
+      "asset": "DOGE",
+      "direction": "SHORT",
+      "signal_name": "DOGE_4h_below_ema200_short_210",
+      "signal_type": "below_ema200",
+      "timeframe": "4h",
+      "entry_price": 0.09269,
+      "exit_price": 0.091715,
+      "pnl_usd": 14.46,
+      "pnl_pct": 1.05,
+      "exit_reason": "trailing_stop",
+      "opened_at": "2026-04-09T23:30:33.039969+00:00",
+      "closed_at": "2026-04-13T14:00:04.638270+00:00",
+      "hold_time": "",
+      "leverage": 3,
+      "size": 517.53,
+      "risk_amount": 31.05
     }
   ],
   "equity_curve": [
-    {
-      "ts": "2026-03-14T14:00:00Z",
-      "capital": 1881.1
-    },
     {
       "ts": "2026-03-14T15:00:00Z",
       "capital": 1885.6
@@ -4697,16 +4681,20 @@
     {
       "ts": "2026-04-13T13:00:00Z",
       "capital": 2377.77
+    },
+    {
+      "ts": "2026-04-13T14:00:00Z",
+      "capital": 2396.39
     }
   ],
   "versions": {
     "v2": {
       "capital": 3026.96,
       "initial_capital": 2000,
-      "effective_capital": 3028.31,
+      "effective_capital": 3026.96,
       "n_signals": 40,
       "config": "",
-      "updated": "2026-04-13T13:35:08Z",
+      "updated": "2026-04-13T14:05:06Z",
       "stats": {
         "total_trades": 99,
         "wins": 70,
@@ -4716,33 +4704,7 @@
         "largest_win": 219.04,
         "largest_loss": -198.3
       },
-      "open_positions": [
-        {
-          "asset": "ADA",
-          "direction": "SHORT",
-          "signal_name": "ADA_1d_macd_bear_short_214",
-          "signal_type": "macd_bear",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 0.2401,
-          "current_price": 0.2399,
-          "unrealized_pnl": 1.35,
-          "position_size": 1616.99,
-          "stop_loss": 0.254506,
-          "take_profit": 0.211288,
-          "leverage": 2,
-          "sharpe": 2.89,
-          "wr": 0.5329999999999999,
-          "n": 30,
-          "opened_at": "2026-04-13 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 240,
-          "risk_amount": 48.51,
-          "trail_phase": 0,
-          "peak_price": 0.2401,
-          "original_stop": 0.254506
-        }
-      ],
+      "open_positions": [],
       "closed_trades": [
         {
           "asset": "ETH",
@@ -6231,10 +6193,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-03-14T14:00:00Z",
-          "equity": 3128.27
-        },
         {
           "ts": "2026-03-14T15:00:00Z",
           "equity": 3128.27
@@ -9110,16 +9068,20 @@
         {
           "ts": "2026-04-13T13:00:00Z",
           "equity": 3028.31
+        },
+        {
+          "ts": "2026-04-13T14:00:00Z",
+          "equity": 3026.96
         }
       ]
     },
     "v3": {
       "capital": 3026.96,
       "initial_capital": 2000,
-      "effective_capital": 3028.31,
+      "effective_capital": 3026.96,
       "n_signals": 155,
       "config": "",
-      "updated": "2026-04-13T13:35:10Z",
+      "updated": "2026-04-13T14:05:06Z",
       "stats": {
         "total_trades": 99,
         "wins": 70,
@@ -9129,33 +9091,7 @@
         "largest_win": 219.04,
         "largest_loss": -198.3
       },
-      "open_positions": [
-        {
-          "asset": "ADA",
-          "direction": "SHORT",
-          "signal_name": "ADA_1d_macd_bear_short_214",
-          "signal_type": "macd_bear",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 0.2401,
-          "current_price": 0.2399,
-          "unrealized_pnl": 1.35,
-          "position_size": 1616.99,
-          "stop_loss": 0.254506,
-          "take_profit": 0.211288,
-          "leverage": 2,
-          "sharpe": 2.89,
-          "wr": 0.5329999999999999,
-          "n": 30,
-          "opened_at": "2026-04-13 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 240,
-          "risk_amount": 48.51,
-          "trail_phase": 0,
-          "peak_price": 0.2401,
-          "original_stop": 0.254506
-        }
-      ],
+      "open_positions": [],
       "closed_trades": [
         {
           "asset": "ETH",
@@ -10644,10 +10580,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-03-14T14:00:00Z",
-          "equity": 3128.27
-        },
         {
           "ts": "2026-03-14T15:00:00Z",
           "equity": 3128.27
@@ -13523,16 +13455,20 @@
         {
           "ts": "2026-04-13T13:00:00Z",
           "equity": 3028.31
+        },
+        {
+          "ts": "2026-04-13T14:00:00Z",
+          "equity": 3026.96
         }
       ]
     },
     "v4": {
       "capital": 4953.86,
       "initial_capital": 2000,
-      "effective_capital": 4954.84,
+      "effective_capital": 4953.86,
       "n_signals": 519,
       "config": "",
-      "updated": "2026-04-13T13:35:12Z",
+      "updated": "2026-04-13T14:05:06Z",
       "stats": {
         "total_trades": 190,
         "wins": 138,
@@ -13542,33 +13478,7 @@
         "largest_win": 602.33,
         "largest_loss": -262.94
       },
-      "open_positions": [
-        {
-          "asset": "ADA",
-          "direction": "SHORT",
-          "signal_name": "ADA_1d_macd_bear_short_214",
-          "signal_type": "macd_bear",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 0.2401,
-          "current_price": 0.2399,
-          "unrealized_pnl": 0.98,
-          "position_size": 1172.25,
-          "stop_loss": 0.254506,
-          "take_profit": 0.211288,
-          "leverage": 2,
-          "sharpe": 2.89,
-          "wr": 0.5329999999999999,
-          "n": 30,
-          "opened_at": "2026-04-13 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 240,
-          "risk_amount": 35.17,
-          "trail_phase": 0,
-          "peak_price": 0.2401,
-          "original_stop": 0.254506
-        }
-      ],
+      "open_positions": [],
       "closed_trades": [
         {
           "asset": "RENDER",
@@ -16422,10 +16332,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-03-14T14:00:00Z",
-          "equity": 5048.27
-        },
         {
           "ts": "2026-03-14T15:00:00Z",
           "equity": 5044.68
@@ -19301,16 +19207,20 @@
         {
           "ts": "2026-04-13T13:00:00Z",
           "equity": 4954.84
+        },
+        {
+          "ts": "2026-04-13T14:00:00Z",
+          "equity": 4953.86
         }
       ]
     },
     "v6": {
       "capital": 9726.04,
       "initial_capital": 2000,
-      "effective_capital": 9726.95,
+      "effective_capital": 9726.04,
       "n_signals": 519,
       "config": "",
-      "updated": "2026-04-13T13:35:14Z",
+      "updated": "2026-04-13T14:05:06Z",
       "stats": {
         "total_trades": 190,
         "wins": 138,
@@ -19320,33 +19230,7 @@
         "largest_win": 1583.57,
         "largest_loss": -786.19
       },
-      "open_positions": [
-        {
-          "asset": "ADA",
-          "direction": "SHORT",
-          "signal_name": "ADA_1d_macd_bear_short_214",
-          "signal_type": "macd_bear",
-          "timeframe": "",
-          "filter": "none",
-          "entry_price": 0.2401,
-          "current_price": 0.2399,
-          "unrealized_pnl": 0.91,
-          "position_size": 1097.78,
-          "stop_loss": 0.254506,
-          "take_profit": 0.211288,
-          "leverage": 3,
-          "sharpe": 2.89,
-          "wr": 0.5329999999999999,
-          "n": 30,
-          "opened_at": "2026-04-13 00:00:00",
-          "rr_ratio": 2.0,
-          "hold_max_hours": 240,
-          "risk_amount": 21.96,
-          "trail_phase": 0,
-          "peak_price": 0.2401,
-          "original_stop": 0.254506
-        }
-      ],
+      "open_positions": [],
       "closed_trades": [
         {
           "asset": "RENDER",
@@ -22200,10 +22084,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-03-14T14:00:00Z",
-          "equity": 9967.35
-        },
         {
           "ts": "2026-03-14T15:00:00Z",
           "equity": 9963.4
@@ -25079,6 +24959,10 @@
         {
           "ts": "2026-04-13T13:00:00Z",
           "equity": 9726.95
+        },
+        {
+          "ts": "2026-04-13T14:00:00Z",
+          "equity": 9726.04
         }
       ]
     }
@@ -25094,8 +24978,8 @@
     "n_signals": 519,
     "initial_capital": 537.76,
     "capital": 508.86,
-    "effective_capital": 504.93,
-    "unrealized_pnl": -3.9306,
+    "effective_capital": 503.65,
+    "unrealized_pnl": -5.2106,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
@@ -25116,9 +25000,9 @@
         "timeframe": "1d_yf",
         "filter": "none",
         "entry_price": 238.61,
-        "current_price": 237.75,
-        "unrealized_pnl": -0.731,
-        "pnl_pct": -0.36,
+        "current_price": 237.73,
+        "unrealized_pnl": -0.748,
+        "pnl_pct": -0.37,
         "stop": 227.24571428571429,
         "target": 261.2185714285714,
         "stop_pct": 4.8,
@@ -25141,9 +25025,9 @@
         "timeframe": "1d",
         "filter": "btc_regime",
         "entry_price": 0.2361,
-        "current_price": 0.2399,
-        "unrealized_pnl": -3.1996,
-        "pnl_pct": -1.61,
+        "current_price": 0.2414,
+        "unrealized_pnl": -4.4626,
+        "pnl_pct": -2.24,
         "stop": 0.25026600000000004,
         "target": 0.207768,
         "stop_pct": 6.0,
@@ -26097,10 +25981,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "ts": "2026-03-14T14:00:00Z",
-        "capital": 149.3
-      },
       {
         "ts": "2026-03-14T15:00:00Z",
         "capital": 150.51
@@ -28976,6 +28856,10 @@
       {
         "ts": "2026-04-13T13:00:00Z",
         "capital": 504.93
+      },
+      {
+        "ts": "2026-04-13T14:00:00Z",
+        "capital": 503.65
       }
     ]
   },
@@ -28985,8 +28869,8 @@
     "n_signals": 519,
     "initial_capital": 160.35,
     "capital": 540.34,
-    "effective_capital": 536.88,
-    "unrealized_pnl": -3.4618,
+    "effective_capital": 535.51,
+    "unrealized_pnl": -4.8283,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
@@ -29007,9 +28891,9 @@
         "timeframe": "1d",
         "filter": "btc_regime",
         "entry_price": 0.2361,
-        "current_price": 0.2399,
-        "unrealized_pnl": -3.4618,
-        "pnl_pct": -1.61,
+        "current_price": 0.2414,
+        "unrealized_pnl": -4.8283,
+        "pnl_pct": -2.24,
         "stop": 0.250372,
         "target": 0.20785599999999999,
         "stop_pct": 6.0,
@@ -29035,9 +28919,9 @@
         "current_price": 60.35,
         "unrealized_pnl": 0.0,
         "pnl_pct": 0.0,
-        "stop": 63.227149999999995,
+        "stop": 63.36505,
         "target": 67.63680000000001,
-        "stop_pct": 4.8,
+        "stop_pct": 5.0,
         "target_pct": 12.1,
         "leverage": 3,
         "size": 214.85,
@@ -29046,7 +28930,7 @@
         "opened_at": "2026-04-13T00:02:59.550045+00:00",
         "order_id": "56260831",
         "trail_phase": 2,
-        "peak_price": 64.19,
+        "peak_price": 64.33,
         "original_stop": 56.7666
       }
     ],
@@ -29768,10 +29652,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "ts": "2026-03-14T14:00:00Z",
-        "capital": 144.06
-      },
       {
         "ts": "2026-03-14T15:00:00Z",
         "capital": 144.96
@@ -32647,6 +32527,10 @@
       {
         "ts": "2026-04-13T13:00:00Z",
         "capital": 536.88
+      },
+      {
+        "ts": "2026-04-13T14:00:00Z",
+        "capital": 535.51
       }
     ]
   }
