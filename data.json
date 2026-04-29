@@ -2,54 +2,24 @@
   "version": "v4",
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
-  "capital": 1192.68,
-  "effective_capital": 1203.79,
-  "unrealized_pnl": 11.11,
+  "capital": 1223.45,
+  "effective_capital": 1214.99,
+  "unrealized_pnl": -8.46,
   "peak_capital": 2530.61,
-  "updated_at": "2026-04-29T21:05:05Z",
+  "updated_at": "2026-04-29T21:35:04Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
-    "total_trades": 197,
-    "wins": 126,
+    "total_trades": 198,
+    "wins": 127,
     "losses": 71,
     "expired": 8,
-    "total_pnl": -807.32,
+    "total_pnl": -776.55,
     "max_drawdown": 54.34,
     "profit_factor": 0,
     "largest_win": 216.67,
     "largest_loss": -176.3
   },
   "open_positions": [
-    {
-      "asset": "G",
-      "direction": "SHORT",
-      "signal_name": "G_1d_macd_bear_short_381",
-      "signal_type": "macd_bear_short",
-      "timeframe": "1d",
-      "filter": "trend",
-      "entry_price": 0.00364,
-      "current_price": 0.0036,
-      "unrealized_pnl": 14.75,
-      "pnl_pct": 1.84,
-      "stop": 0.00358904,
-      "target": 0.0032032,
-      "stop_pct": 1.4,
-      "target_pct": 12.0,
-      "rr_ratio": 2.0,
-      "leverage": 3,
-      "size": 801.33,
-      "risk_amount": 48.08,
-      "sharpe": 2.53,
-      "wr": 77.3,
-      "n": 22,
-      "hold_max_hours": 480,
-      "opened_at": "2026-04-20T00:00:54.160031+00:00",
-      "tp1_taken": false,
-      "rsi_at_entry": 45.9,
-      "trail_phase": 2,
-      "peak_price": 0.003536,
-      "original_stop": 0.003858
-    },
     {
       "asset": "BTC",
       "direction": "SHORT",
@@ -58,9 +28,9 @@
       "timeframe": "1d",
       "filter": "16regime",
       "entry_price": 76523.47,
-      "current_price": 75629.1,
-      "unrealized_pnl": 3.56,
-      "pnl_pct": 1.17,
+      "current_price": 75864.0,
+      "unrealized_pnl": 2.62,
+      "pnl_pct": 0.86,
       "stop": 76234.011,
       "target": 71932.06,
       "stop_pct": 0.4,
@@ -88,9 +58,9 @@
       "timeframe": "1d",
       "filter": "16regime",
       "entry_price": 0.05773,
-      "current_price": 0.0574,
-      "unrealized_pnl": -0.78,
-      "pnl_pct": -0.62,
+      "current_price": 0.0575,
+      "unrealized_pnl": -0.43,
+      "pnl_pct": -0.35,
       "stop": 0.054266,
       "target": 0.064658,
       "stop_pct": 6.0,
@@ -118,9 +88,9 @@
       "timeframe": "4h",
       "filter": "16regime",
       "entry_price": 260.8,
-      "current_price": 253.64,
-      "unrealized_pnl": -4.56,
-      "pnl_pct": -2.75,
+      "current_price": 257.16,
+      "unrealized_pnl": -2.32,
+      "pnl_pct": -1.4,
       "stop": 249.1,
       "target": 284.2,
       "stop_pct": 4.5,
@@ -149,8 +119,8 @@
       "filter": "16regime",
       "entry_price": 0.018,
       "current_price": 0.0181,
-      "unrealized_pnl": 1.03,
-      "pnl_pct": 0.83,
+      "unrealized_pnl": 0.48,
+      "pnl_pct": 0.39,
       "stop": 0.01692,
       "target": 0.02016,
       "stop_pct": 6.0,
@@ -167,7 +137,7 @@
       "tp1_taken": false,
       "rsi_at_entry": 58.4,
       "trail_phase": 0,
-      "peak_price": 0.01811,
+      "peak_price": 0.01813,
       "original_stop": 0.01692
     },
     {
@@ -178,9 +148,9 @@
       "timeframe": "1d",
       "filter": "16regime",
       "entry_price": 0.103,
-      "current_price": 0.1046,
-      "unrealized_pnl": -2.04,
-      "pnl_pct": -1.55,
+      "current_price": 0.1053,
+      "unrealized_pnl": -2.94,
+      "pnl_pct": -2.23,
       "stop": 0.10918,
       "target": 0.09064,
       "stop_pct": 6.0,
@@ -209,8 +179,8 @@
       "filter": "16regime",
       "entry_price": 0.0001511,
       "current_price": 0.0002,
-      "unrealized_pnl": -0.85,
-      "pnl_pct": -0.79,
+      "unrealized_pnl": -5.87,
+      "pnl_pct": -5.49,
       "stop": 0.00016017,
       "target": 0.00013297,
       "stop_pct": 6.0,
@@ -3777,6 +3747,24 @@
       "leverage": 2,
       "size": 78.39,
       "risk_amount": 4.7
+    },
+    {
+      "asset": "G",
+      "direction": "SHORT",
+      "signal_name": "G_1d_macd_bear_short_381",
+      "signal_type": "macd_bear_short",
+      "timeframe": "1d",
+      "entry_price": 0.00364,
+      "exit_price": 0.003589,
+      "pnl_usd": 30.77,
+      "pnl_pct": 1.4,
+      "exit_reason": "trailing_stop",
+      "opened_at": "2026-04-20T00:00:54.160031+00:00",
+      "closed_at": "2026-04-29T21:30:04.636871+00:00",
+      "hold_time": "",
+      "leverage": 3,
+      "size": 801.33,
+      "risk_amount": 48.08
     }
   ],
   "equity_curve": [
@@ -6658,7 +6646,7 @@
     },
     {
       "ts": "2026-04-29T21:00:00Z",
-      "capital": 1203.79
+      "capital": 1214.99
     }
   ],
   "versions": {
@@ -6668,7 +6656,7 @@
       "effective_capital": 2363.52,
       "n_signals": 40,
       "config": "",
-      "updated": "2026-04-29T21:05:05Z",
+      "updated": "2026-04-29T21:35:04Z",
       "stats": {
         "total_trades": 121,
         "wins": 84,
@@ -6865,7 +6853,7 @@
           "direction": "SHORT",
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
-          "entry_price": 615.32,
+          "entry_price": 616.79,
           "close_price": 869.67,
           "pnl": -60.12,
           "pnl_pct": -3.1,
@@ -7631,7 +7619,7 @@
           "signal_type": "macd_bear",
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 84.02,
-          "close_price": 82.56,
+          "close_price": 82.86,
           "pnl": 1.69,
           "pnl_pct": 0.1,
           "close_reason": "stop",
@@ -11385,7 +11373,7 @@
       "effective_capital": 2363.52,
       "n_signals": 155,
       "config": "",
-      "updated": "2026-04-29T21:05:05Z",
+      "updated": "2026-04-29T21:35:04Z",
       "stats": {
         "total_trades": 121,
         "wins": 84,
@@ -11582,7 +11570,7 @@
           "direction": "SHORT",
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
-          "entry_price": 615.32,
+          "entry_price": 616.79,
           "close_price": 869.67,
           "pnl": -60.12,
           "pnl_pct": -3.1,
@@ -12348,7 +12336,7 @@
           "signal_type": "macd_bear",
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 84.02,
-          "close_price": 82.56,
+          "close_price": 82.86,
           "pnl": 1.69,
           "pnl_pct": 0.1,
           "close_reason": "stop",
@@ -16099,10 +16087,10 @@
     "v4": {
       "capital": 4190.19,
       "initial_capital": 2000,
-      "effective_capital": 4059.04,
+      "effective_capital": 4020.1,
       "n_signals": 519,
       "config": "",
-      "updated": "2026-04-29T21:05:08Z",
+      "updated": "2026-04-29T21:35:08Z",
       "stats": {
         "total_trades": 220,
         "wins": 157,
@@ -16120,12 +16108,12 @@
           "signal_type": "macd_bear",
           "timeframe": "",
           "filter": "none",
-          "entry_price": 0.000152,
+          "entry_price": 0.000155,
           "current_price": 0.0002,
-          "unrealized_pnl": -2.49,
-          "position_size": 1260.75,
-          "stop_loss": 0.000179,
-          "take_profit": 9.8e-05,
+          "unrealized_pnl": -26.49,
+          "position_size": 1283.16,
+          "stop_loss": 0.000181,
+          "take_profit": 0.000101,
           "leverage": 2,
           "sharpe": 3.189,
           "wr": 75.0,
@@ -16135,8 +16123,8 @@
           "hold_max_hours": 480,
           "risk_amount": 111.34,
           "trail_phase": 0,
-          "peak_price": 0.000152,
-          "original_stop": 0.000179
+          "peak_price": 0.000155,
+          "original_stop": 0.000181
         },
         {
           "asset": "MANTA",
@@ -16146,8 +16134,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.06384,
-          "current_price": 0.0681,
-          "unrealized_pnl": -128.66,
+          "current_price": 0.0685,
+          "unrealized_pnl": -143.6,
           "position_size": 1946.41,
           "stop_loss": 0.07089,
           "take_profit": 0.04974,
@@ -16830,7 +16818,7 @@
           "direction": "SHORT",
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
-          "entry_price": 615.32,
+          "entry_price": 616.79,
           "close_price": 869.67,
           "pnl": -45.84,
           "pnl_pct": -3.1,
@@ -17881,7 +17869,7 @@
           "signal_type": "macd_bear",
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 84.02,
-          "close_price": 82.56,
+          "close_price": 82.86,
           "pnl": 0.69,
           "pnl_pct": 0.1,
           "close_reason": "stop",
@@ -19441,7 +19429,7 @@
           "signal_type": "macd_bear",
           "signal_name": "METIS_1d_macd_bear_short_universe",
           "entry_price": 3.538,
-          "close_price": 3.437,
+          "close_price": 3.457,
           "pnl": 37.58,
           "pnl_pct": 3.6,
           "close_reason": "stop",
@@ -22345,17 +22333,17 @@
         },
         {
           "ts": "2026-04-29T21:00:00Z",
-          "equity": 4059.04
+          "equity": 4020.1
         }
       ]
     },
     "v6": {
       "capital": 7907.21,
       "initial_capital": 2000,
-      "effective_capital": 7629.65,
+      "effective_capital": 7528.43,
       "n_signals": 519,
       "config": "",
-      "updated": "2026-04-29T21:05:11Z",
+      "updated": "2026-04-29T21:35:11Z",
       "stats": {
         "total_trades": 220,
         "wins": 157,
@@ -22373,12 +22361,12 @@
           "signal_type": "macd_bear",
           "timeframe": "",
           "filter": "none",
-          "entry_price": 0.000152,
+          "entry_price": 0.000155,
           "current_price": 0.0002,
-          "unrealized_pnl": -9.45,
-          "position_size": 3591.03,
-          "stop_loss": 0.000179,
-          "take_profit": 9.8e-05,
+          "unrealized_pnl": -80.17,
+          "position_size": 3654.86,
+          "stop_loss": 0.000181,
+          "take_profit": 0.000101,
           "leverage": 3,
           "sharpe": 3.189,
           "wr": 75.0,
@@ -22388,8 +22376,8 @@
           "hold_max_hours": 480,
           "risk_amount": 211.42,
           "trail_phase": 0,
-          "peak_price": 0.000152,
-          "original_stop": 0.000179
+          "peak_price": 0.000155,
+          "original_stop": 0.000181
         },
         {
           "asset": "MANTA",
@@ -22399,8 +22387,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.06384,
-          "current_price": 0.0681,
-          "unrealized_pnl": -268.11,
+          "current_price": 0.0685,
+          "unrealized_pnl": -298.61,
           "position_size": 4056.02,
           "stop_loss": 0.07089,
           "take_profit": 0.04974,
@@ -23083,7 +23071,7 @@
           "direction": "SHORT",
           "signal_type": "macd_bear",
           "signal_name": "BNB_1d_macd_bear_short_209",
-          "entry_price": 615.32,
+          "entry_price": 616.79,
           "close_price": 869.67,
           "pnl": -67.78,
           "pnl_pct": -3.1,
@@ -24134,7 +24122,7 @@
           "signal_type": "macd_bear",
           "signal_name": "SOL_1d_macd_bear_short_204",
           "entry_price": 84.02,
-          "close_price": 82.56,
+          "close_price": 82.86,
           "pnl": 1.05,
           "pnl_pct": 0.1,
           "close_reason": "stop",
@@ -25694,7 +25682,7 @@
           "signal_type": "macd_bear",
           "signal_name": "METIS_1d_macd_bear_short_universe",
           "entry_price": 3.538,
-          "close_price": 3.437,
+          "close_price": 3.457,
           "pnl": 79.07,
           "pnl_pct": 3.6,
           "close_reason": "stop",
@@ -28598,7 +28586,7 @@
         },
         {
           "ts": "2026-04-29T21:00:00Z",
-          "equity": 7629.65
+          "equity": 7528.43
         }
       ]
     }
@@ -28614,8 +28602,8 @@
     "n_signals": 519,
     "initial_capital": 512.75443478,
     "capital": 423.2,
-    "effective_capital": 420.53,
-    "unrealized_pnl": -2.6684,
+    "effective_capital": 419.08,
+    "unrealized_pnl": -4.1202,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
@@ -28636,9 +28624,9 @@
         "timeframe": "4h",
         "filter": "16regime",
         "entry_price": 76116.4,
-        "current_price": 75633.6,
-        "unrealized_pnl": 0.9656,
-        "pnl_pct": 0.63,
+        "current_price": 75864.0,
+        "unrealized_pnl": 0.5048,
+        "pnl_pct": 0.33,
         "stop": 76069.2765,
         "target": 70027.088,
         "stop_pct": 0.1,
@@ -28661,9 +28649,9 @@
         "timeframe": "1d",
         "filter": "16regime",
         "entry_price": 0.1025,
-        "current_price": 0.1047,
-        "unrealized_pnl": -3.634,
-        "pnl_pct": -2.15,
+        "current_price": 0.1053,
+        "unrealized_pnl": -4.625,
+        "pnl_pct": -2.73,
         "stop": 0.1087,
         "target": 0.09019999999999999,
         "stop_pct": 6.0,
@@ -33419,7 +33407,7 @@
       },
       {
         "ts": "2026-04-29T21:00:00Z",
-        "capital": 420.53
+        "capital": 419.08
       }
     ]
   },
@@ -33429,8 +33417,8 @@
     "n_signals": 519,
     "initial_capital": 558.67407159,
     "capital": 407.68,
-    "effective_capital": 405.3,
-    "unrealized_pnl": -2.3759,
+    "effective_capital": 404.03,
+    "unrealized_pnl": -3.6511,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
@@ -33451,9 +33439,9 @@
         "timeframe": "4h",
         "filter": "16regime",
         "entry_price": 76116.4,
-        "current_price": 75633.6,
-        "unrealized_pnl": 0.9656,
-        "pnl_pct": 0.63,
+        "current_price": 75873.4,
+        "unrealized_pnl": 0.486,
+        "pnl_pct": 0.32,
         "stop": 75964.2,
         "target": 70027.088,
         "stop_pct": 0.2,
@@ -33476,9 +33464,9 @@
         "timeframe": "1d",
         "filter": "16regime",
         "entry_price": 0.1026,
-        "current_price": 0.1047,
-        "unrealized_pnl": -3.3415,
-        "pnl_pct": -2.05,
+        "current_price": 0.1052,
+        "unrealized_pnl": -4.1371,
+        "pnl_pct": -2.53,
         "stop": 0.1088,
         "target": 0.090288,
         "stop_pct": 6.0,
@@ -38322,7 +38310,7 @@
       },
       {
         "ts": "2026-04-29T21:00:00Z",
-        "capital": 405.3
+        "capital": 404.03
       }
     ]
   },
@@ -38331,7 +38319,7 @@
     "trend": "STRONG_BEAR",
     "volatility": "NORMAL",
     "confirmed": true,
-    "pending_days": 0,
+    "pending_days": 1,
     "position_sizing": {
       "long_multiplier": 1.3,
       "short_multiplier": 1.3,
@@ -38348,11 +38336,11 @@
     },
     "inputs": {
       "vix": 18.809999465942383,
-      "btc_vs_ema200_pct": -5.903337379249274,
-      "btc_price": 75675.37,
-      "dxy": 98.97100067138672,
+      "btc_vs_ema200_pct": -5.61563585621252,
+      "btc_price": 75909.14,
+      "dxy": 98.94200134277344,
       "real_yield_proxy": 0.9180002212524414,
-      "btc_dominance": 58.05458761690553
+      "btc_dominance": 58.05883786584517
     },
     "asset_regimes": {
       "BTC": {
@@ -38383,24 +38371,24 @@
       "COIN": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Crypto stock: 50% BTC (-5.9%) + 50% SPY (+0.0%) = -3.0%"
+        "reason": "Crypto stock: 50% BTC (-5.6%) + 50% SPY (+0.0%) = -2.8%"
       },
       "HOOD": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Crypto stock: 50% BTC (-5.9%) + 50% SPY (+0.0%) = -3.0%"
+        "reason": "Crypto stock: 50% BTC (-5.6%) + 50% SPY (+0.0%) = -2.8%"
       },
       "AMZN": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Traditional stock: 20% BTC (-5.9%) + 80% SPY (+0.0%) = -1.2%"
+        "reason": "Traditional stock: 20% BTC (-5.6%) + 80% SPY (+0.0%) = -1.1%"
       },
       "INTC": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Traditional stock: 20% BTC (-5.9%) + 80% SPY (+0.0%) = -1.2%"
+        "reason": "Traditional stock: 20% BTC (-5.6%) + 80% SPY (+0.0%) = -1.1%"
       }
     },
-    "updated_at": "2026-04-29T21:05:22Z"
+    "updated_at": "2026-04-29T21:35:21Z"
   }
 }
