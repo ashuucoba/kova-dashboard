@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kova — Multi-Version Paper Trading</title>
+<title>Kova — Live Trading + Paper Comparison</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 :root { --bg:#0a0a0f; --surface:#12121a; --surface2:#1a1a26; --border:#2a2a3a; --text:#e4e4ef; --dim:#8888a0; --amber:#f5a623; --green:#22c55e; --red:#ef4444; --blue:#3b82f6; --purple:#a855f7; }
@@ -82,7 +82,7 @@ tr:hover td { background:rgba(245,166,35,.03); }
   <div class="header">
     <div class="logo">
       <div class="logo-icon">📊</div>
-      <div><h1>KOVA</h1><span>SIGNAL ENGINE · MULTI-VERSION COMPARISON</span></div>
+      <div><h1>KOVA</h1><span>SIGNAL ENGINE · LIVE TRADING + PAPER COMPARISON</span></div>
     </div>
     <div style="text-align:right">
       <span class="badge" style="background:rgba(249,115,22,0.2);color:#f97316">● LIVE TRADING</span>
@@ -90,8 +90,8 @@ tr:hover td { background:rgba(245,166,35,.03); }
     </div>
   </div>
 
-  <!-- Version Comparison Table -->
-  <div class="chart-title">VERSION COMPARISON · Blind forward-test Jan 1–Feb 23 · Paper trading from Feb 23 · Live real trading (V6 · $25) from Feb 28 · Paper: $2,000 each</div>
+  <!-- Live + Paper Comparison Table -->
+  <div class="chart-title">LIVE (Bailly · Efe) + PAPER COMPARISON · Live real money on Binance Futures Portfolio Margin since Feb 28 · Paper $2,000 each (V2/V3/V4/V6) for backtest reference</div>
   <table class="compare-table" id="compareTable"></table>
 
   <!-- Version Tabs -->
@@ -125,7 +125,7 @@ tr:hover td { background:rgba(245,166,35,.03); }
     <div id="closedTable"></div>
   </div>
 
-  <div class="footer">KOVA Signal Engine · Blind forward-test Jan 1–Feb 23 · Paper trading from Feb 23 · 💰 Live real trading (V6) from Feb 28 · Updates every 4h</div>
+  <div class="footer">KOVA Signal Engine · 💰 Live real trading on Bailly + Efe accounts since Feb 28 · Paper V2/V3/V4/V6 maintained for signal backtest reference · Updates every 30 min</div>
 </div>
 
 <script>
@@ -137,7 +137,7 @@ function fp(n){return n==null?'—':`${n>=0?'+':''}$${fmt(n)}`;}
 function fpct(n){return n==null?'—':`${n>=0?'+':''}${fmt(n,1)}%`;}
 function holdT(ts){const h=Math.floor((Date.now()-new Date(ts))/36e5);return h<1?'<1h':h<24?h+'h':Math.floor(h/24)+'d';}
 
-let DATA=null, ACTIVE='v6', chart=null;
+let DATA=null, ACTIVE='live', chart=null;
 const sortState={};
 function sortTable(tblId,col){
   const tbl=document.getElementById(tblId);if(!tbl)return;
@@ -163,7 +163,7 @@ function sortTable(tblId,col){
 async function load(){
   try{const r=await fetch('data.json?t='+Date.now());DATA=await r.json();}catch(e){return;}
   if(!DATA||!DATA.versions)return;
-  document.getElementById('lastUpdate').textContent=DATA.versions.v5?.updated?'Updated '+new Date(DATA.versions.v5.updated).toLocaleString():'';
+  document.getElementById('lastUpdate').textContent=DATA.updated_at?'Updated '+new Date(DATA.updated_at).toLocaleString():'';
   renderCompare();
   renderTabs();
   renderVersion(ACTIVE);
@@ -171,8 +171,45 @@ async function load(){
 }
 
 function renderCompare(){
+  let html='<tr><th>Account / Version</th><th>Description</th><th>Signals</th><th>Capital</th><th>P&L</th><th>Trades</th><th>Win Rate</th><th>Max DD</th><th>Open</th></tr>';
+
+  // Live Bailly — promoted to top
+  const live=DATA.live_account;
+  if(live){
+    const ls=live.stats||{}, lpnl=live.capital-(live.initial_capital||25), lwr=ls.total_trades>0?ls.wins/ls.total_trades*100:0;
+    const isActive=ACTIVE==='live';
+    html+=`<tr class="${isActive?'active-row':''}" style="cursor:pointer;border-bottom:1px solid var(--border)" onclick="switchVersion('live')">
+      <td><strong style="color:#f97316">💰 BAILLY <span style="font-size:9px">REAL · V6</span></strong></td>
+      <td>Live · 3x · Trailing SL · Binance Futures PM · Started Feb 28</td>
+      <td>${live.n_signals||87}</td>
+      <td class="${lpnl>=0?'positive':'negative'}">$${fmt(live.effective_capital||live.capital)}</td>
+      <td class="${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</td>
+      <td>${ls.total_trades||0}</td>
+      <td class="${lwr>=50?'positive':lwr>0?'negative':'dim'}">${lwr>0?fmt(lwr,0)+'%':'—'}</td>
+      <td class="${(ls.max_drawdown||0)>0.05?'negative':'dim'}">${fmt((ls.max_drawdown||0)*100,1)}%</td>
+      <td>${(live.open_positions||[]).length}</td>
+    </tr>`;
+  }
+  // Live Efe — also promoted
+  const efe=DATA.live_account_efe;
+  if(efe){
+    const es=efe.stats||{}, epnl=efe.capital-(efe.initial_capital||50), ewr=es.total_trades>0?es.wins/es.total_trades*100:0;
+    const isEfe=ACTIVE==='efe_live';
+    html+=`<tr class="${isEfe?'active-row':''}" style="cursor:pointer;border-bottom:2px solid var(--border)" onclick="switchVersion('efe_live')">
+      <td><strong style="color:#a855f7">💰 EFE <span style="font-size:9px">REAL · V6</span></strong></td>
+      <td>Live · 3x · Trailing SL · Binance Futures PM · Started Feb 28</td>
+      <td>${efe.n_signals||87}</td>
+      <td class="${epnl>=0?'positive':'negative'}">$${fmt(efe.effective_capital||efe.capital)}</td>
+      <td class="${epnl>=0?'positive':'negative'}">${fp(epnl)}</td>
+      <td>${es.total_trades||0}</td>
+      <td class="${ewr>=50?'positive':ewr>0?'negative':'dim'}">${ewr>0?fmt(ewr,0)+'%':'—'}</td>
+      <td class="${(es.max_drawdown||0)>0.05?'negative':'dim'}">${fmt((es.max_drawdown||0)*100,1)}%</td>
+      <td>${(efe.open_positions||[]).length}</td>
+    </tr>`;
+  }
+
+  // Paper backtest comparison rows below the live block
   const vs=['v2','v3','v4','v6'];
-  let html='<tr><th>Version</th><th>Description</th><th>Signals</th><th>Capital</th><th>P&L</th><th>Trades</th><th>Win Rate</th><th>Max DD</th><th>Open</th></tr>';
   vs.forEach(v=>{
     const d=DATA.versions[v]; if(!d)return;
     const s=d.stats, pnl=d.capital-d.initial_capital, wr=s.total_trades>0?s.wins/s.total_trades*100:0;
@@ -189,66 +226,34 @@ function renderCompare(){
       <td>${(d.open_positions||[]).length}</td>
     </tr>`;
   });
-  // Live V6 row
-  const live=DATA.live_account;
-  if(live){
-    const ls=live.stats||{}, lpnl=live.capital-(live.initial_capital||25), lwr=ls.total_trades>0?ls.wins/ls.total_trades*100:0;
-    const isActive=ACTIVE==='live';
-    html+=`<tr class="${isActive?'active-row':''}" style="cursor:pointer;border-top:2px solid #f97316" onclick="switchVersion('live')">
-      <td><strong style="color:#f97316">V6 💰 <span style="font-size:9px">REAL</span></strong></td>
-      <td>Live trading · 3x · Trailing SL · Binance Futures · Started Feb 28</td>
-      <td>${live.n_signals||166}</td>
-      <td class="${lpnl>=0?'positive':'negative'}">$${fmt(live.effective_capital||live.capital)}</td>
-      <td class="${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</td>
-      <td>${ls.total_trades||0}</td>
-      <td class="${lwr>=50?'positive':lwr>0?'negative':'dim'}">${lwr>0?fmt(lwr,0)+'%':'—'}</td>
-      <td class="${(ls.max_drawdown||0)>0.05?'negative':'dim'}">${fmt((ls.max_drawdown||0)*100,1)}%</td>
-      <td>${(live.open_positions||[]).length}</td>
-    </tr>`;
-  }
-  // Efe's Live V6 row
-  const efe=DATA.live_account_efe;
-  if(efe){
-    const es=efe.stats||{}, epnl=efe.capital-(efe.initial_capital||50), ewr=es.total_trades>0?es.wins/es.total_trades*100:0;
-    const isEfe=ACTIVE==='efe_live';
-    html+=`<tr class="${isEfe?'active-row':''}" style="cursor:pointer;border-top:1px solid #a855f7" onclick="switchVersion('efe_live')">
-      <td><strong style="color:#a855f7">EFE 💰 <span style="font-size:9px">REAL</span></strong></td>
-      <td>Efe's live · 3x · Trailing SL · Binance Futures · Started Feb 28</td>
-      <td>${efe.n_signals||166}</td>
-      <td class="${epnl>=0?'positive':'negative'}">$${fmt(efe.effective_capital||efe.capital)}</td>
-      <td class="${epnl>=0?'positive':'negative'}">${fp(epnl)}</td>
-      <td>${es.total_trades||0}</td>
-      <td class="${ewr>=50?'positive':ewr>0?'negative':'dim'}">${ewr>0?fmt(ewr,0)+'%':'—'}</td>
-      <td class="${(es.max_drawdown||0)>0.05?'negative':'dim'}">${fmt((es.max_drawdown||0)*100,1)}%</td>
-      <td>${(efe.open_positions||[]).length}</td>
-    </tr>`;
-  }
+
   document.getElementById('compareTable').innerHTML=html;
 }
 
 function renderTabs(){
-  const vs=['v2','v3','v4','v6'];
-  let html=vs.map(v=>{
-    const d=DATA.versions[v]; if(!d)return '';
-    const pnl=d.capital-d.initial_capital;
-    return `<button class="tab ${v===ACTIVE?'active':''}" onclick="switchVersion('${v}')" style="border-left:3px solid ${COLORS[v]}">
-      ${v.toUpperCase()} <span class="tab-pnl ${pnl>=0?'positive':'negative'}">${fp(pnl)}</span>
-    </button>`;
-  }).join('');
-  // Live tab
+  let html='';
+  // Live tabs first — these are real money, deserve top placement
   if(DATA.live_account){
     const lpnl=(DATA.live_account.capital||25)-(DATA.live_account.initial_capital||25);
     html+=`<button class="tab ${ACTIVE==='live'?'active':''}" onclick="switchVersion('live')" style="border-left:3px solid #f97316">
-      💰 LIVE <span class="tab-pnl ${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</span>
+      💰 BAILLY <span class="tab-pnl ${lpnl>=0?'positive':'negative'}">${fp(lpnl)}</span>
     </button>`;
   }
-  // Efe's live tab
   if(DATA.live_account_efe){
     const epnl=(DATA.live_account_efe.capital||50)-(DATA.live_account_efe.initial_capital||50);
     html+=`<button class="tab ${ACTIVE==='efe_live'?'active':''}" onclick="switchVersion('efe_live')" style="border-left:3px solid #a855f7">
       💰 EFE <span class="tab-pnl ${epnl>=0?'positive':'negative'}">${fp(epnl)}</span>
     </button>`;
   }
+  // Paper backtest tabs after
+  const vs=['v2','v3','v4','v6'];
+  html+=vs.map(v=>{
+    const d=DATA.versions[v]; if(!d)return '';
+    const pnl=d.capital-d.initial_capital;
+    return `<button class="tab ${v===ACTIVE?'active':''}" onclick="switchVersion('${v}')" style="border-left:3px solid ${COLORS[v]}">
+      ${v.toUpperCase()} <span class="tab-pnl ${pnl>=0?'positive':'negative'}">${fp(pnl)}</span>
+    </button>`;
+  }).join('');
   document.getElementById('tabs').innerHTML=html;
 }
 
@@ -439,7 +444,7 @@ function renderLiveAsVersion(){
     {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(live.initial_capital||25)}`,c:'dim'},
-    {l:'Signals',v:live.n_signals||166,c:'blue'},
+    {l:'Signal universe',v:live.n_signals||166,c:'blue',s:'V6 blocklist filter applies'},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
@@ -507,7 +512,7 @@ function renderEfeAsVersion(){
     {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(efe.initial_capital||50)}`,c:'dim'},
-    {l:'Signals',v:efe.n_signals||166,c:'blue'},
+    {l:'Signal universe',v:efe.n_signals||166,c:'blue',s:'V6 blocklist filter applies'},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
