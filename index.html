@@ -103,7 +103,14 @@ tr:hover td { background:rgba(245,166,35,.03); }
 
   <!-- Equity Chart (all versions overlaid) -->
   <div class="chart-box">
-    <div class="chart-title">Equity Curves — All Versions</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+      <div class="chart-title" style="margin-bottom:0">Equity Curves</div>
+      <div class="tabs" id="equityTabs" style="margin-bottom:0">
+        <button class="tab" data-eqview="all" onclick="setEquityView('all')">All</button>
+        <button class="tab" data-eqview="live" onclick="setEquityView('live')">Live only</button>
+        <button class="tab" data-eqview="paper" onclick="setEquityView('paper')">Paper only</button>
+      </div>
+    </div>
     <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
   </div>
 
@@ -137,7 +144,14 @@ function fp(n){return n==null?'—':`${n>=0?'+':''}$${fmt(n)}`;}
 function fpct(n){return n==null?'—':`${n>=0?'+':''}${fmt(n,1)}%`;}
 function holdT(ts){const h=Math.floor((Date.now()-new Date(ts))/36e5);return h<1?'<1h':h<24?h+'h':Math.floor(h/24)+'d';}
 
-let DATA=null, ACTIVE='live', chart=null;
+let DATA=null, ACTIVE='live', chart=null, EQUITY_VIEW='all';
+function setEquityView(view){
+  EQUITY_VIEW=view;
+  document.querySelectorAll('#equityTabs .tab').forEach(t=>{
+    t.classList.toggle('active', t.dataset.eqview===view);
+  });
+  if(DATA) renderAllEquity();
+}
 const sortState={};
 function sortTable(tblId,col){
   const tbl=document.getElementById(tblId);if(!tbl)return;
@@ -370,53 +384,79 @@ function renderVersion(v){
 
 function renderAllEquity(){
   if(chart)chart.destroy();
+  // Sync tab pill highlights (in case render is called before any user click)
+  document.querySelectorAll('#equityTabs .tab').forEach(t=>{
+    t.classList.toggle('active', t.dataset.eqview===EQUITY_VIEW);
+  });
   const ctx=document.getElementById('equityChart').getContext('2d');
   const datasets=[];
-  ['v2','v3','v4','v6'].forEach(v=>{
-    const d=DATA.versions[v]; if(!d||!d.equity_curve||d.equity_curve.length<1)return;
-    datasets.push({
-      label:v.toUpperCase(),
-      data:d.equity_curve.map(p=>({x:new Date(p.ts),y:p.equity})),
-      borderColor:COLORS[v],
-      backgroundColor:'transparent',
-      borderWidth:v===ACTIVE?3:1.5,
-      pointRadius:0,
-      tension:.3,
-      borderDash:v===ACTIVE?[]:[5,5],
-    });
-  });
-  // Live V6 equity curve
-  if(DATA.live_account&&DATA.live_account.equity_curve&&DATA.live_account.equity_curve.length>0){
-    datasets.push({
-      label:'💰 LIVE V6',
-      data:DATA.live_account.equity_curve.map(p=>({x:new Date(p.ts),y:p.capital})),
-      borderColor:'#f97316',
-      backgroundColor:'transparent',
-      borderWidth:ACTIVE==='live'?3:2,
-      pointRadius:2,
-      tension:.3,
-      borderDash:[],
+  const showPaper=EQUITY_VIEW==='all'||EQUITY_VIEW==='paper';
+  const showLive =EQUITY_VIEW==='all'||EQUITY_VIEW==='live';
+
+  if(showPaper){
+    ['v2','v3','v4','v6'].forEach(v=>{
+      const d=DATA.versions[v]; if(!d||!d.equity_curve||d.equity_curve.length<1)return;
+      datasets.push({
+        label:v.toUpperCase(),
+        data:d.equity_curve.map(p=>({x:new Date(p.ts),y:p.equity})),
+        borderColor:COLORS[v],
+        backgroundColor:'transparent',
+        borderWidth:v===ACTIVE?3:1.5,
+        pointRadius:0,
+        tension:.3,
+        borderDash:v===ACTIVE?[]:[5,5],
+      });
     });
   }
-  // Efe's Live V6 equity curve
-  if(DATA.live_account_efe&&DATA.live_account_efe.equity_curve&&DATA.live_account_efe.equity_curve.length>0){
-    datasets.push({
-      label:'💰 EFE LIVE',
-      data:DATA.live_account_efe.equity_curve.map(p=>({x:new Date(p.ts),y:p.capital})),
-      borderColor:'#a855f7',
-      backgroundColor:'transparent',
-      borderWidth:ACTIVE==='efe_live'?3:2,
-      pointRadius:2,
-      tension:.3,
-      borderDash:[],
-    });
+  if(showLive){
+    // Bailly live
+    if(DATA.live_account&&DATA.live_account.equity_curve&&DATA.live_account.equity_curve.length>0){
+      datasets.push({
+        label:'💰 BAILLY LIVE',
+        data:DATA.live_account.equity_curve.map(p=>({x:new Date(p.ts),y:p.capital})),
+        borderColor:'#f97316',
+        backgroundColor:'transparent',
+        borderWidth:ACTIVE==='live'?3:2,
+        pointRadius:2,
+        tension:.3,
+        borderDash:[],
+      });
+    }
+    // Efe live
+    if(DATA.live_account_efe&&DATA.live_account_efe.equity_curve&&DATA.live_account_efe.equity_curve.length>0){
+      datasets.push({
+        label:'💰 EFE LIVE',
+        data:DATA.live_account_efe.equity_curve.map(p=>({x:new Date(p.ts),y:p.capital})),
+        borderColor:'#a855f7',
+        backgroundColor:'transparent',
+        borderWidth:ACTIVE==='efe_live'?3:2,
+        pointRadius:2,
+        tension:.3,
+        borderDash:[],
+      });
+    }
   }
-  // Add $2000 baseline
+
+  // Baseline: $2000 if paper is shown (paper start equity), else dynamic per-view init capital
   if(datasets.length>0){
     const allTs=datasets.flatMap(ds=>ds.data.map(p=>p.x));
     const minT=new Date(Math.min(...allTs)), maxT=new Date(Math.max(...allTs));
-    datasets.push({label:'Baseline',data:[{x:minT,y:2000},{x:maxT,y:2000}],borderColor:'rgba(136,136,160,.3)',borderWidth:1,borderDash:[3,3],pointRadius:0});
+    if(showPaper){
+      datasets.push({label:'Paper start ($2k)',data:[{x:minT,y:2000},{x:maxT,y:2000}],borderColor:'rgba(136,136,160,.3)',borderWidth:1,borderDash:[3,3],pointRadius:0});
+    }
+    if(showLive&&!showPaper){
+      // Show live initial-capital baselines so live curves are interpretable on their own scale
+      if(DATA.live_account){
+        const ic=DATA.live_account.initial_capital||25;
+        datasets.push({label:`Bailly start ($${fmt(ic,2)})`,data:[{x:minT,y:ic},{x:maxT,y:ic}],borderColor:'rgba(249,115,22,.25)',borderWidth:1,borderDash:[3,3],pointRadius:0});
+      }
+      if(DATA.live_account_efe){
+        const ic=DATA.live_account_efe.initial_capital||50;
+        datasets.push({label:`Efe start ($${fmt(ic,2)})`,data:[{x:minT,y:ic},{x:maxT,y:ic}],borderColor:'rgba(168,85,247,.25)',borderWidth:1,borderDash:[3,3],pointRadius:0});
+      }
+    }
   }
+
   chart=new Chart(ctx,{
     type:'line',
     data:{datasets},
