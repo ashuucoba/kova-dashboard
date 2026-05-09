@@ -520,10 +520,12 @@ function renderLiveAsVersion(){
   document.getElementById('closedCount').textContent=closed.length;
   if(!closed.length){document.getElementById('closedTable').innerHTML='<div class="no-data">No closed trades yet</div>';}
   else{
-    const closedCols=['Asset','Dir','Entry','Exit','P&L','P&L %','Reason','Held'];
+    const cl=closed.slice().reverse();
+    const closedCols=['Closed','Asset','Dir','Entry','Exit','P&L','P&L %','Reason','Held'];
     document.getElementById('closedTable').innerHTML=`<div class="table-scroll"><table id="closedTbl">
       <thead><tr>${closedCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('closedTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
-      <tbody>${closed.map(t=>`<tr>
+      <tbody>${cl.map(t=>`<tr>
+        <td class="dim" data-val="${t.closed_at?new Date(t.closed_at).getTime():0}">${t.closed_at?new Date(t.closed_at).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—'}</td>
         <td><strong>${t.asset}</strong></td>
         <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
         <td>$${fmt(t.entry_price,t.entry_price<1?6:2)}</td>
@@ -588,10 +590,12 @@ function renderEfeAsVersion(){
   document.getElementById('closedCount').textContent=closed.length;
   if(!closed.length){document.getElementById('closedTable').innerHTML='<div class="no-data">No closed trades yet</div>';}
   else{
-    const closedCols=['Asset','Dir','Entry','Exit','P&L','P&L %','Reason','Held'];
+    const cl=closed.slice().reverse();
+    const closedCols=['Closed','Asset','Dir','Entry','Exit','P&L','P&L %','Reason','Held'];
     document.getElementById('closedTable').innerHTML=`<div class="table-scroll"><table id="closedTbl">
       <thead><tr>${closedCols.map((c,i)=>`<th data-col="${i}" onclick="sortTable('closedTbl',${i})">${c} <span class="sort-arrow">▼</span></th>`).join('')}</tr></thead>
-      <tbody>${closed.map(t=>`<tr>
+      <tbody>${cl.map(t=>`<tr>
+        <td class="dim" data-val="${t.closed_at?new Date(t.closed_at).getTime():0}">${t.closed_at?new Date(t.closed_at).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—'}</td>
         <td><strong>${t.asset}</strong></td>
         <td class="${t.direction==='LONG'?'dir-long':'dir-short'}">${t.direction}</td>
         <td>$${fmt(t.entry_price,t.entry_price<1?6:2)}</td>
