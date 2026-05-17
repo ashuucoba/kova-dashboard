@@ -484,7 +484,7 @@ function renderLiveAsVersion(){
     {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(live.initial_capital||25)}`,c:'dim'},
-    {l:'Signal universe',v:live.n_signals||166,c:'blue',s:'V6 blocklist filter applies'},
+    {l:'Signal universe',v:live.n_signals!=null?live.n_signals:'—',c:'blue',s:`of ${live.n_total_signals||'?'} catalog (DSR-validated only)`},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
@@ -554,7 +554,7 @@ function renderEfeAsVersion(){
     {l:'Max DD',v:`${fmt(ddPct,1)}%`,c:ddPct>5?'negative':'positive'},
     {l:'Leverage',v:'3x',c:'amber'},
     {l:'Initial',v:`$${fmt(efe.initial_capital||50)}`,c:'dim'},
-    {l:'Signal universe',v:efe.n_signals||166,c:'blue',s:'V6 blocklist filter applies'},
+    {l:'Signal universe',v:efe.n_signals!=null?efe.n_signals:'—',c:'blue',s:`of ${efe.n_total_signals||'?'} catalog (DSR-validated only)`},
     {l:'Exposure',v:`$${fmt(exposure)}`,c:'amber'},
   ];
   document.getElementById('statsGrid').innerHTML=stats.map(s=>`<div class="stat-card"><div class="stat-label">${s.l}</div><div class="stat-value ${s.c}">${s.v}</div>${s.s?`<div class="stat-sub">${s.s}</div>`:''}</div>`).join('');
