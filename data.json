@@ -2,18 +2,18 @@
   "version": "v4",
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
-  "capital": 1211.25,
-  "effective_capital": 1207.07,
-  "unrealized_pnl": -4.18,
+  "capital": 1208.63,
+  "effective_capital": 1204.33,
+  "unrealized_pnl": -4.3,
   "peak_capital": 2530.61,
-  "updated_at": "2026-05-23T07:35:05Z",
+  "updated_at": "2026-05-23T08:05:05Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
-    "total_trades": 473,
+    "total_trades": 474,
     "wins": 312,
-    "losses": 161,
+    "losses": 162,
     "expired": 19,
-    "total_pnl": -788.75,
+    "total_pnl": -791.37,
     "max_drawdown": 57.06,
     "profit_factor": 0,
     "largest_win": 216.67,
@@ -58,9 +58,9 @@
       "timeframe": "1d",
       "filter": "16regime",
       "entry_price": 78087.65,
-      "current_price": 75228.1,
-      "unrealized_pnl": -1.16,
-      "pnl_pct": -3.66,
+      "current_price": 74577.7,
+      "unrealized_pnl": -1.42,
+      "pnl_pct": -4.49,
       "stop": 73402.39,
       "target": 87458.17,
       "stop_pct": 6.0,
@@ -88,9 +88,9 @@
       "timeframe": "1d",
       "filter": "16regime",
       "entry_price": 54.48,
-      "current_price": 52.6,
-      "unrealized_pnl": -0.74,
-      "pnl_pct": -3.45,
+      "current_price": 51.86,
+      "unrealized_pnl": -1.03,
+      "pnl_pct": -4.81,
       "stop": 51.2112,
       "target": 61.0176,
       "stop_pct": 6.0,
@@ -111,36 +111,6 @@
       "original_stop": 51.2112
     },
     {
-      "asset": "DOGE",
-      "direction": "LONG",
-      "signal_name": "DOGE_4h_adx_di_long_1212",
-      "signal_type": "adx_di_long",
-      "timeframe": "4h",
-      "filter": "16regime",
-      "entry_price": 0.10623,
-      "current_price": 0.1008,
-      "unrealized_pnl": -1.24,
-      "pnl_pct": -5.09,
-      "stop": 0.100646,
-      "target": 0.117397,
-      "stop_pct": 5.3,
-      "target_pct": 10.5,
-      "rr_ratio": 2.0,
-      "leverage": 2,
-      "size": 24.36,
-      "risk_amount": 3.66,
-      "sharpe": 2.24,
-      "wr": 47.1,
-      "n": 242,
-      "hold_max_hours": 48,
-      "opened_at": "2026-05-21T18:00:52.498137+00:00",
-      "tp1_taken": false,
-      "rsi_at_entry": 52.6,
-      "trail_phase": 0,
-      "peak_price": 0.10655,
-      "original_stop": 0.100646
-    },
-    {
       "asset": "DOT",
       "direction": "LONG",
       "signal_name": "DOT_4h_vwap_cross_above_long_1213",
@@ -148,9 +118,9 @@
       "timeframe": "4h",
       "filter": "16regime",
       "entry_price": 1.287,
-      "current_price": 1.236,
-      "unrealized_pnl": -0.84,
-      "pnl_pct": -3.96,
+      "current_price": 1.205,
+      "unrealized_pnl": -1.35,
+      "pnl_pct": -6.37,
       "stop": 1.2098,
       "target": 1.4414,
       "stop_pct": 6.0,
@@ -178,9 +148,9 @@
       "timeframe": "1d",
       "filter": "16regime",
       "entry_price": 652.1,
-      "current_price": 645.95,
-      "unrealized_pnl": -0.2,
-      "pnl_pct": -0.94,
+      "current_price": 636.69,
+      "unrealized_pnl": -0.5,
+      "pnl_pct": -2.36,
       "stop": 612.97,
       "target": 730.35,
       "stop_pct": 6.0,
@@ -8733,13 +8703,27 @@
       "leverage": 2,
       "size": 21.32,
       "risk_amount": 3.65
+    },
+    {
+      "asset": "DOGE",
+      "direction": "LONG",
+      "signal_name": "DOGE_4h_adx_di_long_1212",
+      "signal_type": "adx_di_long",
+      "timeframe": "4h",
+      "entry_price": 0.10623,
+      "exit_price": 0.100646,
+      "pnl_usd": -2.62,
+      "pnl_pct": -5.26,
+      "exit_reason": "stop_loss",
+      "opened_at": "2026-05-21T18:00:52.498137+00:00",
+      "closed_at": "2026-05-23T08:00:04.858348+00:00",
+      "hold_time": "",
+      "leverage": 2,
+      "size": 24.36,
+      "risk_amount": 3.66
     }
   ],
   "equity_curve": [
-    {
-      "ts": "2026-04-23T08:00:00Z",
-      "capital": 2081.95
-    },
     {
       "ts": "2026-04-23T09:00:00Z",
       "capital": 2082.08
@@ -11615,16 +11599,20 @@
     {
       "ts": "2026-05-23T07:00:00Z",
       "capital": 1207.07
+    },
+    {
+      "ts": "2026-05-23T08:00:00Z",
+      "capital": 1204.33
     }
   ],
   "versions": {
     "v2": {
       "capital": 2500.48,
       "initial_capital": 2000,
-      "effective_capital": 2728.3,
+      "effective_capital": 2795.9,
       "n_signals": 40,
       "config": "",
-      "updated": "2026-05-23T07:35:09Z",
+      "updated": "2026-05-23T08:05:09Z",
       "stats": {
         "total_trades": 112,
         "wins": 77,
@@ -11643,8 +11631,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.2413,
-          "unrealized_pnl": 59.36,
+          "current_price": 0.2373,
+          "unrealized_pnl": 76.81,
           "position_size": 1112.48,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -11668,8 +11656,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 86.48,
-          "current_price": 83.96,
-          "unrealized_pnl": 22.58,
+          "current_price": 82.0,
+          "unrealized_pnl": 40.15,
           "position_size": 775.02,
           "stop_loss": 91.6688,
           "take_profit": 76.1024,
@@ -11693,8 +11681,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.1008,
-          "unrealized_pnl": 145.89,
+          "current_price": 0.0989,
+          "unrealized_pnl": 178.46,
           "position_size": 1874.22,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -13394,10 +13382,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-04-23T08:00:00Z",
-          "equity": 2633.64
-        },
         {
           "ts": "2026-04-23T09:00:00Z",
           "equity": 2512.73
@@ -16273,16 +16257,20 @@
         {
           "ts": "2026-05-23T07:00:00Z",
           "equity": 2728.3
+        },
+        {
+          "ts": "2026-05-23T08:00:00Z",
+          "equity": 2795.9
         }
       ]
     },
     "v3": {
       "capital": 2068.48,
       "initial_capital": 2000,
-      "effective_capital": 2296.99,
+      "effective_capital": 2363.38,
       "n_signals": 163,
       "config": "",
-      "updated": "2026-05-23T07:35:12Z",
+      "updated": "2026-05-23T08:05:12Z",
       "stats": {
         "total_trades": 118,
         "wins": 77,
@@ -16301,8 +16289,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.2412,
-          "unrealized_pnl": 59.79,
+          "current_price": 0.2373,
+          "unrealized_pnl": 76.81,
           "position_size": 1112.48,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -16326,8 +16314,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 86.48,
-          "current_price": 83.97,
-          "unrealized_pnl": 22.49,
+          "current_price": 82.0,
+          "unrealized_pnl": 40.15,
           "position_size": 775.02,
           "stop_loss": 91.6688,
           "take_profit": 76.1024,
@@ -16351,8 +16339,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.1008,
-          "unrealized_pnl": 146.23,
+          "current_price": 0.0989,
+          "unrealized_pnl": 177.94,
           "position_size": 1874.22,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -18142,10 +18130,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-04-23T08:00:00Z",
-          "equity": 2633.72
-        },
         {
           "ts": "2026-04-23T09:00:00Z",
           "equity": 2512.74
@@ -21021,16 +21005,20 @@
         {
           "ts": "2026-05-23T07:00:00Z",
           "equity": 2296.99
+        },
+        {
+          "ts": "2026-05-23T08:00:00Z",
+          "equity": 2363.38
         }
       ]
     },
     "v4": {
       "capital": 2010.0,
       "initial_capital": 2000,
-      "effective_capital": 2115.4,
+      "effective_capital": 2109.52,
       "n_signals": 527,
       "config": "",
-      "updated": "2026-05-23T07:35:15Z",
+      "updated": "2026-05-23T08:05:15Z",
       "stats": {
         "total_trades": 107,
         "wins": 72,
@@ -21049,8 +21037,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 9.285,
-          "current_price": 9.082,
-          "unrealized_pnl": -41.55,
+          "current_price": 8.887,
+          "unrealized_pnl": -81.47,
           "position_size": 1900.63,
           "stop_loss": 8.823,
           "take_profit": 10.209,
@@ -21074,8 +21062,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.2412,
-          "unrealized_pnl": 33.9,
+          "current_price": 0.2373,
+          "unrealized_pnl": 43.55,
           "position_size": 630.7,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -21099,8 +21087,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.1008,
-          "unrealized_pnl": 113.05,
+          "current_price": 0.099,
+          "unrealized_pnl": 137.44,
           "position_size": 1449.02,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -22725,10 +22713,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-04-23T08:00:00Z",
-          "equity": 4769.91
-        },
         {
           "ts": "2026-04-23T09:00:00Z",
           "equity": 4332.97
@@ -25604,16 +25588,20 @@
         {
           "ts": "2026-05-23T07:00:00Z",
           "equity": 2115.4
+        },
+        {
+          "ts": "2026-05-23T08:00:00Z",
+          "equity": 2109.52
         }
       ]
     },
     "v6": {
       "capital": 2879.19,
       "initial_capital": 2000,
-      "effective_capital": 3092.91,
+      "effective_capital": 3095.3,
       "n_signals": 527,
       "config": "",
-      "updated": "2026-05-23T07:35:19Z",
+      "updated": "2026-05-23T08:05:19Z",
       "stats": {
         "total_trades": 107,
         "wins": 72,
@@ -25632,8 +25620,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 9.285,
-          "current_price": 9.082,
-          "unrealized_pnl": -60.53,
+          "current_price": 8.887,
+          "unrealized_pnl": -118.68,
           "position_size": 2768.72,
           "stop_loss": 8.823,
           "take_profit": 10.209,
@@ -25657,8 +25645,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.2412,
-          "unrealized_pnl": 28.39,
+          "current_price": 0.2373,
+          "unrealized_pnl": 36.47,
           "position_size": 528.26,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -25682,8 +25670,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.1008,
-          "unrealized_pnl": 245.86,
+          "current_price": 0.099,
+          "unrealized_pnl": 298.31,
           "position_size": 3151.18,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -27308,10 +27296,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-04-23T08:00:00Z",
-          "equity": 8835.5
-        },
         {
           "ts": "2026-04-23T09:00:00Z",
           "equity": 7142.68
@@ -30187,6 +30171,10 @@
         {
           "ts": "2026-05-23T07:00:00Z",
           "equity": 3092.91
+        },
+        {
+          "ts": "2026-05-23T08:00:00Z",
+          "equity": 3095.3
         }
       ]
     }
@@ -30202,47 +30190,21 @@
     "n_signals": 18,
     "n_total_signals": 551,
     "initial_capital": 512.07099471,
-    "capital": 426.86,
-    "effective_capital": 425.75,
-    "unrealized_pnl": -1.1104,
+    "capital": 424.02,
+    "effective_capital": 424.02,
+    "unrealized_pnl": 0,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
-      "total_trades": 717,
+      "total_trades": 718,
       "wins": 447,
-      "losses": 270,
-      "total_pnl": -85.2089,
+      "losses": 271,
+      "total_pnl": -88.0476,
       "max_drawdown": 0.6652,
       "largest_win": 9.6159,
       "largest_loss": -11.4936
     },
-    "open_positions": [
-      {
-        "asset": "LTC",
-        "direction": "LONG",
-        "signal_name": "LTC_1d_stochrsi_oversold_long_1211",
-        "signal_type": "stochrsi_oversold_long",
-        "timeframe": "1d",
-        "filter": "16regime",
-        "entry_price": 53.07,
-        "current_price": 52.61,
-        "unrealized_pnl": -1.1104,
-        "pnl_pct": -0.87,
-        "stop": 49.89,
-        "target": 59.43840000000001,
-        "stop_pct": 6.0,
-        "target_pct": 12.0,
-        "leverage": 3,
-        "size": 128.11,
-        "sharpe": 2.38,
-        "wr": 62.7,
-        "opened_at": "2026-05-23T03:32:25.701795+00:00",
-        "order_id": "43006352680",
-        "trail_phase": 0,
-        "peak_price": 53.11,
-        "original_stop": 49.8858
-      }
-    ],
+    "open_positions": [],
     "closed_trades": [
       {
         "asset": "DOGE",
@@ -33591,13 +33553,21 @@
         "close_reason": "score_exit",
         "hours_held": 0.1,
         "closed_at": "2026-05-22T22:10:05.227285+00:00"
+      },
+      {
+        "asset": "LTC",
+        "direction": "LONG",
+        "signal_id": "LTC_1d_stochrsi_oversold_long_1211",
+        "entry_price": 53.07,
+        "close_price": 51.83,
+        "pnl_usd": -2.7761,
+        "pnl_pct": -2.34,
+        "close_reason": "thesis_close",
+        "hours_held": 4.4,
+        "closed_at": "2026-05-23T07:55:10.748378+00:00"
       }
     ],
     "equity_curve": [
-      {
-        "ts": "2026-04-23T08:00:00Z",
-        "capital": 443.16
-      },
       {
         "ts": "2026-04-23T09:00:00Z",
         "capital": 443.16
@@ -36473,6 +36443,10 @@
       {
         "ts": "2026-05-23T07:00:00Z",
         "capital": 425.75
+      },
+      {
+        "ts": "2026-05-23T08:00:00Z",
+        "capital": 424.02
       }
     ]
   },
@@ -36482,47 +36456,21 @@
     "n_signals": 18,
     "n_total_signals": 551,
     "initial_capital": 557.66508107,
-    "capital": 377.12,
-    "effective_capital": 376.14,
-    "unrealized_pnl": -0.9807,
+    "capital": 374.58,
+    "effective_capital": 374.58,
+    "unrealized_pnl": 0,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
-      "total_trades": 589,
+      "total_trades": 590,
       "wins": 368,
-      "losses": 221,
-      "total_pnl": -180.5402,
+      "losses": 222,
+      "total_pnl": -183.0899,
       "max_drawdown": 0.6837,
       "largest_win": 11.309,
       "largest_loss": -11.51
     },
-    "open_positions": [
-      {
-        "asset": "LTC",
-        "direction": "LONG",
-        "signal_name": "LTC_1d_stochrsi_oversold_long_1211",
-        "signal_type": "stochrsi_oversold_long",
-        "timeframe": "1d",
-        "filter": "16regime",
-        "entry_price": 53.07,
-        "current_price": 52.61,
-        "unrealized_pnl": -0.9807,
-        "pnl_pct": -0.87,
-        "stop": 49.89,
-        "target": 59.43840000000001,
-        "stop_pct": 6.0,
-        "target_pct": 12.0,
-        "leverage": 3,
-        "size": 113.15,
-        "sharpe": 2.38,
-        "wr": 62.7,
-        "opened_at": "2026-05-23T03:32:31.143489+00:00",
-        "order_id": "43006354121",
-        "trail_phase": 0,
-        "peak_price": 53.1,
-        "original_stop": 49.8858
-      }
-    ],
+    "open_positions": [],
     "closed_trades": [
       {
         "asset": "CRV",
@@ -39847,13 +39795,21 @@
         "close_reason": "score_exit",
         "hours_held": 0.1,
         "closed_at": "2026-05-22T22:10:05.706924+00:00"
+      },
+      {
+        "asset": "LTC",
+        "direction": "LONG",
+        "signal_id": "LTC_1d_stochrsi_oversold_long_1211",
+        "entry_price": 53.07,
+        "close_price": 51.9,
+        "pnl_usd": -2.4944,
+        "pnl_pct": -2.2,
+        "close_reason": "thesis_close",
+        "hours_held": 4.4,
+        "closed_at": "2026-05-23T07:55:16.616699+00:00"
       }
     ],
     "equity_curve": [
-      {
-        "ts": "2026-04-23T08:00:00Z",
-        "capital": 456.83
-      },
       {
         "ts": "2026-04-23T09:00:00Z",
         "capital": 456.83
@@ -42729,6 +42685,10 @@
       {
         "ts": "2026-05-23T07:00:00Z",
         "capital": 376.14
+      },
+      {
+        "ts": "2026-05-23T08:00:00Z",
+        "capital": 374.58
       }
     ]
   },
@@ -42755,11 +42715,11 @@
     },
     "inputs": {
       "vix": 16.700000762939453,
-      "btc_vs_ema200_pct": -5.274043855950472,
-      "btc_price": 75265.28,
+      "btc_vs_ema200_pct": -6.0874929042480375,
+      "btc_price": 74612.3,
       "dxy": 99.31999969482422,
       "real_yield_proxy": 1.058000087738037,
-      "btc_dominance": 58.035847476349765
+      "btc_dominance": 58.062371456654645
     },
     "asset_regimes": {
       "BTC": {
@@ -42790,24 +42750,24 @@
       "COIN": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Crypto stock: 50% BTC (-5.3%) + 50% SPY (+0.0%) = -2.6%"
+        "reason": "Crypto stock: 50% BTC (-6.1%) + 50% SPY (+0.0%) = -3.0%"
       },
       "HOOD": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Crypto stock: 50% BTC (-5.3%) + 50% SPY (+0.0%) = -2.6%"
+        "reason": "Crypto stock: 50% BTC (-6.1%) + 50% SPY (+0.0%) = -3.0%"
       },
       "AMZN": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Traditional stock: 20% BTC (-5.3%) + 80% SPY (+0.0%) = -1.1%"
+        "reason": "Traditional stock: 20% BTC (-6.1%) + 80% SPY (+0.0%) = -1.2%"
       },
       "INTC": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Traditional stock: 20% BTC (-5.3%) + 80% SPY (+0.0%) = -1.1%"
+        "reason": "Traditional stock: 20% BTC (-6.1%) + 80% SPY (+0.0%) = -1.2%"
       }
     },
-    "updated_at": "2026-05-23T07:35:31Z"
+    "updated_at": "2026-05-23T08:05:25Z"
   }
 }
