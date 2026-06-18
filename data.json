@@ -2,18 +2,18 @@
   "version": "v4",
   "config": "V4: 169 signals (146 tradeable + 23 alert-only), 27 assets, DD scaling. REVERTED from v5 after 6.5yr backtest proved v4 superior.",
   "initial_capital": 2000,
-  "capital": 1172.23,
-  "effective_capital": 1175.9,
-  "unrealized_pnl": 3.67,
+  "capital": 1174.83,
+  "effective_capital": 1175.22,
+  "unrealized_pnl": 0.39,
   "peak_capital": 2530.61,
-  "updated_at": "2026-06-18T19:35:05Z",
+  "updated_at": "2026-06-18T20:05:04Z",
   "started_at": "2026-02-27T07:45:22.437570+00:00",
   "stats": {
-    "total_trades": 495,
-    "wins": 323,
+    "total_trades": 496,
+    "wins": 324,
     "losses": 172,
     "expired": 19,
-    "total_pnl": -827.77,
+    "total_pnl": -825.17,
     "max_drawdown": 57.06,
     "profit_factor": 0,
     "largest_win": 216.67,
@@ -58,9 +58,9 @@
       "timeframe": "4h",
       "filter": "16regime",
       "entry_price": 467.6,
-      "current_price": 449.44,
-      "unrealized_pnl": 2.06,
-      "pnl_pct": 3.88,
+      "current_price": 456.69,
+      "unrealized_pnl": 1.24,
+      "pnl_pct": 2.33,
       "stop": 451.40095,
       "target": 411.49,
       "stop_pct": 3.5,
@@ -88,9 +88,9 @@
       "timeframe": "4h",
       "filter": "16regime",
       "entry_price": 2.182,
-      "current_price": 2.175,
-      "unrealized_pnl": 0.17,
-      "pnl_pct": 0.32,
+      "current_price": 2.217,
+      "unrealized_pnl": -0.85,
+      "pnl_pct": -1.6,
       "stop": 2.3129,
       "target": 1.9202,
       "stop_pct": 6.0,
@@ -109,36 +109,6 @@
       "trail_phase": 0,
       "peak_price": 2.152,
       "original_stop": 2.3129
-    },
-    {
-      "asset": "DOT",
-      "direction": "SHORT",
-      "signal_name": "DOT_4h_breakout_20_short_1309",
-      "signal_type": "breakout_20_short",
-      "timeframe": "4h",
-      "filter": "16regime",
-      "entry_price": 0.982,
-      "current_price": 0.958,
-      "unrealized_pnl": 1.44,
-      "pnl_pct": 2.44,
-      "stop": 0.959175,
-      "target": 0.875635,
-      "stop_pct": 2.3,
-      "target_pct": 10.8,
-      "rr_ratio": 2.0,
-      "leverage": 2,
-      "size": 59.04,
-      "risk_amount": 3.52,
-      "sharpe": 1.93,
-      "wr": 58.6,
-      "n": 99,
-      "hold_max_hours": 48,
-      "opened_at": "2026-06-18T08:00:58.734630+00:00",
-      "tp1_taken": false,
-      "rsi_at_entry": 45.1,
-      "trail_phase": 2,
-      "peak_price": 0.945,
-      "original_stop": 1.035182
     }
   ],
   "closed_trades": [
@@ -9069,13 +9039,27 @@
       "leverage": 3,
       "size": 106.01,
       "risk_amount": 6.99
+    },
+    {
+      "asset": "DOT",
+      "direction": "SHORT",
+      "signal_name": "DOT_4h_breakout_20_short_1309",
+      "signal_type": "breakout_20_short",
+      "timeframe": "4h",
+      "entry_price": 0.982,
+      "exit_price": 0.959175,
+      "pnl_usd": 2.6,
+      "pnl_pct": 2.32,
+      "exit_reason": "trailing_stop",
+      "opened_at": "2026-06-18T08:00:58.734630+00:00",
+      "closed_at": "2026-06-18T20:00:04.266915+00:00",
+      "hold_time": "",
+      "leverage": 2,
+      "size": 59.04,
+      "risk_amount": 3.52
     }
   ],
   "equity_curve": [
-    {
-      "ts": "2026-05-19T20:00:00Z",
-      "capital": 1213.69
-    },
     {
       "ts": "2026-05-19T21:00:00Z",
       "capital": 1214.22
@@ -11951,16 +11935,20 @@
     {
       "ts": "2026-06-18T19:00:00Z",
       "capital": 1175.9
+    },
+    {
+      "ts": "2026-06-18T20:00:00Z",
+      "capital": 1175.22
     }
   ],
   "versions": {
     "v2": {
       "capital": 2500.48,
       "initial_capital": 2000,
-      "effective_capital": 3521.5,
+      "effective_capital": 3494.39,
       "n_signals": 40,
       "config": "",
-      "updated": "2026-06-18T19:35:08Z",
+      "updated": "2026-06-18T20:05:08Z",
       "stats": {
         "total_trades": 112,
         "wins": 77,
@@ -11979,8 +11967,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.1623,
-          "unrealized_pnl": 404.14,
+          "current_price": 0.1638,
+          "unrealized_pnl": 397.59,
           "position_size": 1112.48,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -12004,8 +11992,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 86.48,
-          "current_price": 68.93,
-          "unrealized_pnl": 157.28,
+          "current_price": 69.79,
+          "unrealized_pnl": 149.57,
           "position_size": 775.02,
           "stop_loss": 91.6688,
           "take_profit": 76.1024,
@@ -12029,8 +12017,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.0825,
-          "unrealized_pnl": 459.6,
+          "current_price": 0.0833,
+          "unrealized_pnl": 446.74,
           "position_size": 1874.22,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -13730,10 +13718,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-05-19T20:00:00Z",
-          "equity": 2648.02
-        },
         {
           "ts": "2026-05-19T21:00:00Z",
           "equity": 2638.8
@@ -16609,16 +16593,20 @@
         {
           "ts": "2026-06-18T19:00:00Z",
           "equity": 3521.5
+        },
+        {
+          "ts": "2026-06-18T20:00:00Z",
+          "equity": 3494.39
         }
       ]
     },
     "v3": {
       "capital": 2068.48,
       "initial_capital": 2000,
-      "effective_capital": 3089.85,
+      "effective_capital": 3061.6,
       "n_signals": 163,
       "config": "",
-      "updated": "2026-06-18T19:35:12Z",
+      "updated": "2026-06-18T20:05:11Z",
       "stats": {
         "total_trades": 118,
         "wins": 77,
@@ -16637,8 +16625,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.1622,
-          "unrealized_pnl": 404.58,
+          "current_price": 0.1639,
+          "unrealized_pnl": 397.16,
           "position_size": 1112.48,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -16662,8 +16650,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 86.48,
-          "current_price": 68.94,
-          "unrealized_pnl": 157.19,
+          "current_price": 69.81,
+          "unrealized_pnl": 149.39,
           "position_size": 775.02,
           "stop_loss": 91.6688,
           "take_profit": 76.1024,
@@ -16687,8 +16675,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.0825,
-          "unrealized_pnl": 459.6,
+          "current_price": 0.0833,
+          "unrealized_pnl": 446.57,
           "position_size": 1874.22,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -18478,10 +18466,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-05-19T20:00:00Z",
-          "equity": 2216.02
-        },
         {
           "ts": "2026-05-19T21:00:00Z",
           "equity": 2206.97
@@ -21357,16 +21341,20 @@
         {
           "ts": "2026-06-18T19:00:00Z",
           "equity": 3089.85
+        },
+        {
+          "ts": "2026-06-18T20:00:00Z",
+          "equity": 3061.6
         }
       ]
     },
     "v4": {
       "capital": 2010.0,
       "initial_capital": 2000,
-      "effective_capital": 1988.17,
+      "effective_capital": 1985.77,
       "n_signals": 527,
       "config": "",
-      "updated": "2026-06-18T19:35:15Z",
+      "updated": "2026-06-18T20:05:14Z",
       "stats": {
         "total_trades": 107,
         "wins": 72,
@@ -21385,8 +21373,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 9.285,
-          "current_price": 6.322,
-          "unrealized_pnl": -606.52,
+          "current_price": 6.38,
+          "unrealized_pnl": -594.65,
           "position_size": 1900.63,
           "stop_loss": 8.823,
           "take_profit": 10.209,
@@ -21410,8 +21398,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.1622,
-          "unrealized_pnl": 229.37,
+          "current_price": 0.1639,
+          "unrealized_pnl": 225.16,
           "position_size": 630.7,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -21435,8 +21423,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.0825,
-          "unrealized_pnl": 355.33,
+          "current_price": 0.0833,
+          "unrealized_pnl": 345.26,
           "position_size": 1449.02,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -23061,10 +23049,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-05-19T20:00:00Z",
-          "equity": 2070.59
-        },
         {
           "ts": "2026-05-19T21:00:00Z",
           "equity": 2069.61
@@ -25940,16 +25924,20 @@
         {
           "ts": "2026-06-18T19:00:00Z",
           "equity": 1988.17
+        },
+        {
+          "ts": "2026-06-18T20:00:00Z",
+          "equity": 1985.77
         }
       ]
     },
     "v6": {
       "capital": 2879.19,
       "initial_capital": 2000,
-      "effective_capital": 2960.48,
+      "effective_capital": 2954.01,
       "n_signals": 527,
       "config": "",
-      "updated": "2026-06-18T19:35:18Z",
+      "updated": "2026-06-18T20:05:18Z",
       "stats": {
         "total_trades": 107,
         "wins": 72,
@@ -25968,8 +25956,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 9.285,
-          "current_price": 6.321,
-          "unrealized_pnl": -883.84,
+          "current_price": 6.38,
+          "unrealized_pnl": -866.25,
           "position_size": 2768.72,
           "stop_loss": 8.823,
           "take_profit": 10.209,
@@ -25993,8 +25981,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.2549,
-          "current_price": 0.1622,
-          "unrealized_pnl": 192.11,
+          "current_price": 0.1638,
+          "unrealized_pnl": 188.8,
           "position_size": 528.26,
           "stop_loss": 0.270194,
           "take_profit": 0.224312,
@@ -26018,8 +26006,8 @@
           "timeframe": "",
           "filter": "none",
           "entry_price": 0.10933,
-          "current_price": 0.0825,
-          "unrealized_pnl": 773.02,
+          "current_price": 0.0832,
+          "unrealized_pnl": 752.27,
           "position_size": 3151.18,
           "stop_loss": 0.11589,
           "take_profit": 0.09621,
@@ -27644,10 +27632,6 @@
         }
       ],
       "equity_curve": [
-        {
-          "ts": "2026-05-19T20:00:00Z",
-          "equity": 3013.89
-        },
         {
           "ts": "2026-05-19T21:00:00Z",
           "equity": 3011.93
@@ -30523,6 +30507,10 @@
         {
           "ts": "2026-06-18T19:00:00Z",
           "equity": 2960.48
+        },
+        {
+          "ts": "2026-06-18T20:00:00Z",
+          "equity": 2954.01
         }
       ]
     }
@@ -30539,8 +30527,8 @@
     "n_total_signals": 584,
     "initial_capital": 512.07099471,
     "capital": 427.41,
-    "effective_capital": 432.01,
-    "unrealized_pnl": 4.607,
+    "effective_capital": 430.71,
+    "unrealized_pnl": 3.3065,
     "leverage": 3,
     "started_at": "2026-02-28T05:27:42.827178+00:00",
     "stats": {
@@ -30561,9 +30549,9 @@
         "timeframe": "1d",
         "filter": "16regime",
         "entry_price": 0.1804,
-        "current_price": 0.1623,
-        "unrealized_pnl": 2.4254,
-        "pnl_pct": 10.03,
+        "current_price": 0.1638,
+        "unrealized_pnl": 2.2244,
+        "pnl_pct": 9.2,
         "stop": 0.1912,
         "target": 0.158752,
         "stop_pct": 6.0,
@@ -30586,9 +30574,9 @@
         "timeframe": "1d",
         "filter": "16regime",
         "entry_price": 1.008,
-        "current_price": 0.959,
-        "unrealized_pnl": 1.176,
-        "pnl_pct": 4.86,
+        "current_price": 0.97,
+        "unrealized_pnl": 0.912,
+        "pnl_pct": 3.77,
         "stop": 1.068,
         "target": 0.88704,
         "stop_pct": 6.0,
@@ -30611,9 +30599,9 @@
         "timeframe": "4h",
         "filter": "16regime",
         "entry_price": 2.178,
-        "current_price": 2.173,
-        "unrealized_pnl": 0.055,
-        "pnl_pct": 0.23,
+        "current_price": 2.216,
+        "unrealized_pnl": -0.418,
+        "pnl_pct": -1.74,
         "stop": 2.309,
         "target": 1.91664,
         "stop_pct": 6.0,
@@ -30636,9 +30624,9 @@
         "timeframe": "4h",
         "filter": "16regime",
         "entry_price": 467.47,
-        "current_price": 449.19,
-        "unrealized_pnl": 0.9506,
-        "pnl_pct": 3.91,
+        "current_price": 456.16,
+        "unrealized_pnl": 0.5881,
+        "pnl_pct": 2.42,
         "stop": 495.52,
         "target": 411.3736,
         "stop_pct": 6.0,
@@ -34330,10 +34318,6 @@
     ],
     "equity_curve": [
       {
-        "ts": "2026-05-19T20:00:00Z",
-        "capital": 424.65
-      },
-      {
         "ts": "2026-05-19T21:00:00Z",
         "capital": 424.74
       },
@@ -37208,6 +37192,10 @@
       {
         "ts": "2026-06-18T19:00:00Z",
         "capital": 432.01
+      },
+      {
+        "ts": "2026-06-18T20:00:00Z",
+        "capital": 430.71
       }
     ]
   },
@@ -37218,8 +37206,8 @@
     "n_total_signals": 584,
     "initial_capital": 557.66508107,
     "capital": 380.48,
-    "effective_capital": 382.1,
-    "unrealized_pnl": 1.6244,
+    "effective_capital": 381.68,
+    "unrealized_pnl": 1.2004,
     "leverage": 3,
     "started_at": "2026-02-28T13:03:56.348965+00:00",
     "stats": {
@@ -37240,9 +37228,9 @@
         "timeframe": "1d",
         "filter": "16regime",
         "entry_price": 0.1801,
-        "current_price": 0.1622,
-        "unrealized_pnl": 0.8413,
-        "pnl_pct": 9.94,
+        "current_price": 0.1638,
+        "unrealized_pnl": 0.7661,
+        "pnl_pct": 9.05,
         "stop": 0.1909,
         "target": 0.15848800000000002,
         "stop_pct": 6.0,
@@ -37265,9 +37253,9 @@
         "timeframe": "1d",
         "filter": "16regime",
         "entry_price": 1.009,
-        "current_price": 0.958,
-        "unrealized_pnl": 0.4335,
-        "pnl_pct": 5.05,
+        "current_price": 0.97,
+        "unrealized_pnl": 0.3315,
+        "pnl_pct": 3.87,
         "stop": 1.07,
         "target": 0.8879199999999999,
         "stop_pct": 6.0,
@@ -37290,9 +37278,9 @@
         "timeframe": "4h",
         "filter": "16regime",
         "entry_price": 2.18,
-        "current_price": 2.174,
-        "unrealized_pnl": 0.018,
-        "pnl_pct": 0.28,
+        "current_price": 2.216,
+        "unrealized_pnl": -0.108,
+        "pnl_pct": -1.65,
         "stop": 2.311,
         "target": 1.9184,
         "stop_pct": 6.0,
@@ -37315,9 +37303,9 @@
         "timeframe": "4h",
         "filter": "16regime",
         "entry_price": 467.87,
-        "current_price": 449.45,
-        "unrealized_pnl": 0.3316,
-        "pnl_pct": 3.94,
+        "current_price": 456.16,
+        "unrealized_pnl": 0.2108,
+        "pnl_pct": 2.5,
         "stop": 495.94,
         "target": 411.7256,
         "stop_pct": 6.0,
@@ -40985,10 +40973,6 @@
     ],
     "equity_curve": [
       {
-        "ts": "2026-05-19T20:00:00Z",
-        "capital": 374.84
-      },
-      {
         "ts": "2026-05-19T21:00:00Z",
         "capital": 374.92
       },
@@ -43863,6 +43847,10 @@
       {
         "ts": "2026-06-18T19:00:00Z",
         "capital": 382.1
+      },
+      {
+        "ts": "2026-06-18T20:00:00Z",
+        "capital": 381.68
       }
     ]
   },
@@ -43888,12 +43876,12 @@
       "reason": "Strong bear trend - LONGs blocked"
     },
     "inputs": {
-      "vix": 16.850000381469727,
-      "btc_vs_ema200_pct": -16.961383730318136,
-      "btc_price": 62810.01,
-      "dxy": 100.91699981689453,
+      "vix": 16.530000686645508,
+      "btc_vs_ema200_pct": -16.47666340110724,
+      "btc_price": 63180.0,
+      "dxy": 100.79900360107422,
       "real_yield_proxy": 0.9509997367858887,
-      "btc_dominance": 55.96182365629847
+      "btc_dominance": 55.971823537559885
     },
     "asset_regimes": {
       "BTC": {
@@ -43924,41 +43912,41 @@
       "COIN": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Crypto stock: 50% BTC (-17.0%) + 50% SPY (+0.0%) = -8.5%"
+        "reason": "Crypto stock: 50% BTC (-16.5%) + 50% SPY (+0.0%) = -8.2%"
       },
       "HOOD": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Crypto stock: 50% BTC (-17.0%) + 50% SPY (+0.0%) = -8.5%"
+        "reason": "Crypto stock: 50% BTC (-16.5%) + 50% SPY (+0.0%) = -8.2%"
       },
       "AMZN": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Traditional stock: 20% BTC (-17.0%) + 80% SPY (+0.0%) = -3.4%"
+        "reason": "Traditional stock: 20% BTC (-16.5%) + 80% SPY (+0.0%) = -3.3%"
       },
       "INTC": {
         "regime": "STRONG_BEAR_NORMAL",
         "sizing_multiplier": 1.0,
-        "reason": "Traditional stock: 20% BTC (-17.0%) + 80% SPY (+0.0%) = -3.4%"
+        "reason": "Traditional stock: 20% BTC (-16.5%) + 80% SPY (+0.0%) = -3.3%"
       }
     },
-    "updated_at": "2026-06-18T19:35:31Z"
+    "updated_at": "2026-06-18T20:05:30Z"
   },
   "benchmark_btc_dca": {
     "bailly": {
       "contributed": 512.76,
-      "btc_dca_value": 480.73,
+      "btc_dca_value": 483.56,
       "bot_value": 427.41,
-      "bot_minus_dca": -53.32
+      "bot_minus_dca": -56.16
     },
     "efe": {
       "contributed": 558.76,
-      "btc_dca_value": 498.07,
+      "btc_dca_value": 501.01,
       "bot_value": 380.48,
-      "bot_minus_dca": -117.6
+      "bot_minus_dca": -120.53
     },
-    "btc_price": 62810.0,
+    "btc_price": 63180.0,
     "note": "bot must beat deposit-matched BTC DCA (rolling) or be retired to holding",
-    "updated_at": "2026-06-18T19:35:37Z"
+    "updated_at": "2026-06-18T20:05:36Z"
   }
 }
