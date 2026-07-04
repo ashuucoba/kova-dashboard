@@ -90,6 +90,9 @@ tr:hover td { background:rgba(245,166,35,.03); }
     </div>
   </div>
 
+  <!-- Regime + BTC-DCA benchmark strip -->
+  <div class="exposure-grid" id="stripGrid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"></div>
+
   <!-- Live + Paper Comparison Table -->
   <div class="chart-title">LIVE (Bailly · Efe) + PAPER COMPARISON · Live real money on Binance Futures Portfolio Margin since Feb 28 · Paper $2,000 each (V2/V3/V4/V6) for backtest reference</div>
   <table class="compare-table" id="compareTable"></table>
@@ -140,7 +143,7 @@ const COLORS = {v1:'#ef4444',v2:'#f59e0b',v3:'#22c55e',v4:'#3b82f6',v5:'#a855f7'
 const CLASS_MAP = {BTC:'crypto',ETH:'crypto',SOL:'crypto',XRP:'crypto',DOGE:'crypto',ADA:'crypto',BNB:'crypto',LTC:'crypto',LINK:'crypto',AVAX:'crypto',DOT:'crypto',MATIC:'crypto',OP:'crypto',RENDER:'crypto',AAVE:'crypto',CRV:'crypto',NEAR:'crypto',PAXG:'crypto',SEI:'crypto',TIA:'crypto',TAO:'crypto',XAU:'commodity',XAG:'commodity',Gold:'commodity',Silver:'commodity',TSLA:'stock',AMZN:'stock',MSTR:'stock',PLTR:'stock',COIN:'stock',SPX:'index'};
 function gc(a){return CLASS_MAP[a.replace(/\/USDT.*/,'').replace('_yf','')]||'crypto';}
 function fmt(n,d=2){return n==null?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
-function fp(n){return n==null?'—':`${n>=0?'+':''}$${fmt(n)}`;}
+function fp(n){return n==null?'—':n<0?`-$${fmt(-n)}`:`+$${fmt(n)}`;}
 function fpct(n){return n==null?'—':`${n>=0?'+':''}${fmt(n,1)}%`;}
 function holdT(ts){const h=Math.floor((Date.now()-new Date(ts))/36e5);return h<1?'<1h':h<24?h+'h':Math.floor(h/24)+'d';}
 
@@ -177,11 +180,55 @@ function sortTable(tblId,col){
 async function load(){
   try{const r=await fetch('data.json?t='+Date.now());DATA=await r.json();}catch(e){return;}
   if(!DATA||!DATA.versions)return;
-  document.getElementById('lastUpdate').textContent=DATA.updated_at?'Updated '+new Date(DATA.updated_at).toLocaleString():'';
+  const lu=document.getElementById('lastUpdate');
+  if(DATA.updated_at){
+    const ageMin=(Date.now()-new Date(DATA.updated_at))/6e4;
+    lu.innerHTML='Updated '+new Date(DATA.updated_at).toLocaleString()+(ageMin>45?' <span style="color:var(--amber);font-weight:700">⚠ STALE ('+Math.round(ageMin)+'m)</span>':'');
+  }else{lu.textContent='';}
+  renderStrip();
   renderCompare();
   renderTabs();
   renderVersion(ACTIVE);
   renderAllEquity();
+}
+
+function renderStrip(){
+  const el=document.getElementById('stripGrid');
+  let html='';
+  const rg=DATA.regime;
+  if(rg){
+    const trend=rg.trend||'';
+    const trendColor=trend.includes('BEAR')?'var(--red)':trend.includes('BULL')?'var(--green)':'var(--amber)';
+    const gate=rg.signal_gating||{}, sz=rg.position_sizing||{}, inp=rg.inputs||{};
+    const gateLine=gate.long_blocked
+      ?`<span class="negative">⛔ LONGs blocked</span> · <span class="dim">${gate.reason||''}</span>`
+      :(sz.long_multiplier<1?`<span class="amber">LONGs ${fmt(sz.long_multiplier,2)}x</span>`:`<span class="positive">LONGs OK</span>`);
+    html+=`<div class="exposure-card">
+      <div class="stat-label">Market Regime${rg.confirmed?'':' <span class="amber">(pending)</span>'}</div>
+      <div class="stat-value" style="color:${trendColor};font-size:16px">${rg.current_regime||'—'}</div>
+      <div class="exp-row" style="margin-top:6px"><span>${gateLine}</span><span class="dim">SHORTs ${fmt(sz.short_multiplier,1)}x</span></div>
+      <div class="exp-row dim" style="margin-top:4px"><span>BTC $${fmt(inp.btc_price,0)} <span class="${inp.btc_vs_ema200_pct>=0?'positive':'negative'}">${fpct(inp.btc_vs_ema200_pct)}</span> vs EMA200</span></div>
+      <div class="exp-row dim"><span>VIX ${fmt(inp.vix,1)} · DXY ${fmt(inp.dxy,1)} · BTC.D ${fmt(inp.btc_dominance,1)}%</span></div>
+    </div>`;
+  }
+  const bm=DATA.benchmark_btc_dca;
+  if(bm){
+    const acct=(name,color,a)=>{
+      if(!a)return '';
+      const behind=a.bot_minus_dca<0;
+      return `<div class="exp-row" style="margin-top:6px"><span style="color:${color};font-weight:600">${name}</span>
+        <span class="${behind?'negative':'positive'}" style="font-weight:700">${fp(a.bot_minus_dca)} ${behind?'behind':'ahead'}</span></div>
+      <div class="exp-row dim"><span>Bot $${fmt(a.bot_value)} vs DCA $${fmt(a.btc_dca_value)}</span><span>in: $${fmt(a.contributed)}</span></div>`;
+    };
+    html+=`<div class="exposure-card">
+      <div class="stat-label">Benchmark · deposit-matched BTC DCA</div>
+      ${acct('BAILLY','#f97316',bm.bailly)}
+      ${acct('EFE','#a855f7',bm.efe)}
+      <div class="exp-row dim" style="margin-top:6px;font-size:10px"><span>${bm.note||''}</span></div>
+    </div>`;
+  }
+  el.innerHTML=html;
+  el.style.display=html?'':'none';
 }
 
 function renderCompare(){
